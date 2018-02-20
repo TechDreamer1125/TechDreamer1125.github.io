@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>MySQL 5.6使用SSL连接</title>
+  <meta name="description" content="  与5.7使用 mysql_ssl_rsa_setup 自动生成秘匙不同，5.6需要通过openssl命令来生成秘匙创建一个certs文件用于放秘匙我放在了datadir目录下mkdir certs &amp;&amp; cd certs首先生成所需keyCA「主要命令」  openssl genrsa 204...">
+  <meta name="author" content="leopardpan">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="MySQL 5.6使用SSL连接">
+  <meta name="twitter:description" content="  与5.7使用 mysql_ssl_rsa_setup 自动生成秘匙不同，5.6需要通过openssl命令来生成秘匙创建一个certs文件用于放秘匙我放在了datadir目录下mkdir certs &amp;&amp; cd certs首先生成所需keyCA「主要命令」  openssl genrsa 204...">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="MySQL 5.6使用SSL连接">
+  <meta property="og:description" content="  与5.7使用 mysql_ssl_rsa_setup 自动生成秘匙不同，5.6需要通过openssl命令来生成秘匙创建一个certs文件用于放秘匙我放在了datadir目录下mkdir certs &amp;&amp; cd certs首先生成所需keyCA「主要命令」  openssl genrsa 204...">
+  
+  <link rel="icon" type="image/png" href="/images/favicon.png" />
+  <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="canonical" href="http://localhost:4000/2017/02/MySQL5.6-SSl/">
+  <link rel="alternate" type="application/rss+xml" title="月牙旁，你轻颦浅笑" href="http://localhost:4000/feed.xml">
+  
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+
+<!-- 站点统计 -->
+  <script 
+  async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+  </script>  
+
+<!-- 百度统计 -->
+  
+
+<!-- google 统计 -->
+  
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-9005224472374751",
+    enable_page_level_ads: true
+  });
+</script>
+
+</head>
+
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">        
+      <div class="nav_container">
+         <nav class="nav-menu-item" style = "float:right">
+            <i class="nav-menu-item">
+              <a href="/#blog" title="" class="blog-button">  博客主页
+              </a>
+            </i>
+            
+                <i class="nav-menu-item">
+
+                  <a href="/archive" title="archive" class="btn-mobile-menu__icon">
+                      所有文章
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+
+                  <a href="/tags" title="tags" class="btn-mobile-menu__icon">
+                      标签
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+
+                  <a href="/about" title="about" class="btn-mobile-menu__icon">
+                      关于我
+                  </a>
+                </i>
+            
+          </nav>
+      </div>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+        <!-- 头像效果-start -->
+        <div class="ih-item circle effect right_to_left">
+            <a href="/#blog" title="前往 月牙旁，你轻颦浅笑 的主页" class="blog-button">
+                <div class="img"><img src="/images/avatar.jpg" alt="img"></div>
+                <div class="info">
+                    <div class="info-back">
+                        <h2> 
+                            
+                                TechDreamer
+                            
+                        </h2>
+                        <p>
+                           
+                                果粉
+                            
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <!-- 头像效果-end -->
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for 月牙旁，你轻颦浅笑" class="blog-button">月牙旁，你轻颦浅笑</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">向往的生活也许只是一种波普</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">O ever youthful, O ever weeping.</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        
+        
+
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">博客主页</a></li>
+                
+                  <li class="navigation__item"><a href="/archive" title="archive">所有文章</a></li>
+                
+                  <li class="navigation__item"><a href="/tags" title="tags">标签</a></li>
+                
+                  <li class="navigation__item"><a href="/about" title="about">关于我</a></li>
+                
+              </ul>
+            </nav>
+          </div>          
+        </div>
+
+
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="panel-cover--overlay cover-clear"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+	<header class="post-header">
+	<h1 class="post-title">MySQL 5.6使用SSL连接</h1>
+	<div class="post-meta">
+		<img src="/images/calendar.png" width="20px"/> 
+		<time datetime="2017-02-28 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2017-02-28</time>
+		&#8226; <span class="post-list__meta--tags-right">MySQL</span>
+		<!-- <span id="busuanzi_container_page_pv"> | 阅读：<span id="busuanzi_value_page_pv"></span>次</span> -->
+	</p>
+	</div>
+	</header>
+
+	<section class="post">
+	<blockquote>
+  <p>与5.7使用 <code class="highlighter-rouge">mysql_ssl_rsa_setup</code> 自动生成秘匙不同，5.6需要通过openssl命令来生成秘匙</p>
+</blockquote>
+
+<h2 id="创建一个certs文件用于放秘匙">创建一个certs文件用于放秘匙</h2>
+
+<p>我放在了<code class="highlighter-rouge">datadir</code>目录下
+<code class="highlighter-rouge">mkdir certs &amp;&amp; cd certs</code></p>
+
+<h2 id="首先生成所需key">首先生成所需key</h2>
+<h3 id="ca">CA</h3>
+<p>「主要命令」</p>
+
+<ul>
+  <li><code class="highlighter-rouge">openssl genrsa 2048 &gt; ca-key.pem</code></li>
+  <li><code class="highlighter-rouge">openssl req -new -x509 -nodes -days 3600 -key ca-key.pem -out ca.pem</code></li>
+</ul>
+
+<blockquote>
+  <p>小提示：CA的Country Name要与server/client的Country Name不同，否则 Verify这步会出现错误，出现类似 <code class="highlighter-rouge">error 18 at 0 depth lookup:self signed certificate </code>的错误</p>
+</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[root@121.199.38.85 certs]# openssl genrsa 2048 &gt; ca-key.pem
+Generating RSA private key, 2048 bit long modulus
+......................................................+++
+........+++
+e is 65537 (0x10001)
+
+[root@121.199.38.85 certs]# openssl req -new -x509 -nodes -days 3600 -key ca-key.pem -out ca.pem
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [XX]:CH
+State or Province Name (full name) []:beijing
+Locality Name (eg, city) [Default City]:beijing
+Organization Name (eg, company) [Default Company Ltd]:WDT
+Organizational Unit Name (eg, section) []:wdt
+Common Name (eg, your name or your server's hostname) []:fxr
+Email Address []:test
+
+[root@121.199.38.85 certs]# ll
+total 8
+-rw-r--r-- 1 root root 1675 Feb 27 10:40 ca-key.pem
+-rw-r--r-- 1 root root 1342 Feb 27 10:45 ca.pem
+</code></pre>
+</div>
+
+<h3 id="server">server</h3>
+<p>「主要命令」</p>
+
+<ul>
+  <li><code class="highlighter-rouge">openssl req -newkey rsa:2048 -days 3600 -nodes -keyout server-key.pem -out server-req.pem</code></li>
+  <li><code class="highlighter-rouge">openssl rsa -in server-key.pem -out server-key.pem</code></li>
+  <li><code class="highlighter-rouge">openssl x509 -req -in server-req.pem -days 3600 -CA ca.pem -CAkey ca-key.pem -set_serial 01 -out server-cert.pem</code></li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[root@121.199.38.85 certs]# openssl req -newkey rsa:2048 -days 3600 -nodes -keyout server-key.pem -out server-req.pem
+# 创建成功后目录下变成4个文件
+[root@121.199.38.85 certs]# ll
+total 16
+-rw-r--r-- 1 root root 1675 Feb 27 10:40 ca-key.pem
+-rw-r--r-- 1 root root 1342 Feb 27 10:45 ca.pem
+-rw-r--r-- 1 root root 1704 Feb 27 10:49 server-key.pem
+-rw-r--r-- 1 root root 1050 Feb 27 10:49 server-req.pem
+
+[root@121.199.38.85 certs]# openssl rsa -in server-key.pem -out server-key.pem
+[root@121.199.38.85 certs]# openssl x509 -req -in server-req.pem -days 3600 -CA ca.pem -CAkey ca-key.pem -set_serial 01 -out server-cert.pem
+# 这是会提示验证成功，目录下多了一个 `server-cert.pem` 文件
+</code></pre>
+</div>
+
+<h3 id="client">Client</h3>
+
+<p>「主要命令」</p>
+
+<ul>
+  <li><code class="highlighter-rouge">openssl req -newkey rsa:2048 -days 3600 -nodes -keyout client-key.pem -out client-req.pem</code></li>
+  <li><code class="highlighter-rouge">openssl rsa -in client-key.pem -out client-key.pem</code></li>
+  <li><code class="highlighter-rouge">openssl x509 -req -in client-req.pem -days 3600 -CA ca.pem -CAkey ca-key.pem -set_serial 01 -out client-cert.pem</code></li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[root@121.199.38.85 certs]# openssl req -newkey rsa:2048 -days 3600 -nodes -keyout client-key.pem -out client-req.pem
+#成功后多出`client-key.pem` 和 `client-req.pem` 两个文件
+
+[root@121.199.38.85 certs]# openssl rsa -in client-key.pem -out client-key.pem
+[root@121.199.38.85 certs]# openssl x509 -req -in client-req.pem -days 3600 -CA ca.pem -CAkey ca-key.pem -set_serial 01 -out client-cert.pem
+
+# 成功后多出`client-cert.pem` 一个文件
+</code></pre>
+</div>
+<h3 id="verify">Verify</h3>
+
+<p>「主要命令」</p>
+
+<ul>
+  <li><code class="highlighter-rouge">openssl verify -CAfile ca.pem server-cert.pem client-cert.pem</code></li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[root@121.199.38.85 certs]# openssl verify -CAfile ca.pem server-cert.pem client-cert.pem
+
+`server-cert.pem` 和 `client-cert.pem` 提示Ok
+</code></pre>
+</div>
+<h4 id="配置mycnf文件">配置my.cnf文件</h4>
+
+<blockquote>
+  <p>xxx 请改成该文件的全路径</p>
+</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[mysqld]
+ssl-ca=xxx/ca.pem
+ssl-cert=xxx/server-cert.pem
+ssl-key=xxx/server-key.pem
+
+[client]
+ssl-ca=xxx/ca.pem
+ssl-cert=xxx/client-cert.pem
+ssl-key=xxx/client-key.pem
+</code></pre>
+</div>
+<p>然后创建一个用户，并设置其使用SSL连接</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>mysql&gt; CREATE USER 'ssluser'@'%' identified by '123';
+mysql&gt; GRANT USAGE ON *.* TO 'ssluser'@'%' identified by '123' require ssl;
+mysql&gt; FLUSH PRIVILEGES;
+</code></pre>
+</div>
+
+<p>重启下mysql服务，然后通过以下命令连接</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[root@121.199.38.85 certs]# mysql -ussluser -p --ssl-ca=/data/mysql/data/certs/ca.pem --ssl-cert=/data/mysql/data/certs/client-cert.pem --ssl-key=/data/mysql/data/certs/client-key.pem
+</code></pre>
+</div>
+
+<p>进入mysql后输入 <code class="highlighter-rouge">SHOW STATUS LIKE 'Ssl_cipher';</code></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>+---------------+--------------------+
+| Variable_name | Value              |
++---------------+--------------------+
+| Ssl_cipher    | DHE-RSA-AES256-SHA |
++---------------+--------------------+
+</code></pre>
+</div>
+
+<blockquote>
+  <p>中途因为 –ssl-ca后面的路径输入错误，导致 <code class="highlighter-rouge">SSL connection error: SSL_CTX_set_default_verify_paths failed</code> 的错误</p>
+</blockquote>
+
+<hr />
+
+<p>「参考文档」</p>
+<blockquote>
+  <p><a href="https://dev.mysql.com/doc/refman/5.6/en/creating-ssl-files-using-openssl.html#creating-ssl-files-using-openssl-unix-command-line">Creating SSL Certificates and Keys Using openssl</a><br />
+<a href="https://dev.mysql.com/doc/refman/5.6/en/using-secure-connections.html">Configuring MySQL to Use Encrypted Connections</a></p>
+</blockquote>
+
+
+
+	</section>
+</article>
+
+<section>
+
+            <div class="content-play">
+              <!-- <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang" title="打赏，支持一下">打赏一个呗</a></p> -->
+              <div class="hide_box-play"></div>
+              <div class="shang_box-play">
+                <a class="shang_close-play" href="javascript:void(0)" onclick="dashangToggle()" title="关闭"><img src="/images/payimg/close.jpg" alt="取消" /></a>
+                <div class="shang_tit-play">
+                  <p>感谢您的支持，我会继续努力的!</p>
+                </div>
+                <div class="shang_payimg">
+                    <img src="/images/payimg/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+                </div>
+              <div class="shang_payimg">    
+                    <img src="/images/payimg/weipayimg.jpg" alt="扫码支持" title="扫一扫" />
+                </div>
+                <div class="pay_explain">扫码打赏，你说多少就多少</div>
+                <div class="shang_payselect">
+                  <div class="pay_item checked" data-id="alipay">
+                    <span class="pay_logo"><img src="/images/payimg/alipay.jpg" alt="支付宝" /></span>
+                  </div>
+                  <div class="pay_item" data-id="weipay">
+                    <span class="pay_logo"><img src="/images/payimg/wechat.jpg" alt="微信" /></span>
+                  </div>
+                </div>
+                <div class="shang_info-play">
+                  <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+                </div>
+              </div>
+            </div>
+            <script type="text/javascript">
+            function dashangToggle(){
+              $(".hide_box-play").fadeToggle();
+              $(".shang_box-play").fadeToggle();
+            }
+            </script>
+
+            <div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';"></div>
+
+            <style type="text/css">
+              .content-play{width:80%;margin-top: 20px;margin-bottom: 10px;height:40px;}
+              .hide_box-play{z-index:999;filter:alpha(opacity=50);background:#666;opacity: 0.5;-moz-opacity: 0.5;left:0;top:0;height:99%;width:100%;position:fixed;display:none;}
+              .shang_box-play{width:540px;height:540px;padding:10px;background-color:#fff;border-radius:10px;position:fixed;z-index:1000;left:50%;top:50%;margin-left:-280px;margin-top:-280px;border:1px dotted #dedede;display:none;}
+              .shang_box-play img{border:none;border-width:0;}
+              .dashang{display:block;width:100px;margin:5px auto;height:25px;line-height:25px;padding:10px;background-color:#E74851;color:#fff;text-align:center;text-decoration:none;border-radius:10px;font-weight:bold;font-size:16px;transition: all 0.3s;}
+              .dashang:hover{opacity:0.8;padding:15px;font-size:18px;}
+              .shang_close-play{float:right;display:inline-block;
+                margin-right: 10px;margin-top: 20px;
+              }
+              .shang_logo{display:block;text-align:center;margin:20px auto;}
+              .shang_tit-play{width: 100%;height: 75px;text-align: center;line-height: 66px;color: #a3a3a3;font-size: 16px;background: url('/images/payimg/cy-reward-title-bg.jpg');font-family: 'Microsoft YaHei';margin-top: 7px;margin-right:2px;}
+              .shang_tit-play p{color:#a3a3a3;text-align:center;font-size:16px;}
+              .shang_payimg{width:140px;padding:10px;padding-left: 80px; /*border:6px solid #EA5F00;**/margin:0 auto;border-radius:3px;height:140px;display:inline-block;}
+              .shang_payimg img{display:inline-block;margin-right:10px;float:left;text-align:center;width:140px;height:140px; }
+              .pay_explain{text-align:center;margin:10px auto;font-size:12px;color:#545454;}
+              .shang_payselect{text-align:center;margin:0 auto;margin-top:40px;cursor:pointer;height:60px;width:500px;margin-left:110px;}
+              .shang_payselect .pay_item{display:inline-block;margin-right:140px;float:left;}
+              .shang_info-play{clear:both;}
+              .shang_info-play p,.shang_info-play a{color:#C3C3C3;text-align:center;font-size:12px;text-decoration:none;line-height:2em;}
+            </style>
+
+       <ul class="pager">
+        
+        
+        <li class="next">
+            <a href="/2017/03/i-never-believe/" data-toggle="tooltip" data-placement="top" title="我从不曾相信">下一篇：  <span>我从不曾相信</span>
+            </a>
+        </li>
+        
+    </ul>
+</section>
+
+<section class="post-comments">
+
+  
+
+</section>
+
+
+            <section class="footer">
+	<footer>
+		<div class = "footer_div">	
+		<nav class="cover-navigation navigation--social">
+			<ul class="navigation">
+
+			
+
+			
+			
+			
+
+			
+
+			<!-- RSS
+			<li class="navigation__item_social">
+			<a href="/feed.xml" rel="author" title="RSS" target="_blank">
+				<i class='social fa fa-rss fa-2x'></i>
+				<span class="label">RSS</span>
+			</a>
+			</li> -->
+
+			
+
+			</ul>
+		</nav>
+
+		</div>
+
+		<div class = "footer_div">
+			<p class="copyright text-muted">
+			Copyright &copy; 月牙旁，你轻颦浅笑 2018 Theme by <a href="http://baixin.io/">leopardpan</a> |
+			<!-- <iframe
+				style="margin-left: 2px; margin-bottom:-5px;"
+				frameborder="0" scrolling="0" width="91px" height="20px"
+				src="https://ghbtns.com/github-btn.html?user=leopardpan&repo=leopardpan.github.io&type=star&count=true" >
+			</iframe>
+			</p> -->
+			<!-- <div align="right"> -->
+				<!-- <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css"> -->
+
+			<!-- 访问统计 -->
+			<!-- <span id="busuanzi_container_site_pv">
+			本站总访问量
+			<span id="busuanzi_value_site_pv"></span>次
+			</span> -->
+
+		</div>
+		<div>
+	</footer>
+</section>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+
+<script type="text/javascript" src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+  </body>
+
+</html>

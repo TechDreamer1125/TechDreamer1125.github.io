@@ -1,0 +1,150 @@
+---
+layout: post
+title: MySQL 5.6使用SSL连接
+date: 2017-02-28
+tag: MySQL
+---
+
+> 与5.7使用 `mysql_ssl_rsa_setup` 自动生成秘匙不同，5.6需要通过openssl命令来生成秘匙
+
+##  创建一个certs文件用于放秘匙
+
+我放在了`datadir`目录下
+`mkdir certs && cd certs`
+
+##  首先生成所需key
+### CA
+「主要命令」
+
+- `openssl genrsa 2048 > ca-key.pem`
+- `openssl req -new -x509 -nodes -days 3600 -key ca-key.pem -out ca.pem`
+
+> 小提示：CA的Country Name要与server/client的Country Name不同，否则 Verify这步会出现错误，出现类似 `error 18 at 0 depth lookup:self signed certificate `的错误
+
+```
+[root@121.199.38.85 certs]# openssl genrsa 2048 > ca-key.pem
+Generating RSA private key, 2048 bit long modulus
+......................................................+++
+........+++
+e is 65537 (0x10001)
+
+[root@121.199.38.85 certs]# openssl req -new -x509 -nodes -days 3600 -key ca-key.pem -out ca.pem
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [XX]:CH
+State or Province Name (full name) []:beijing
+Locality Name (eg, city) [Default City]:beijing
+Organization Name (eg, company) [Default Company Ltd]:WDT
+Organizational Unit Name (eg, section) []:wdt
+Common Name (eg, your name or your server's hostname) []:fxr
+Email Address []:test
+
+[root@121.199.38.85 certs]# ll
+total 8
+-rw-r--r-- 1 root root 1675 Feb 27 10:40 ca-key.pem
+-rw-r--r-- 1 root root 1342 Feb 27 10:45 ca.pem
+```
+
+### server
+「主要命令」
+
+- `openssl req -newkey rsa:2048 -days 3600 -nodes -keyout server-key.pem -out server-req.pem`
+- `openssl rsa -in server-key.pem -out server-key.pem`
+- `openssl x509 -req -in server-req.pem -days 3600 -CA ca.pem -CAkey ca-key.pem -set_serial 01 -out server-cert.pem`
+
+```
+[root@121.199.38.85 certs]# openssl req -newkey rsa:2048 -days 3600 -nodes -keyout server-key.pem -out server-req.pem
+# 创建成功后目录下变成4个文件
+[root@121.199.38.85 certs]# ll
+total 16
+-rw-r--r-- 1 root root 1675 Feb 27 10:40 ca-key.pem
+-rw-r--r-- 1 root root 1342 Feb 27 10:45 ca.pem
+-rw-r--r-- 1 root root 1704 Feb 27 10:49 server-key.pem
+-rw-r--r-- 1 root root 1050 Feb 27 10:49 server-req.pem
+
+[root@121.199.38.85 certs]# openssl rsa -in server-key.pem -out server-key.pem
+[root@121.199.38.85 certs]# openssl x509 -req -in server-req.pem -days 3600 -CA ca.pem -CAkey ca-key.pem -set_serial 01 -out server-cert.pem
+# 这是会提示验证成功，目录下多了一个 `server-cert.pem` 文件
+```
+
+### Client
+
+「主要命令」
+
+- `openssl req -newkey rsa:2048 -days 3600 -nodes -keyout client-key.pem -out client-req.pem` 
+- `openssl rsa -in client-key.pem -out client-key.pem`
+- `openssl x509 -req -in client-req.pem -days 3600 -CA ca.pem -CAkey ca-key.pem -set_serial 01 -out client-cert.pem`
+
+```
+[root@121.199.38.85 certs]# openssl req -newkey rsa:2048 -days 3600 -nodes -keyout client-key.pem -out client-req.pem
+#成功后多出`client-key.pem` 和 `client-req.pem` 两个文件
+
+[root@121.199.38.85 certs]# openssl rsa -in client-key.pem -out client-key.pem
+[root@121.199.38.85 certs]# openssl x509 -req -in client-req.pem -days 3600 -CA ca.pem -CAkey ca-key.pem -set_serial 01 -out client-cert.pem
+
+# 成功后多出`client-cert.pem` 一个文件
+```
+### Verify
+
+「主要命令」
+
+- `openssl verify -CAfile ca.pem server-cert.pem client-cert.pem`
+
+```
+[root@121.199.38.85 certs]# openssl verify -CAfile ca.pem server-cert.pem client-cert.pem
+
+`server-cert.pem` 和 `client-cert.pem` 提示Ok
+```
+#### 配置my.cnf文件
+
+> xxx 请改成该文件的全路径
+
+```
+[mysqld]
+ssl-ca=xxx/ca.pem
+ssl-cert=xxx/server-cert.pem
+ssl-key=xxx/server-key.pem
+
+[client]
+ssl-ca=xxx/ca.pem
+ssl-cert=xxx/client-cert.pem
+ssl-key=xxx/client-key.pem
+```
+然后创建一个用户，并设置其使用SSL连接
+
+```
+mysql> CREATE USER 'ssluser'@'%' identified by '123';
+mysql> GRANT USAGE ON *.* TO 'ssluser'@'%' identified by '123' require ssl;
+mysql> FLUSH PRIVILEGES;
+```
+
+重启下mysql服务，然后通过以下命令连接
+
+```
+[root@121.199.38.85 certs]# mysql -ussluser -p --ssl-ca=/data/mysql/data/certs/ca.pem --ssl-cert=/data/mysql/data/certs/client-cert.pem --ssl-key=/data/mysql/data/certs/client-key.pem
+```
+
+进入mysql后输入 `SHOW STATUS LIKE 'Ssl_cipher';`
+
+```
++---------------+--------------------+
+| Variable_name | Value              |
++---------------+--------------------+
+| Ssl_cipher    | DHE-RSA-AES256-SHA |
++---------------+--------------------+
+```
+
+> 中途因为 --ssl-ca后面的路径输入错误，导致 `SSL connection error: SSL_CTX_set_default_verify_paths failed` 的错误
+
+--- 
+
+「参考文档」 
+> [Creating SSL Certificates and Keys Using openssl](https://dev.mysql.com/doc/refman/5.6/en/creating-ssl-files-using-openssl.html#creating-ssl-files-using-openssl-unix-command-line)<br/>
+> [Configuring MySQL to Use Encrypted Connections](https://dev.mysql.com/doc/refman/5.6/en/using-secure-connections.html)
+
+

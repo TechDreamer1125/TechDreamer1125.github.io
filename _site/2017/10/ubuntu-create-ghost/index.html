@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>Ubuntu 上构建 Ghost 环境</title>
+  <meta name="description" content="  Ghost是基于Node.js的博客系统，所以首先需要安装Node环境。">
+  <meta name="author" content="leopardpan">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Ubuntu 上构建 Ghost 环境">
+  <meta name="twitter:description" content="  Ghost是基于Node.js的博客系统，所以首先需要安装Node环境。">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Ubuntu 上构建 Ghost 环境">
+  <meta property="og:description" content="  Ghost是基于Node.js的博客系统，所以首先需要安装Node环境。">
+  
+  <link rel="icon" type="image/png" href="/images/favicon.png" />
+  <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="canonical" href="http://localhost:4000/2017/10/ubuntu-create-ghost/">
+  <link rel="alternate" type="application/rss+xml" title="月牙旁，你轻颦浅笑" href="http://localhost:4000/feed.xml">
+  
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+
+<!-- 站点统计 -->
+  <script 
+  async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+  </script>  
+
+<!-- 百度统计 -->
+  
+
+<!-- google 统计 -->
+  
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-9005224472374751",
+    enable_page_level_ads: true
+  });
+</script>
+
+</head>
+
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">        
+      <div class="nav_container">
+         <nav class="nav-menu-item" style = "float:right">
+            <i class="nav-menu-item">
+              <a href="/#blog" title="" class="blog-button">  博客主页
+              </a>
+            </i>
+            
+                <i class="nav-menu-item">
+
+                  <a href="/archive" title="archive" class="btn-mobile-menu__icon">
+                      所有文章
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+
+                  <a href="/tags" title="tags" class="btn-mobile-menu__icon">
+                      标签
+                  </a>
+                </i>
+            
+                <i class="nav-menu-item">
+
+                  <a href="/about" title="about" class="btn-mobile-menu__icon">
+                      关于我
+                  </a>
+                </i>
+            
+          </nav>
+      </div>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+        <!-- 头像效果-start -->
+        <div class="ih-item circle effect right_to_left">
+            <a href="/#blog" title="前往 月牙旁，你轻颦浅笑 的主页" class="blog-button">
+                <div class="img"><img src="/images/avatar.jpg" alt="img"></div>
+                <div class="info">
+                    <div class="info-back">
+                        <h2> 
+                            
+                                TechDreamer
+                            
+                        </h2>
+                        <p>
+                           
+                                果粉
+                            
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <!-- 头像效果-end -->
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for 月牙旁，你轻颦浅笑" class="blog-button">月牙旁，你轻颦浅笑</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">向往的生活也许只是一种波普</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">O ever youthful, O ever weeping.</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        
+        
+
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">博客主页</a></li>
+                
+                  <li class="navigation__item"><a href="/archive" title="archive">所有文章</a></li>
+                
+                  <li class="navigation__item"><a href="/tags" title="tags">标签</a></li>
+                
+                  <li class="navigation__item"><a href="/about" title="about">关于我</a></li>
+                
+              </ul>
+            </nav>
+          </div>          
+        </div>
+
+
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="panel-cover--overlay cover-clear"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+	<header class="post-header">
+	<h1 class="post-title">Ubuntu 上构建 Ghost 环境</h1>
+	<div class="post-meta">
+		<img src="/images/calendar.png" width="20px"/> 
+		<time datetime="2017-10-30 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2017-10-30</time>
+		&#8226; <span class="post-list__meta--tags-right">Linux</span>
+		<!-- <span id="busuanzi_container_page_pv"> | 阅读：<span id="busuanzi_value_page_pv"></span>次</span> -->
+	</p>
+	</div>
+	</header>
+
+	<section class="post">
+	<blockquote>
+  <p>Ghost是基于Node.js的博客系统，所以首先需要安装Node环境。</p>
+</blockquote>
+
+<h3 id="1-安装node">1 安装node</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo apt-get install -y python-software-properties python g++ make  
+sudo add-apt-repository ppa:chris-lea/node.js  
+sudo apt-get install nodejs
+</code></pre>
+</div>
+
+<blockquote>
+  <p>删除node用apt-get remove nodejs 即可</p>
+</blockquote>
+
+<p>检查是否安装成功：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>node -v
+v4.2.6
+npm -v
+3.5.2
+</code></pre>
+</div>
+<p>两个命令都显示出版本号即为安装成功。</p>
+
+<h3 id="2-安装nginx">2 安装Nginx</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo apt-get install nginx 
+</code></pre>
+</div>
+
+<p>接下来需要配置Nginx，首先进入/etc/nginx目录，删除/etc/nginx/sites-enabled目录下的默认配置</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>cd /etc/nginx/
+sudo rm sites-enabled/default
+</code></pre>
+</div>
+
+<p>然后在/etc/nginx/sites-available/目录下创建ghost文件夹</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo touch /etc/nginx/sites-available/ghost
+sudo vim /etc/nginx/sites-available/ghost
+</code></pre>
+</div>
+
+<p>将下面的配置粘贴</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>server {
+    listen 80;
+    server_name 你的域名;
+    location / {
+        proxy_set_header   X-Real-IP $remote_addr;
+        client_max_body_size 50m;
+        proxy_set_header   Host      $http_host;
+        proxy_pass         http://127.0.0.1:2368;
+    }
+}
+</code></pre>
+</div>
+
+<p>创建一个软连接</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo ln -s /etc/nginx/sites-available/ghost /etc/nginx/sites-enabled/ghost
+</code></pre>
+</div>
+
+<p>然后重启Nginx</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo service nginx restart
+</code></pre>
+</div>
+
+<p>为了安全起见，创建一个用户，获取唯一访问/var/www/ghost的特权</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo adduser --shell /bin/bash --gecos 'Ghost application' ghost
+sudo chown -R ghost:ghost /var/www/ghost/
+</code></pre>
+</div>
+
+<p>现在使用ghost用户</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>su - ghost
+</code></pre>
+</div>
+
+<h3 id="3-安装ghost">3 安装Ghost</h3>
+<p>创建一个文件夹放Ghost</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo mkdir -p /var/www
+cd /var/www
+sudo wget https://ghost.org/zip/ghost-latest.zip
+sudo unzip -d /var/www/ghost ghost-latest.zip
+sudo npm install
+</code></pre>
+</div>
+<p>如果不能解压，是因为没有解压工具，安装解压工具即可：</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo apt-get install unzip
+</code></pre>
+</div>
+
+<p>修改配置文件</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>cd ghost
+sudo cp config.example.js config.js  
+sudo vim config.js 
+</code></pre>
+</div>
+
+<p>如果提示vim不存在，则安装vim，或者直接用vi</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>apt-get install vim
+</code></pre>
+</div>
+
+<p>将下面的东西添加到配置文件,只需配置production和server即可。</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>
+config = {
+    // ### Production
+    // When running Ghost in the wild, use the production environment
+    // Configure your URL and mail settings here
+    production: {
+        url: 'http://my-ghost-blog.com',
+###将url改成想关联的域名，注意带上http
+        mail: {
+            // Your mail settings
+        },
+        database: {
+            client: 'sqlite3',
+            connection: {
+                filename: path.join(__dirname, '/content/data/ghost.db')
+            },
+            debug: false
+        },
+
+        server: {
+            // Host to be passed to node's `net.Server#listen()`
+            host: '127.0.0.1',
+###将‘127.0.0.1’改为‘0.0.0.0’
+###此处改为0.0.0.0是为了跟域名绑定的时候做准备
+            // Port to be passed to node's `net.Server#listen()`, for iisnode s$
+            port: '2368'
+        }
+    },
+</code></pre>
+</div>
+
+<p>在Ghost目录（/var/www/ghost）安装Ghost以来的npm包</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo npm install --production
+</code></pre>
+</div>
+<p>如果内存是512M，安装时可能出现内存不足安装不成功的现象，通过Liunx上增加swap空间的方式来解决这个问题。安装完成后目录下就会出现node_modules文件夹</p>
+
+<h3 id="31-启动ghost">3.1 启动Ghost</h3>
+<p>首先重启Nginx</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo service nginx restart
+</code></pre>
+</div>
+
+<p>然后开启Ghost</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>cd /var/www/ghost
+npm start --production
+</code></pre>
+</div>
+
+<p>接下来我们需要让ghost一直运行，首先安装forever</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo npm install -g forever
+</code></pre>
+</div>
+
+<p>然后执行</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>NODE_ENV=production forever start index.js
+</code></pre>
+</div>
+
+<p>检查是否正常挂载</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>forever list
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>data:        uid  command         script   forever pid   id logfile                 uptime
+data:    [0] gBb2 /usr/bin/nodejs index.js 21343   21373    /root/.forever/gBb2.log 0:0:0:3.620
+</code></pre>
+</div>
+
+<p>这个则表示正常挂载，结束命令为</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>forever index.js
+</code></pre>
+</div>
+
+
+
+	</section>
+</article>
+
+<section>
+
+            <div class="content-play">
+              <!-- <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang" title="打赏，支持一下">打赏一个呗</a></p> -->
+              <div class="hide_box-play"></div>
+              <div class="shang_box-play">
+                <a class="shang_close-play" href="javascript:void(0)" onclick="dashangToggle()" title="关闭"><img src="/images/payimg/close.jpg" alt="取消" /></a>
+                <div class="shang_tit-play">
+                  <p>感谢您的支持，我会继续努力的!</p>
+                </div>
+                <div class="shang_payimg">
+                    <img src="/images/payimg/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+                </div>
+              <div class="shang_payimg">    
+                    <img src="/images/payimg/weipayimg.jpg" alt="扫码支持" title="扫一扫" />
+                </div>
+                <div class="pay_explain">扫码打赏，你说多少就多少</div>
+                <div class="shang_payselect">
+                  <div class="pay_item checked" data-id="alipay">
+                    <span class="pay_logo"><img src="/images/payimg/alipay.jpg" alt="支付宝" /></span>
+                  </div>
+                  <div class="pay_item" data-id="weipay">
+                    <span class="pay_logo"><img src="/images/payimg/wechat.jpg" alt="微信" /></span>
+                  </div>
+                </div>
+                <div class="shang_info-play">
+                  <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+                </div>
+              </div>
+            </div>
+            <script type="text/javascript">
+            function dashangToggle(){
+              $(".hide_box-play").fadeToggle();
+              $(".shang_box-play").fadeToggle();
+            }
+            </script>
+
+            <div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';"></div>
+
+            <style type="text/css">
+              .content-play{width:80%;margin-top: 20px;margin-bottom: 10px;height:40px;}
+              .hide_box-play{z-index:999;filter:alpha(opacity=50);background:#666;opacity: 0.5;-moz-opacity: 0.5;left:0;top:0;height:99%;width:100%;position:fixed;display:none;}
+              .shang_box-play{width:540px;height:540px;padding:10px;background-color:#fff;border-radius:10px;position:fixed;z-index:1000;left:50%;top:50%;margin-left:-280px;margin-top:-280px;border:1px dotted #dedede;display:none;}
+              .shang_box-play img{border:none;border-width:0;}
+              .dashang{display:block;width:100px;margin:5px auto;height:25px;line-height:25px;padding:10px;background-color:#E74851;color:#fff;text-align:center;text-decoration:none;border-radius:10px;font-weight:bold;font-size:16px;transition: all 0.3s;}
+              .dashang:hover{opacity:0.8;padding:15px;font-size:18px;}
+              .shang_close-play{float:right;display:inline-block;
+                margin-right: 10px;margin-top: 20px;
+              }
+              .shang_logo{display:block;text-align:center;margin:20px auto;}
+              .shang_tit-play{width: 100%;height: 75px;text-align: center;line-height: 66px;color: #a3a3a3;font-size: 16px;background: url('/images/payimg/cy-reward-title-bg.jpg');font-family: 'Microsoft YaHei';margin-top: 7px;margin-right:2px;}
+              .shang_tit-play p{color:#a3a3a3;text-align:center;font-size:16px;}
+              .shang_payimg{width:140px;padding:10px;padding-left: 80px; /*border:6px solid #EA5F00;**/margin:0 auto;border-radius:3px;height:140px;display:inline-block;}
+              .shang_payimg img{display:inline-block;margin-right:10px;float:left;text-align:center;width:140px;height:140px; }
+              .pay_explain{text-align:center;margin:10px auto;font-size:12px;color:#545454;}
+              .shang_payselect{text-align:center;margin:0 auto;margin-top:40px;cursor:pointer;height:60px;width:500px;margin-left:110px;}
+              .shang_payselect .pay_item{display:inline-block;margin-right:140px;float:left;}
+              .shang_info-play{clear:both;}
+              .shang_info-play p,.shang_info-play a{color:#C3C3C3;text-align:center;font-size:12px;text-decoration:none;line-height:2em;}
+            </style>
+
+       <ul class="pager">
+        
+        <li class="previous">
+            <a href="/2017/10/install-shadowsocks-on-ubuntu/" data-toggle="tooltip" data-placement="top" title="在ubuntu上安装配置 shadowsocks">上一篇：  <span>在ubuntu上安装配置 shadowsocks</span>
+            </a>
+        </li>
+        
+        
+    </ul>
+</section>
+
+<section class="post-comments">
+
+  
+
+</section>
+
+
+            <section class="footer">
+	<footer>
+		<div class = "footer_div">	
+		<nav class="cover-navigation navigation--social">
+			<ul class="navigation">
+
+			
+
+			
+			
+			
+
+			
+
+			<!-- RSS
+			<li class="navigation__item_social">
+			<a href="/feed.xml" rel="author" title="RSS" target="_blank">
+				<i class='social fa fa-rss fa-2x'></i>
+				<span class="label">RSS</span>
+			</a>
+			</li> -->
+
+			
+
+			</ul>
+		</nav>
+
+		</div>
+
+		<div class = "footer_div">
+			<p class="copyright text-muted">
+			Copyright &copy; 月牙旁，你轻颦浅笑 2018 Theme by <a href="http://baixin.io/">leopardpan</a> |
+			<!-- <iframe
+				style="margin-left: 2px; margin-bottom:-5px;"
+				frameborder="0" scrolling="0" width="91px" height="20px"
+				src="https://ghbtns.com/github-btn.html?user=leopardpan&repo=leopardpan.github.io&type=star&count=true" >
+			</iframe>
+			</p> -->
+			<!-- <div align="right"> -->
+				<!-- <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css"> -->
+
+			<!-- 访问统计 -->
+			<!-- <span id="busuanzi_container_site_pv">
+			本站总访问量
+			<span id="busuanzi_value_site_pv"></span>次
+			</span> -->
+
+		</div>
+		<div>
+	</footer>
+</section>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+
+<script type="text/javascript" src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+  </body>
+
+</html>

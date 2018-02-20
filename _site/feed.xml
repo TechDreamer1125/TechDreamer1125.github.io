@@ -1,0 +1,1002 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>月牙旁，你轻颦浅笑</title>
+    <description>O ever youthful, O ever weeping.</description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 20 Feb 2018 11:56:00 +0800</pubDate>
+    <lastBuildDate>Tue, 20 Feb 2018 11:56:00 +0800</lastBuildDate>
+    <generator>Jekyll v3.5.2</generator>
+    
+      <item>
+        <title>Ubuntu 上构建 Ghost 环境</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;Ghost是基于Node.js的博客系统，所以首先需要安装Node环境。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;1-安装node&quot;&gt;1 安装node&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install -y python-software-properties python g++ make  
+sudo add-apt-repository ppa:chris-lea/node.js  
+sudo apt-get install nodejs
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;删除node用apt-get remove nodejs 即可&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;检查是否安装成功：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;node -v
+v4.2.6
+npm -v
+3.5.2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;两个命令都显示出版本号即为安装成功。&lt;/p&gt;
+
+&lt;h3 id=&quot;2-安装nginx&quot;&gt;2 安装Nginx&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install nginx 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;接下来需要配置Nginx，首先进入/etc/nginx目录，删除/etc/nginx/sites-enabled目录下的默认配置&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd /etc/nginx/
+sudo rm sites-enabled/default
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;然后在/etc/nginx/sites-available/目录下创建ghost文件夹&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo touch /etc/nginx/sites-available/ghost
+sudo vim /etc/nginx/sites-available/ghost
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;将下面的配置粘贴&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server {
+    listen 80;
+    server_name 你的域名;
+    location / {
+        proxy_set_header   X-Real-IP $remote_addr;
+        client_max_body_size 50m;
+        proxy_set_header   Host      $http_host;
+        proxy_pass         http://127.0.0.1:2368;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;创建一个软连接&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo ln -s /etc/nginx/sites-available/ghost /etc/nginx/sites-enabled/ghost
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;然后重启Nginx&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo service nginx restart
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;为了安全起见，创建一个用户，获取唯一访问/var/www/ghost的特权&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo adduser --shell /bin/bash --gecos 'Ghost application' ghost
+sudo chown -R ghost:ghost /var/www/ghost/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;现在使用ghost用户&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;su - ghost
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;3-安装ghost&quot;&gt;3 安装Ghost&lt;/h3&gt;
+&lt;p&gt;创建一个文件夹放Ghost&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo mkdir -p /var/www
+cd /var/www
+sudo wget https://ghost.org/zip/ghost-latest.zip
+sudo unzip -d /var/www/ghost ghost-latest.zip
+sudo npm install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;如果不能解压，是因为没有解压工具，安装解压工具即可：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install unzip
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;修改配置文件&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd ghost
+sudo cp config.example.js config.js  
+sudo vim config.js 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;如果提示vim不存在，则安装vim，或者直接用vi&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt-get install vim
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;将下面的东西添加到配置文件,只需配置production和server即可。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+config = {
+    // ### Production
+    // When running Ghost in the wild, use the production environment
+    // Configure your URL and mail settings here
+    production: {
+        url: 'http://my-ghost-blog.com',
+###将url改成想关联的域名，注意带上http
+        mail: {
+            // Your mail settings
+        },
+        database: {
+            client: 'sqlite3',
+            connection: {
+                filename: path.join(__dirname, '/content/data/ghost.db')
+            },
+            debug: false
+        },
+
+        server: {
+            // Host to be passed to node's `net.Server#listen()`
+            host: '127.0.0.1',
+###将‘127.0.0.1’改为‘0.0.0.0’
+###此处改为0.0.0.0是为了跟域名绑定的时候做准备
+            // Port to be passed to node's `net.Server#listen()`, for iisnode s$
+            port: '2368'
+        }
+    },
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;在Ghost目录（/var/www/ghost）安装Ghost以来的npm包&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo npm install --production
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;如果内存是512M，安装时可能出现内存不足安装不成功的现象，通过Liunx上增加swap空间的方式来解决这个问题。安装完成后目录下就会出现node_modules文件夹&lt;/p&gt;
+
+&lt;h3 id=&quot;31-启动ghost&quot;&gt;3.1 启动Ghost&lt;/h3&gt;
+&lt;p&gt;首先重启Nginx&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo service nginx restart
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;然后开启Ghost&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd /var/www/ghost
+npm start --production
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;接下来我们需要让ghost一直运行，首先安装forever&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo npm install -g forever
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;然后执行&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;NODE_ENV=production forever start index.js
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;检查是否正常挂载&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;forever list
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;data:        uid  command         script   forever pid   id logfile                 uptime
+data:    [0] gBb2 /usr/bin/nodejs index.js 21343   21373    /root/.forever/gBb2.log 0:0:0:3.620
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这个则表示正常挂载，结束命令为&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;forever index.js
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+</description>
+        <pubDate>Mon, 30 Oct 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/10/ubuntu-create-ghost/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/10/ubuntu-create-ghost/</guid>
+        
+        <category>Linux</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>在ubuntu上安装配置 shadowsocks</title>
+        <description>&lt;h3 id=&quot;在ubuntu上安装配置-shadowsocks&quot;&gt;在ubuntu上安装配置 shadowsocks&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;首先下载 python-pip 和 shadowsocks&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt-get install python-pip
+pip install shadowsocks
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;编辑 /etc/shadowsocks.json 的配置文件&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;server&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;xxx&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;//服务器的ip地址&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;port_password&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;//设置不同的端口和密码&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;520&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;xxx&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;9184&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;xxx&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;local_address&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;127.0.0.1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;local_port&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1080&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;timeout&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;300&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;method&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;aes-256-cfb&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;fast_open&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;然后保持后台运行&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo ssserver -c /etc/shadowsocks.json -d start
+
+sudo ssserver -c /etc/shadowsocks.json -d stop
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;中途可能遇到的问题&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;保持后台运行 shaodowsocks 的命令失败，因为 shadowsocks 的版本小于2.6，2.6版本以后才有 -d 的命令&lt;/li&gt;
+  &lt;li&gt;如果运行 shadowsocks 后，访问外网还是访问不上，那么通过 &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo ssserver -c /etc/shadowsocks.json start&lt;/code&gt;（该不是后台运行，通过这种方式运行后服务器不能进行其它操作，但是可以收集到访问网站的信息），再访问外网，然后查看收集到的信息，通过错误信息再分析问题。&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Mon, 09 Oct 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/10/install-shadowsocks-on-ubuntu/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/10/install-shadowsocks-on-ubuntu/</guid>
+        
+        <category>安装教程</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>常用软件安装（均在 Ubuntu 上安装)</title>
+        <description>&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#RzAndSz&quot;&gt;rz与sz&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#crontab&quot;&gt;crontab&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#awk&quot;&gt;awk&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;rz与sz&quot;&gt;rz与sz&lt;/h3&gt;
+&lt;p&gt;&lt;a id=&quot;RzAndSz&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;rz 和 sz 是将本地的文件上传到服务器或者从服务器上下载文件到本地的命令。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;ubuntu上命令安装&quot;&gt;Ubuntu上命令安装&lt;/h4&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;下载并安装&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd /tmp
+wget http://www.ohse.de/uwe/releases/lrzsz-0.12.20.tar.gz
+tar zxvf lrzsz-0.12.20.tar.gz &amp;amp;&amp;amp; cd lrzsz-0.12.20
+./configure &amp;amp;&amp;amp; make &amp;amp;&amp;amp; make install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;软件默认安装到了 /usr/local/bin/ 路径，需要创建软连接&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd /usr/bin
+ln -s /usr/local/bin/lrz rz
+ln -s /usr/local/bin/lsz sz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;crontab&quot;&gt;crontab&lt;/h3&gt;
+&lt;p&gt;&lt;a id=&quot;crontab&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;crontab 是一个作业自动化的工具&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;下载并启用&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt-get install cron
+service cron start  // 启动 crontab 服务
+service cron status // 查看 crontab 的状态
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;awk&quot;&gt;awk&lt;/h3&gt;
+&lt;p&gt;&lt;a id=&quot;awk&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;awk 是一个强大的文本分析工具，相对于 grep 的查找，sed 的编辑，awk 在其对数据分析并生成报告时，显得尤为强大。简单来说 awk 就是把文件逐行的读入，以空格为默认分隔符将每行切片，切开的部分再进行各种分析处理。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;普通安装&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install gawk
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;源码安装&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget http://ftp.gnu.org/gnu/gawk/gawk-4.1.1.tar.xz
+tar xvf gawk-4.1.1.tar.xz
+./configure
+make
+make check  -- 可选
+sudo make install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;检查是否安装成功&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;which awk
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;如果安装成功，就会显示 awk 的安装目录&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 17 Jul 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/07/common-software-install/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/07/common-software-install/</guid>
+        
+        <category>安装教程</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>常用术语</title>
+        <description>&lt;ul&gt;
+  &lt;li&gt;PV = page view&lt;/li&gt;
+  &lt;li&gt;TPS = transactions per second&lt;/li&gt;
+  &lt;li&gt;QPS = queries per second&lt;/li&gt;
+  &lt;li&gt;RPS = requests per second&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;RDS 关系型数据库服务(Relational Database Service)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;进程&lt;code class=&quot;highlighter-rouge&quot;&gt;process&lt;/code&gt;：进程是具有一定独立功能的程序关于某个数据集合上的一次运行活动，进程是系统进行资源分配和调度的一个独立单位。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;线程&lt;code class=&quot;highlighter-rouge&quot;&gt;thread&lt;/code&gt;：线程是进程的一个实体，是CPU调度和分派的基本单位，它是比进程更小的能独立运行的基本单位。线程自己基本上不拥有系统资源，只拥有一点在运行中必不可少的资源(如程序计数器，一组寄存器和栈)，但是它可与同属一个进程的其他的线程共享进程所拥有的全部资源。一个线程可以创建和撤销另一个线程；同一个进程中的多个线程之间可以并发执行。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;微线程：又叫协程。tasklet运行在伪并发中，使用channel机制进行同步数据交换。python中的greenlet提供了微线程的操作。不同于多线程，它给我们提供了一种更加轻量的异步编程模式。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;协程&lt;code class=&quot;highlighter-rouge&quot;&gt;Coroutine&lt;/code&gt;：提供了不同于线程的另一种方式，它首先是串行化的。其次，在串行化的过程中，协程允许用户显式释放控制权，将控制权转移另一个过程。释放控制权之后，原过程的状态得以保留，直到控制权恢复的时候，可以继续执行下去。所以协程的控制权转移也称为“挂起”和“唤醒”。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;并发&lt;code class=&quot;highlighter-rouge&quot;&gt;concurrency&lt;/code&gt;：并发是指二个和多个事件在同一时间间隔内发生。并发是在逻辑层面上的同时工作。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;并行&lt;code class=&quot;highlighter-rouge&quot;&gt;parallelism&lt;/code&gt;：并行是指二个或多个事件在同一时刻发生。并行是在物理层面上的同时工作。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;同步&lt;code class=&quot;highlighter-rouge&quot;&gt;synchronous&lt;/code&gt;:在发出一个功能调用时，在没有得到结果之前，该调用就不返回。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;异步&lt;code class=&quot;highlighter-rouge&quot;&gt;asynchronous&lt;/code&gt;：异步的概念和同步相对。当一个异步过程调用发出后，调用者不能立刻得到结果。实际处理这个调用的部件在完成后，通过状态、通知和回调来通知调用者。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;阻塞：阻塞调用是指调用结果返回之前，当前线程会被挂起。函数只有在得到结果之后才会返回。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;非阻塞：非阻塞和阻塞的概念相对应，指在不能立刻得到结果之前，该函数不会阻塞当前线程，而会立刻返回。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;同步IO和异步IO的区别就在于：数据拷贝的时候进程是否阻塞。
+
+阻塞IO和非阻塞IO的区别就在于：应用程序的调用是否立即返回。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+</description>
+        <pubDate>Mon, 03 Jul 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/07/common-terms/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/07/common-terms/</guid>
+        
+        <category>基础</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>MySQL my.cnf配置</title>
+        <description>&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[mysql]
+prompt = [\\u@\\h][\\d]&amp;gt;\\_
+
+[mysqld]
+# basic settings #
+user = mysql  
+sql_mode = &quot;STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION,NO_ZERO_DATE,NO_ZERO_IN_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER&quot;  
+autocommit = 1  
+character_set_server=utf8mb4  
+# 将事务隔离级别设置为READ-COMMITTED
+transaction_isolation = READ-COMMITTED  
+# 设置处理TIMESTAMP列的方式，详见官方文档说明
+explicit_defaults_for_timestamp = 1  
+# 接受的数据包大小，有时大的插入和更新会失败，将max_allowed_packet设置适当避免该问题
+max_allowed_packet = 16777216  
+event_scheduler = 1
+
+# connection #
+# 使用MySQL客户端连接超时时间设为3分钟
+interactive_timeout = 1800  
+# 使用JDBC连接超时时间设为3分钟
+wait_timeout = 1800  
+# 锁等待时间
+lock_wait_timeout = 1800  
+# 该参数目的是不再进行反解析，可以加快数据库的反应时间
+skip_name_resolve = 1  
+# 允许的最大连接数
+max_connections = 512  
+# 允许的最大错误连接数，超过该值客户端将被屏蔽，默认为100，一般将该值设的较大避免客户端被屏蔽引发难以预料的问题
+max_connect_errors = 1000000
+
+# table cache performance settings
+table_open_cache = 4096  
+table_definition_cache = 4096  
+table_open_cache_instances = 128
+
+# session memory settings #
+# MySQL读入缓冲区大小
+read_buffer_size = 16M  
+# MySQL随机读缓冲区大小
+read_rnd_buffer_size = 32M  
+# 排序缓存大小，在排序大量数据时该值将影响order by子句的执行效率
+sort_buffer_size = 32M  
+# 临时表大小，在排序和连接较多时，适当
+tmp_table_size = 64M  
+# 连接缓存大小，在连接大表时，该值将影响连接查询的效率
+join_buffer_size = 128M  
+thread_cache_size = 64
+
+# log settings #
+log_error = error.log  
+# 开启慢查询日志
+slow_query_log = 1  
+# 慢查询日志存放位置
+slow_query_log_file = /data/mysql/slow.log  
+log_queries_not_using_indexes = 1  
+log_slow_admin_statements = 1  
+log_slow_slave_statements = 1  
+log_throttle_queries_not_using_indexes = 10  
+# 二进制日志过期时间
+expire_logs_days = 90  
+# 超过多少秒的查询，被视为慢查询
+long_query_time = 2  
+min_examined_row_limit = 100  
+binlog-rows-query-log-events = 1  
+log-bin-trust-function-creators = 1  
+expire-logs-days = 90  
+log-slave-updates = 1
+
+# innodb settings #
+innodb_page_size = 16384  
+# InnoDB缓存池大小
+innodb_buffer_pool_size = 160G  
+# InnoDB缓存池实例数
+innodb_buffer_pool_instances = 16  
+# 在启动时把热数据加载到内存
+innodb_buffer_pool_load_at_startup = 1  
+# 数据库关闭时自动dump数据
+innodb_buffer_pool_dump_at_shutdown = 1  
+innodb_lru_scan_depth = 4096  
+innodb_lock_wait_timeout = 5  
+innodb_io_capacity = 10000  
+innodb_io_capacity_max = 20000  
+innodb_flush_method = O_DIRECT  
+innodb_file_format = Barracuda  
+innodb_file_format_max = Barracuda  
+innodb_undo_logs = 128  
+innodb_undo_tablespaces = 3  
+innodb_flush_neighbors = 0  
+innodb_log_file_size = 17179869184  
+innodb_log_files_in_group = 2  
+innodb_log_buffer_size = 16777216  
+innodb_purge_threads = 4  
+innodb_large_prefix = 1  
+# 并发运行的线程数，设置为0表示不限制
+innodb_thread_concurrency = 64  
+innodb_print_all_deadlocks = 1  
+innodb_strict_mode = 1  
+innodb_sort_buffer_size = 67108864  
+innodb_write_io_threads = 16  
+innodb_read_io_threads = 16  
+innodb_file_per_table = 1  
+innodb_stats_persistent_sample_pages = 64  
+innodb_autoinc_lock_mode = 2  
+innodb_online_alter_log_max_size=1G  
+innodb_open_files=4096
+
+# replication settings #
+# master.info保存在表中
+master_info_repository = TABLE  
+# relay.info保存在表中
+relay_log_info_repository = TABLE  
+# 当每进行1次事务提交之后，MySQL将进行一次fsync磁盘同步，以此来保证无损复制
+sync_binlog = 1  
+# 启动GTID模式
+gtid_mode = on  
+# 启动GTID模式
+enforce_gtid_consistency = 1  
+# 从服务器的更新写入二进制日志,便于主从切换时，从服务器已经开启二进制日志
+log_slave_updates  
+# 以row格式记录binlog
+binlog_format = ROW  
+binlog_rows_query_log_events = 1  
+relay_log = relay.log  
+# 允许从库宕机后，重新从master上获取日志，保证relay-log的完整性
+relay_log_recovery = 1  
+slave_skip_errors = ddl_exist_errors  
+slave-rows-search-algorithms = 'INDEX_SCAN,HASH_SCAN'
+
+# semi sync replication settings #
+plugin_load = &quot;validate_password.so;rpl_semi_sync_master=semisync_master.so;rpl_semi_sync_slave=semisync_slave.so&quot;  
+rpl_semi_sync_master_enabled = 1  
+rpl_semi_sync_master_timeout = 3000  
+rpl_semi_sync_slave_enabled = 1
+
+# password plugin #
+validate_password_policy=STRONG  
+validate-password=FORCE_PLUS_PERMANENT
+
+[mysqld-5.6]
+# metalock performance settings
+metadata_locks_hash_instances=64
+
+[mysqld-5.7]
+# new innodb settings #
+loose_innodb_numa_interleave = 1  
+innodb_buffer_pool_dump_pct = 40  
+innodb_page_cleaners = 16  
+innodb_undo_log_truncate = 1  
+# 当超过这个阀值（默认是1G），会触发truncate回收（收缩）动作，truncate后空间缩小到10M
+innodb_max_undo_log_size = 2G  
+innodb_purge_rseg_truncate_frequency = 128  
+# new replication settings #
+slave-parallel-type = LOGICAL_CLOCK  
+slave-parallel-workers = 16  
+slave_preserve_commit_order = 1  
+slave_transaction_retries = 128  
+# other change settings #
+binlog_gtid_simple_recovery = 1  
+log_timestamps = system  
+show_compatibility_56 = on 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;借鉴自姜博&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</description>
+        <pubDate>Sat, 03 Jun 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/06/MySQL-my-cnf/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/06/MySQL-my-cnf/</guid>
+        
+        <category>MySQL</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Liunx上增加swap空间</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;当Linux系统的物流内存不够时，就会使用swap空间。npm安装ghost时因为服务器只有512M内存，无法安装，顾增加swap空间来解决。当系统的RAM耗尽时，swap空间可以是一个很好的安全网，可以防止系统上的内存异常。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;首先检查一下swap信息&quot;&gt;首先检查一下swap信息&lt;/h3&gt;
+&lt;p&gt;可以看出系统关于swap的配置，通过：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo swapon --show
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;如果没有任何输出，则说明当前没有swap空间。
+通过下面的命令可以看看没有使用swap空间：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ free -m
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Output
+              total        used        free      shared  buff/cache   available
+Mem:           488M         36M        104M        652K        348M        426M
+Swap:            0B          0B          0B
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;通过最后一行看出没有激活的swap空间
+在分配swap空间之前，先检查下当前磁盘的使用情况&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ df -h
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Output
+Filesystem      Size  Used Avail Use% Mounted on
+udev            238M     0  238M   0% /dev
+tmpfs            49M  624K   49M   2% /run
+/dev/vda1        20G  1.1G   18G   6% /
+tmpfs           245M     0  245M   0% /dev/shm
+tmpfs           5.0M     0  5.0M   0% /run/lock
+tmpfs           245M     0  245M   0% /sys/fs/cgroup
+tmpfs            49M     0   49M   0% /run/user/1001
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;创建swap文件&quot;&gt;创建swap文件&lt;/h3&gt;
+&lt;p&gt;swap文件是内存的两倍,创建1G的swap文件&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo fallocate -l 1G /swapfile
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;通过如下命令检查空间大小&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ ls -lh /swapfile
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ -rw-r--r-- 1 root root 1.0G Apr 25 11:14 /swapfile
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;说明我们的空间创建成功&lt;/p&gt;
+
+&lt;h3 id=&quot;让创建的swap文件保持可用状态&quot;&gt;让创建的swap文件保持可用状态&lt;/h3&gt;
+&lt;p&gt;首先让文件保持只有root权限可获取&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo chmod 600 /swapfile
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;验证权限改变&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ ls -lh /swapfile
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Output
+-rw------- 1 root root 1.0G Apr 25 11:14 /swapfile
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;将文件标记为swap空间&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo mkswap /swapfile
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Output
+Setting up swapspace version 1, size = 1024 MiB (1073737728 bytes)
+no label, UUID=6e965805-2ab9-450f-aed6-577e74089dbf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;现在使swap文件可用&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo swapon /swapfile
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;看下swap是否可用了&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo swapon --show
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Output
+NAME      TYPE  SIZE USED PRIO
+/swapfile file 1024M   0B   -1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;现在再检查下空间&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ free -h
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Output
+              total        used        free      shared  buff/cache   available
+Mem:           488M         37M         96M        652K        354M        425M
+Swap:          1.0G          0B        1.0G
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;现在保持swap文件永久可用&quot;&gt;现在保持swap文件永久可用&lt;/h3&gt;
+&lt;p&gt;现在这种状态在重启后就会消失，通过添加swap文件到&lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/fstab&lt;/code&gt;文件夹来解决&lt;/p&gt;
+
+&lt;p&gt;首先先备份&lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/fstab&lt;/code&gt;文件&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo cp /etc/fstab /etc/fstab.bak
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;添加swap的信息到&lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/fstab&lt;/code&gt;文件的尾部&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+</description>
+        <pubDate>Sat, 13 May 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/05/linux-add-swap/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/05/linux-add-swap/</guid>
+        
+        <category>Linux</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>我从不曾相信</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;高中同学写的诗&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;我从不曾相信
+天会漏
+可终于有一天
+一阵阵雨水携着闷雷
+披着闪电冲向大地
+我抬头望了望天空
+天躲在云里
+不敢看我
+
+
+我从不曾相信
+地会动
+可终于有一天
+一座座摩登扬着沙尘
+吹着土雾砸向大地
+地裹在烟里
+不敢看我
+
+
+我从不曾相信
+海会怒
+可终于有一天
+一排排巨浪卷着波涛
+吹着泡沫拍向大地
+我起身皱了皱大海
+海立在礁上
+不敢看我
+
+
+我从不曾相信
+你会走
+可那一天
+没有雨落…
+没有地颤…
+没有海啸…
+你静静地走了…
+我只想看你
+你躲在门后
+不敢看我…
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+</description>
+        <pubDate>Mon, 13 Mar 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/03/i-never-believe/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/03/i-never-believe/</guid>
+        
+        <category>诗</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>MySQL 5.6使用SSL连接</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;与5.7使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;mysql_ssl_rsa_setup&lt;/code&gt; 自动生成秘匙不同，5.6需要通过openssl命令来生成秘匙&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;创建一个certs文件用于放秘匙&quot;&gt;创建一个certs文件用于放秘匙&lt;/h2&gt;
+
+&lt;p&gt;我放在了&lt;code class=&quot;highlighter-rouge&quot;&gt;datadir&lt;/code&gt;目录下
+&lt;code class=&quot;highlighter-rouge&quot;&gt;mkdir certs &amp;amp;&amp;amp; cd certs&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;首先生成所需key&quot;&gt;首先生成所需key&lt;/h2&gt;
+&lt;h3 id=&quot;ca&quot;&gt;CA&lt;/h3&gt;
+&lt;p&gt;「主要命令」&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;openssl genrsa 2048 &amp;gt; ca-key.pem&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;openssl req -new -x509 -nodes -days 3600 -key ca-key.pem -out ca.pem&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;小提示：CA的Country Name要与server/client的Country Name不同，否则 Verify这步会出现错误，出现类似 &lt;code class=&quot;highlighter-rouge&quot;&gt;error 18 at 0 depth lookup:self signed certificate &lt;/code&gt;的错误&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[root@121.199.38.85 certs]# openssl genrsa 2048 &amp;gt; ca-key.pem
+Generating RSA private key, 2048 bit long modulus
+......................................................+++
+........+++
+e is 65537 (0x10001)
+
+[root@121.199.38.85 certs]# openssl req -new -x509 -nodes -days 3600 -key ca-key.pem -out ca.pem
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [XX]:CH
+State or Province Name (full name) []:beijing
+Locality Name (eg, city) [Default City]:beijing
+Organization Name (eg, company) [Default Company Ltd]:WDT
+Organizational Unit Name (eg, section) []:wdt
+Common Name (eg, your name or your server's hostname) []:fxr
+Email Address []:test
+
+[root@121.199.38.85 certs]# ll
+total 8
+-rw-r--r-- 1 root root 1675 Feb 27 10:40 ca-key.pem
+-rw-r--r-- 1 root root 1342 Feb 27 10:45 ca.pem
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;server&quot;&gt;server&lt;/h3&gt;
+&lt;p&gt;「主要命令」&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;openssl req -newkey rsa:2048 -days 3600 -nodes -keyout server-key.pem -out server-req.pem&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;openssl rsa -in server-key.pem -out server-key.pem&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;openssl x509 -req -in server-req.pem -days 3600 -CA ca.pem -CAkey ca-key.pem -set_serial 01 -out server-cert.pem&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[root@121.199.38.85 certs]# openssl req -newkey rsa:2048 -days 3600 -nodes -keyout server-key.pem -out server-req.pem
+# 创建成功后目录下变成4个文件
+[root@121.199.38.85 certs]# ll
+total 16
+-rw-r--r-- 1 root root 1675 Feb 27 10:40 ca-key.pem
+-rw-r--r-- 1 root root 1342 Feb 27 10:45 ca.pem
+-rw-r--r-- 1 root root 1704 Feb 27 10:49 server-key.pem
+-rw-r--r-- 1 root root 1050 Feb 27 10:49 server-req.pem
+
+[root@121.199.38.85 certs]# openssl rsa -in server-key.pem -out server-key.pem
+[root@121.199.38.85 certs]# openssl x509 -req -in server-req.pem -days 3600 -CA ca.pem -CAkey ca-key.pem -set_serial 01 -out server-cert.pem
+# 这是会提示验证成功，目录下多了一个 `server-cert.pem` 文件
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;client&quot;&gt;Client&lt;/h3&gt;
+
+&lt;p&gt;「主要命令」&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;openssl req -newkey rsa:2048 -days 3600 -nodes -keyout client-key.pem -out client-req.pem&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;openssl rsa -in client-key.pem -out client-key.pem&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;openssl x509 -req -in client-req.pem -days 3600 -CA ca.pem -CAkey ca-key.pem -set_serial 01 -out client-cert.pem&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[root@121.199.38.85 certs]# openssl req -newkey rsa:2048 -days 3600 -nodes -keyout client-key.pem -out client-req.pem
+#成功后多出`client-key.pem` 和 `client-req.pem` 两个文件
+
+[root@121.199.38.85 certs]# openssl rsa -in client-key.pem -out client-key.pem
+[root@121.199.38.85 certs]# openssl x509 -req -in client-req.pem -days 3600 -CA ca.pem -CAkey ca-key.pem -set_serial 01 -out client-cert.pem
+
+# 成功后多出`client-cert.pem` 一个文件
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;verify&quot;&gt;Verify&lt;/h3&gt;
+
+&lt;p&gt;「主要命令」&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;openssl verify -CAfile ca.pem server-cert.pem client-cert.pem&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[root@121.199.38.85 certs]# openssl verify -CAfile ca.pem server-cert.pem client-cert.pem
+
+`server-cert.pem` 和 `client-cert.pem` 提示Ok
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h4 id=&quot;配置mycnf文件&quot;&gt;配置my.cnf文件&lt;/h4&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;xxx 请改成该文件的全路径&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[mysqld]
+ssl-ca=xxx/ca.pem
+ssl-cert=xxx/server-cert.pem
+ssl-key=xxx/server-key.pem
+
+[client]
+ssl-ca=xxx/ca.pem
+ssl-cert=xxx/client-cert.pem
+ssl-key=xxx/client-key.pem
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;然后创建一个用户，并设置其使用SSL连接&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql&amp;gt; CREATE USER 'ssluser'@'%' identified by '123';
+mysql&amp;gt; GRANT USAGE ON *.* TO 'ssluser'@'%' identified by '123' require ssl;
+mysql&amp;gt; FLUSH PRIVILEGES;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;重启下mysql服务，然后通过以下命令连接&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[root@121.199.38.85 certs]# mysql -ussluser -p --ssl-ca=/data/mysql/data/certs/ca.pem --ssl-cert=/data/mysql/data/certs/client-cert.pem --ssl-key=/data/mysql/data/certs/client-key.pem
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;进入mysql后输入 &lt;code class=&quot;highlighter-rouge&quot;&gt;SHOW STATUS LIKE 'Ssl_cipher';&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;+---------------+--------------------+
+| Variable_name | Value              |
++---------------+--------------------+
+| Ssl_cipher    | DHE-RSA-AES256-SHA |
++---------------+--------------------+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;中途因为 –ssl-ca后面的路径输入错误，导致 &lt;code class=&quot;highlighter-rouge&quot;&gt;SSL connection error: SSL_CTX_set_default_verify_paths failed&lt;/code&gt; 的错误&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;「参考文档」&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;https://dev.mysql.com/doc/refman/5.6/en/creating-ssl-files-using-openssl.html#creating-ssl-files-using-openssl-unix-command-line&quot;&gt;Creating SSL Certificates and Keys Using openssl&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://dev.mysql.com/doc/refman/5.6/en/using-secure-connections.html&quot;&gt;Configuring MySQL to Use Encrypted Connections&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</description>
+        <pubDate>Tue, 28 Feb 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/02/MySQL5.6-SSl/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/02/MySQL5.6-SSl/</guid>
+        
+        <category>MySQL</category>
+        
+        
+      </item>
+    
+  </channel>
+</rss>
