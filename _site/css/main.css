@@ -714,14 +714,14 @@ img::-moz-selection {
     display: inline-block;
     margin-right: 0px;
     padding: 5px 5px 5px 5px;
-    font-size: 16px;
     text-shadow: none;
     color: #BF1827;
   }
   .navigation__item {
     display: inline-block;
     margin-left: 0px;
-    line-height: 1em; 
+    font-size: 16px;
+    line-height: 1em;
   }
 
   .navigation__item a {
@@ -1373,7 +1373,7 @@ nav a {
   padding: 0px;
   color: #999;
   font-weight: 700;
-  font-size: .8em;
+  font-size: 12px;
   text-shadow: none;
   -webkit-transition: color 0.3s;
   -moz-transition: color 0.3s;
