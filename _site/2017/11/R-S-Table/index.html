@@ -6,17 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>常用术语</title>
-  <meta name="description" content="  PV = page view  TPS = transactions per second  QPS = queries per second  RPS = requests per second      RDS 关系型数据库服务(Relational Database Service)        进程...">
+  <title>驱动表和被驱动表</title>
+  <meta name="description" content="当两表发生关联的时候就会有驱动表和被驱动表之分，驱动表也叫外表（R表），被驱动表也叫做内表（S表）。一般我们将小表当做驱动表（指定了联接条件时，满足查询条件的记录行数少的表为「驱动表」,未指定联接条件时，行数少的表为「驱动表」；MySQL 内部优化器也是这么做的）。以下有两点需要注意：">
   <meta name="author" content="leopardpan">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="常用术语">
-  <meta name="twitter:description" content="  PV = page view  TPS = transactions per second  QPS = queries per second  RPS = requests per second      RDS 关系型数据库服务(Relational Database Service)        进程...">
+  <meta name="twitter:title" content="驱动表和被驱动表">
+  <meta name="twitter:description" content="当两表发生关联的时候就会有驱动表和被驱动表之分，驱动表也叫外表（R表），被驱动表也叫做内表（S表）。一般我们将小表当做驱动表（指定了联接条件时，满足查询条件的记录行数少的表为「驱动表」,未指定联接条件时，行数少的表为「驱动表」；MySQL 内部优化器也是这么做的）。以下有两点需要注意：">
   
   <meta property="og:type" content="article">
-  <meta property="og:title" content="常用术语">
-  <meta property="og:description" content="  PV = page view  TPS = transactions per second  QPS = queries per second  RPS = requests per second      RDS 关系型数据库服务(Relational Database Service)        进程...">
+  <meta property="og:title" content="驱动表和被驱动表">
+  <meta property="og:description" content="当两表发生关联的时候就会有驱动表和被驱动表之分，驱动表也叫外表（R表），被驱动表也叫做内表（S表）。一般我们将小表当做驱动表（指定了联接条件时，满足查询条件的记录行数少的表为「驱动表」,未指定联接条件时，行数少的表为「驱动表」；MySQL 内部优化器也是这么做的）。以下有两点需要注意：">
   
   <link rel="icon" type="image/png" href="/images/favicon.png" />
   <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="/css/main.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link rel="canonical" href="http://localhost:4000/2017/07/Common-Terms/">
+  <link rel="canonical" href="http://localhost:4000/2017/11/R-S-Table/">
   <link rel="alternate" type="application/rss+xml" title="月牙旁，你轻颦浅笑" href="http://localhost:4000/feed.xml">
   
   <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
@@ -156,60 +156,34 @@
         <div class="content-wrapper__inner">
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
 	<header class="post-header">
-	<h1 class="post-title">常用术语</h1>
+	<h1 class="post-title">驱动表和被驱动表</h1>
 	<div class="post-meta">
 		<img src="/images/calendar.png" width="20px"/> 
-		<time datetime="2017-07-15 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2017-07-15</time>
-		&#8226; <span class="post-list__meta--tags-right">基础</span>
+		<time datetime="2017-11-25 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2017-11-25</time>
+		&#8226; <span class="post-list__meta--tags-right">MySQL</span>
 		<!-- <span id="busuanzi_container_page_pv"> | 阅读：<span id="busuanzi_value_page_pv"></span>次</span> -->
 	</p>
 	</div>
 	</header>
 
 	<section class="post">
-	<ul>
-  <li>PV = page view</li>
-  <li>TPS = transactions per second</li>
-  <li>QPS = queries per second</li>
-  <li>RPS = requests per second</li>
-  <li>
-    <p>RDS 关系型数据库服务(Relational Database Service)</p>
-  </li>
-  <li>
-    <p>进程<code class="highlighter-rouge">process</code>：进程是具有一定独立功能的程序关于某个数据集合上的一次运行活动，进程是系统进行资源分配和调度的一个独立单位。</p>
-  </li>
-  <li>
-    <p>线程<code class="highlighter-rouge">thread</code>：线程是进程的一个实体，是CPU调度和分派的基本单位，它是比进程更小的能独立运行的基本单位。线程自己基本上不拥有系统资源，只拥有一点在运行中必不可少的资源(如程序计数器，一组寄存器和栈)，但是它可与同属一个进程的其他的线程共享进程所拥有的全部资源。一个线程可以创建和撤销另一个线程；同一个进程中的多个线程之间可以并发执行。</p>
-  </li>
-  <li>
-    <p>微线程：又叫协程。tasklet运行在伪并发中，使用channel机制进行同步数据交换。python中的greenlet提供了微线程的操作。不同于多线程，它给我们提供了一种更加轻量的异步编程模式。</p>
-  </li>
-  <li>
-    <p>协程<code class="highlighter-rouge">Coroutine</code>：提供了不同于线程的另一种方式，它首先是串行化的。其次，在串行化的过程中，协程允许用户显式释放控制权，将控制权转移另一个过程。释放控制权之后，原过程的状态得以保留，直到控制权恢复的时候，可以继续执行下去。所以协程的控制权转移也称为“挂起”和“唤醒”。</p>
-  </li>
-  <li>
-    <p>并发<code class="highlighter-rouge">concurrency</code>：并发是指二个和多个事件在同一时间间隔内发生。并发是在逻辑层面上的同时工作。</p>
-  </li>
-  <li>
-    <p>并行<code class="highlighter-rouge">parallelism</code>：并行是指二个或多个事件在同一时刻发生。并行是在物理层面上的同时工作。</p>
-  </li>
-  <li>
-    <p>同步<code class="highlighter-rouge">synchronous</code>:在发出一个功能调用时，在没有得到结果之前，该调用就不返回。</p>
-  </li>
-  <li>
-    <p>异步<code class="highlighter-rouge">asynchronous</code>：异步的概念和同步相对。当一个异步过程调用发出后，调用者不能立刻得到结果。实际处理这个调用的部件在完成后，通过状态、通知和回调来通知调用者。</p>
-  </li>
-  <li>
-    <p>阻塞：阻塞调用是指调用结果返回之前，当前线程会被挂起。函数只有在得到结果之后才会返回。</p>
-  </li>
-  <li>非阻塞：非阻塞和阻塞的概念相对应，指在不能立刻得到结果之前，该函数不会阻塞当前线程，而会立刻返回。</li>
+	<p>当两表发生关联的时候就会有驱动表和被驱动表之分，驱动表也叫外表（R表），被驱动表也叫做内表（S表）。一般我们将小表当做驱动表（指定了联接条件时，满足查询条件的记录行数少的表为「驱动表」,未指定联接条件时，行数少的表为「驱动表」；MySQL 内部优化器也是这么做的）。以下有两点需要注意：</p>
+
+<blockquote>
+  <p>两表关联</p>
+</blockquote>
+
+<ul>
+  <li>当两表通过索引建立关联时，驱动表不需要建立索引，被驱动表有索引即可，这样就能利用上索引了；不过为了避免发生弄错的情况，两个表都建立索引也可以。</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>同步IO和异步IO的区别就在于：数据拷贝的时候进程是否阻塞。
+<blockquote>
+  <p>排序</p>
+</blockquote>
 
-阻塞IO和非阻塞IO的区别就在于：应用程序的调用是否立即返回。
-</code></pre>
-</div>
+<ul>
+  <li>对驱动表可以直接排序，对非驱动表（的字段排序）需要对循环查询的合并结果（临时表）进行排序，所以 EXPLAIN 中会出现 using temporary 的情况，效率降低。所以我们尽量保证排序用的是驱动表字段。</li>
+</ul>
 
 
 
@@ -280,13 +254,13 @@
        <ul class="pager">
         
         <li class="previous">
-            <a href="/2017/06/MySQL-my-cnf/" data-toggle="tooltip" data-placement="top" title="MySQL my.cnf配置">上一篇：  <span>MySQL my.cnf配置</span>
+            <a href="/2017/11/MySQL5.7-install/" data-toggle="tooltip" data-placement="top" title="安装 MySQL 5.7（源码安装）">上一篇：  <span>安装 MySQL 5.7（源码安装）</span>
             </a>
         </li>
         
         
         <li class="next">
-            <a href="/2017/07/Common-Software-Install/" data-toggle="tooltip" data-placement="top" title="常用软件安装（均在 Ubuntu 上安装)">下一篇：  <span>常用软件安装（均在 Ubuntu 上安装)</span>
+            <a href="/2018/01/Method-And-Purpose/" data-toggle="tooltip" data-placement="top" title="手段与目的">下一篇：  <span>手段与目的</span>
             </a>
         </li>
         

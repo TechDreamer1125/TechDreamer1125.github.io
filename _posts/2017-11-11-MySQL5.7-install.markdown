@@ -1,0 +1,73 @@
+---
+layout: post
+title: 安装 MySQL 5.7（源码安装）
+date: 2017-11-11
+tag: MySQL
+---
+
+> - 服务器：Ubuntu 16.04 64位
+- 安装方式：二进制安装
+- 安装版本：5.7.20
+
+- 首先进入到相应目录 `cd /usr/local` 下载二进制文件 `wget https://cdn.mysql.com//Downloads/MySQL-5.7/mysql-5.7.20-linux-glibc2.12-x86_64.tar.gz`，
+
+- 解压文件并建立软连接 `sudo tar -zxvf mysql-5.7.20-linux-glibc2.12-x86_64.tar.gz` `sudo ln -s mysql-5.7.20 mysql` 
+
+<img src="/images/posts/MySQL5.7-install/image01.png" height="70%" width="70%"> 
+
+- 建立用户组 `groupadd mysql`
+
+- 增加用户 `useradd -r -g mysql -s /bin/false mysql`
+
+- 5.7 版本的通用二进制安装包经解压后得到的 MySQL 目录，内部并未包含数据文件存放的目录，所以需要单独再创建一个子目录用于存放数据文件，比如取名为 data `mkdir data`
+
+- 初始化 `bin/mysqld --initialize --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data`
+
+<img src="/images/posts/MySQL5.7-install/image02.png" height="70%" width="70%"> 
+
+> MySQL有对依赖libaio 库。如果此库未在本地安装Data目录的初始化和后续服务器启动的步骤将失败。
+apt-get install libaio1
+
+- 再次初始化
+
+<img src="/images/posts/MySQL5.7-install/image03.png" height="70%" width="70%"> 
+
+- `bin/mysql_ssl_rsa_setup --datadir=/usr/local/mysql/data`
+
+<img src="/images/posts/MySQL5.7-install/image04.png" height="70%" width="70%"> 
+
+- 编辑配置文件 `vim /etc/my.cnf`
+
+```
+[mysqld]
+port = 3306
+user = mysql
+basedir = /usr/local/mysql
+datadir = /usr/local/mysql/data
+log-error = /var/log/mysql-error.log
+log_timestamps=SYSTEM
+```
+
+- 启动 MySQL `bin/mysqld_safe –user=mysql &`
+
+<img src="/images/posts/MySQL5.7-install/image05.png" height="70%" width="70%">
+
+- 要求修改密码 `set password=password('这里是你的密码');`
+
+- 在 Linux 下为了安全，默认是不允许 MySQL 服务器本机以外的机器访问 MySQL 数据库服务的，因此需要重新授权 root 账号。方便其他机器远程访问 MySQL 服务器，MySQL 命令如下：`grant all privileges on *.* to root@'%' identified by '你的密码';`
+
+- 修改权限后使用命令立即生效 `flush privileges;`
+
+- `cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysqld` 之后就可以用 `service mysqld start` 启动服务了
+
+- 更改环境变量，到根目录 `cd ~` 修改.bashrc
+ `vim .bashrc` 添加
+ 
+ ```
+export PATH=$PATH:/usr/local/mysql/bin
+source ~/.bashrc
+```
+
+
+
+

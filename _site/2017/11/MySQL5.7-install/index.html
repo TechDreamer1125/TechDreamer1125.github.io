@@ -6,17 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>常用术语</title>
-  <meta name="description" content="  PV = page view  TPS = transactions per second  QPS = queries per second  RPS = requests per second      RDS 关系型数据库服务(Relational Database Service)        进程...">
+  <title>安装 MySQL 5.7（源码安装）</title>
+  <meta name="description" content="      服务器：Ubuntu 16.04 64位    安装方式：二进制安装    安装版本：5.7.20  ">
   <meta name="author" content="leopardpan">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="常用术语">
-  <meta name="twitter:description" content="  PV = page view  TPS = transactions per second  QPS = queries per second  RPS = requests per second      RDS 关系型数据库服务(Relational Database Service)        进程...">
+  <meta name="twitter:title" content="安装 MySQL 5.7（源码安装）">
+  <meta name="twitter:description" content="      服务器：Ubuntu 16.04 64位    安装方式：二进制安装    安装版本：5.7.20  ">
   
   <meta property="og:type" content="article">
-  <meta property="og:title" content="常用术语">
-  <meta property="og:description" content="  PV = page view  TPS = transactions per second  QPS = queries per second  RPS = requests per second      RDS 关系型数据库服务(Relational Database Service)        进程...">
+  <meta property="og:title" content="安装 MySQL 5.7（源码安装）">
+  <meta property="og:description" content="      服务器：Ubuntu 16.04 64位    安装方式：二进制安装    安装版本：5.7.20  ">
   
   <link rel="icon" type="image/png" href="/images/favicon.png" />
   <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="/css/main.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link rel="canonical" href="http://localhost:4000/2017/07/Common-Terms/">
+  <link rel="canonical" href="http://localhost:4000/2017/11/MySQL5.7-install/">
   <link rel="alternate" type="application/rss+xml" title="月牙旁，你轻颦浅笑" href="http://localhost:4000/feed.xml">
   
   <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
@@ -156,58 +156,111 @@
         <div class="content-wrapper__inner">
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
 	<header class="post-header">
-	<h1 class="post-title">常用术语</h1>
+	<h1 class="post-title">安装 MySQL 5.7（源码安装）</h1>
 	<div class="post-meta">
 		<img src="/images/calendar.png" width="20px"/> 
-		<time datetime="2017-07-15 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2017-07-15</time>
-		&#8226; <span class="post-list__meta--tags-right">基础</span>
+		<time datetime="2017-11-11 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2017-11-11</time>
+		&#8226; <span class="post-list__meta--tags-right">MySQL</span>
 		<!-- <span id="busuanzi_container_page_pv"> | 阅读：<span id="busuanzi_value_page_pv"></span>次</span> -->
 	</p>
 	</div>
 	</header>
 
 	<section class="post">
-	<ul>
-  <li>PV = page view</li>
-  <li>TPS = transactions per second</li>
-  <li>QPS = queries per second</li>
-  <li>RPS = requests per second</li>
+	<blockquote>
+  <ul>
+    <li>服务器：Ubuntu 16.04 64位</li>
+    <li>安装方式：二进制安装</li>
+    <li>安装版本：5.7.20</li>
+  </ul>
+</blockquote>
+
+<ul>
   <li>
-    <p>RDS 关系型数据库服务(Relational Database Service)</p>
+    <p>首先进入到相应目录 <code class="highlighter-rouge">cd /usr/local</code> 下载二进制文件 <code class="highlighter-rouge">wget https://cdn.mysql.com//Downloads/MySQL-5.7/mysql-5.7.20-linux-glibc2.12-x86_64.tar.gz</code>，</p>
   </li>
   <li>
-    <p>进程<code class="highlighter-rouge">process</code>：进程是具有一定独立功能的程序关于某个数据集合上的一次运行活动，进程是系统进行资源分配和调度的一个独立单位。</p>
+    <p>解压文件并建立软连接 <code class="highlighter-rouge">sudo tar -zxvf mysql-5.7.20-linux-glibc2.12-x86_64.tar.gz</code> <code class="highlighter-rouge">sudo ln -s mysql-5.7.20 mysql</code></p>
   </li>
-  <li>
-    <p>线程<code class="highlighter-rouge">thread</code>：线程是进程的一个实体，是CPU调度和分派的基本单位，它是比进程更小的能独立运行的基本单位。线程自己基本上不拥有系统资源，只拥有一点在运行中必不可少的资源(如程序计数器，一组寄存器和栈)，但是它可与同属一个进程的其他的线程共享进程所拥有的全部资源。一个线程可以创建和撤销另一个线程；同一个进程中的多个线程之间可以并发执行。</p>
-  </li>
-  <li>
-    <p>微线程：又叫协程。tasklet运行在伪并发中，使用channel机制进行同步数据交换。python中的greenlet提供了微线程的操作。不同于多线程，它给我们提供了一种更加轻量的异步编程模式。</p>
-  </li>
-  <li>
-    <p>协程<code class="highlighter-rouge">Coroutine</code>：提供了不同于线程的另一种方式，它首先是串行化的。其次，在串行化的过程中，协程允许用户显式释放控制权，将控制权转移另一个过程。释放控制权之后，原过程的状态得以保留，直到控制权恢复的时候，可以继续执行下去。所以协程的控制权转移也称为“挂起”和“唤醒”。</p>
-  </li>
-  <li>
-    <p>并发<code class="highlighter-rouge">concurrency</code>：并发是指二个和多个事件在同一时间间隔内发生。并发是在逻辑层面上的同时工作。</p>
-  </li>
-  <li>
-    <p>并行<code class="highlighter-rouge">parallelism</code>：并行是指二个或多个事件在同一时刻发生。并行是在物理层面上的同时工作。</p>
-  </li>
-  <li>
-    <p>同步<code class="highlighter-rouge">synchronous</code>:在发出一个功能调用时，在没有得到结果之前，该调用就不返回。</p>
-  </li>
-  <li>
-    <p>异步<code class="highlighter-rouge">asynchronous</code>：异步的概念和同步相对。当一个异步过程调用发出后，调用者不能立刻得到结果。实际处理这个调用的部件在完成后，通过状态、通知和回调来通知调用者。</p>
-  </li>
-  <li>
-    <p>阻塞：阻塞调用是指调用结果返回之前，当前线程会被挂起。函数只有在得到结果之后才会返回。</p>
-  </li>
-  <li>非阻塞：非阻塞和阻塞的概念相对应，指在不能立刻得到结果之前，该函数不会阻塞当前线程，而会立刻返回。</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>同步IO和异步IO的区别就在于：数据拷贝的时候进程是否阻塞。
+<p><img src="/images/posts/MySQL5.7-install/image01.png" height="70%" width="70%" /></p>
 
-阻塞IO和非阻塞IO的区别就在于：应用程序的调用是否立即返回。
+<ul>
+  <li>
+    <p>建立用户组 <code class="highlighter-rouge">groupadd mysql</code></p>
+  </li>
+  <li>
+    <p>增加用户 <code class="highlighter-rouge">useradd -r -g mysql -s /bin/false mysql</code></p>
+  </li>
+  <li>
+    <p>5.7 版本的通用二进制安装包经解压后得到的 MySQL 目录，内部并未包含数据文件存放的目录，所以需要单独再创建一个子目录用于存放数据文件，比如取名为 data <code class="highlighter-rouge">mkdir data</code></p>
+  </li>
+  <li>
+    <p>初始化 <code class="highlighter-rouge">bin/mysqld --initialize --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data</code></p>
+  </li>
+</ul>
+
+<p><img src="/images/posts/MySQL5.7-install/image02.png" height="70%" width="70%" /></p>
+
+<blockquote>
+  <p>MySQL有对依赖libaio 库。如果此库未在本地安装Data目录的初始化和后续服务器启动的步骤将失败。
+apt-get install libaio1</p>
+</blockquote>
+
+<ul>
+  <li>再次初始化</li>
+</ul>
+
+<p><img src="/images/posts/MySQL5.7-install/image03.png" height="70%" width="70%" /></p>
+
+<ul>
+  <li><code class="highlighter-rouge">bin/mysql_ssl_rsa_setup --datadir=/usr/local/mysql/data</code></li>
+</ul>
+
+<p><img src="/images/posts/MySQL5.7-install/image04.png" height="70%" width="70%" /></p>
+
+<ul>
+  <li>编辑配置文件 <code class="highlighter-rouge">vim /etc/my.cnf</code></li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[mysqld]
+port = 3306
+user = mysql
+basedir = /usr/local/mysql
+datadir = /usr/local/mysql/data
+log-error = /var/log/mysql-error.log
+log_timestamps=SYSTEM
+</code></pre>
+</div>
+
+<ul>
+  <li>启动 MySQL <code class="highlighter-rouge">bin/mysqld_safe –user=mysql &amp;</code></li>
+</ul>
+
+<p><img src="/images/posts/MySQL5.7-install/image05.png" height="70%" width="70%" /></p>
+
+<ul>
+  <li>
+    <p>要求修改密码 <code class="highlighter-rouge">set password=password('这里是你的密码');</code></p>
+  </li>
+  <li>
+    <p>在 Linux 下为了安全，默认是不允许 MySQL 服务器本机以外的机器访问 MySQL 数据库服务的，因此需要重新授权 root 账号。方便其他机器远程访问 MySQL 服务器，MySQL 命令如下：<code class="highlighter-rouge">grant all privileges on *.* to root@'%' identified by '你的密码';</code></p>
+  </li>
+  <li>
+    <p>修改权限后使用命令立即生效 <code class="highlighter-rouge">flush privileges;</code></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysqld</code> 之后就可以用 <code class="highlighter-rouge">service mysqld start</code> 启动服务了</p>
+  </li>
+  <li>
+    <p>更改环境变量，到根目录 <code class="highlighter-rouge">cd ~</code> 修改.bashrc
+ <code class="highlighter-rouge">vim .bashrc</code> 添加</p>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>export PATH=$PATH:/usr/local/mysql/bin
+source ~/.bashrc
 </code></pre>
 </div>
 
@@ -280,13 +333,13 @@
        <ul class="pager">
         
         <li class="previous">
-            <a href="/2017/06/MySQL-my-cnf/" data-toggle="tooltip" data-placement="top" title="MySQL my.cnf配置">上一篇：  <span>MySQL my.cnf配置</span>
+            <a href="/2017/10/Ubuntu-Create-Ghost/" data-toggle="tooltip" data-placement="top" title="Ubuntu 上构建 Ghost 环境">上一篇：  <span>Ubuntu 上构建 Ghost 环境</span>
             </a>
         </li>
         
         
         <li class="next">
-            <a href="/2017/07/Common-Software-Install/" data-toggle="tooltip" data-placement="top" title="常用软件安装（均在 Ubuntu 上安装)">下一篇：  <span>常用软件安装（均在 Ubuntu 上安装)</span>
+            <a href="/2017/11/R-S-Table/" data-toggle="tooltip" data-placement="top" title="驱动表和被驱动表">下一篇：  <span>驱动表和被驱动表</span>
             </a>
         </li>
         

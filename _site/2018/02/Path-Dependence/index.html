@@ -6,17 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>常用术语</title>
-  <meta name="description" content="  PV = page view  TPS = transactions per second  QPS = queries per second  RPS = requests per second      RDS 关系型数据库服务(Relational Database Service)        进程...">
+  <title>路径依赖</title>
+  <meta name="description" content="路径依赖上次全哥培训的时候提到了「路径依赖」一词，单从字面意思理解就是像惯性一样对某一条路产生了依赖，走不出去。">
   <meta name="author" content="leopardpan">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="常用术语">
-  <meta name="twitter:description" content="  PV = page view  TPS = transactions per second  QPS = queries per second  RPS = requests per second      RDS 关系型数据库服务(Relational Database Service)        进程...">
+  <meta name="twitter:title" content="路径依赖">
+  <meta name="twitter:description" content="路径依赖上次全哥培训的时候提到了「路径依赖」一词，单从字面意思理解就是像惯性一样对某一条路产生了依赖，走不出去。">
   
   <meta property="og:type" content="article">
-  <meta property="og:title" content="常用术语">
-  <meta property="og:description" content="  PV = page view  TPS = transactions per second  QPS = queries per second  RPS = requests per second      RDS 关系型数据库服务(Relational Database Service)        进程...">
+  <meta property="og:title" content="路径依赖">
+  <meta property="og:description" content="路径依赖上次全哥培训的时候提到了「路径依赖」一词，单从字面意思理解就是像惯性一样对某一条路产生了依赖，走不出去。">
   
   <link rel="icon" type="image/png" href="/images/favicon.png" />
   <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="/css/main.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link rel="canonical" href="http://localhost:4000/2017/07/Common-Terms/">
+  <link rel="canonical" href="http://localhost:4000/2018/02/Path-Dependence/">
   <link rel="alternate" type="application/rss+xml" title="月牙旁，你轻颦浅笑" href="http://localhost:4000/feed.xml">
   
   <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
@@ -156,60 +156,43 @@
         <div class="content-wrapper__inner">
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
 	<header class="post-header">
-	<h1 class="post-title">常用术语</h1>
+	<h1 class="post-title">路径依赖</h1>
 	<div class="post-meta">
 		<img src="/images/calendar.png" width="20px"/> 
-		<time datetime="2017-07-15 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2017-07-15</time>
-		&#8226; <span class="post-list__meta--tags-right">基础</span>
+		<time datetime="2018-02-18 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2018-02-18</time>
+		&#8226; <span class="post-list__meta--tags-right">成长</span>
 		<!-- <span id="busuanzi_container_page_pv"> | 阅读：<span id="busuanzi_value_page_pv"></span>次</span> -->
 	</p>
 	</div>
 	</header>
 
 	<section class="post">
-	<ul>
-  <li>PV = page view</li>
-  <li>TPS = transactions per second</li>
-  <li>QPS = queries per second</li>
-  <li>RPS = requests per second</li>
+	<h4 id="路径依赖">路径依赖</h4>
+<p>上次全哥培训的时候提到了「路径依赖」一词，单从字面意思理解就是像惯性一样对某一条路产生了依赖，走不出去。</p>
+
+<p>最近看到一个关于熊猫的故事，让我对这个词有了更深刻的理解。</p>
+<blockquote>
+  <p>当年熊迁徙到秦岭，那里是南北分界线，气候特征既像北方又像南方，同时生长着只有低纬度长的植物竹子。熊来的这里看到一片竹海就发生了生活习性的变化。因为竹子取之不尽它们就只吃竹子；冬天也有东西吃它们就不冬眠了。
+下面有几个关于熊猫和竹子的特点</p>
+  <ol>
+    <li>熊猫每天吃16小时的竹子；</li>
+    <li>一片竹林是有一个母竹长出来的，其寿命全部与母竹林保持一致</li>
+    <li>竹子一生只开一次花，结一次果。</li>
+  </ol>
+</blockquote>
+
+<ul>
   <li>
-    <p>RDS 关系型数据库服务(Relational Database Service)</p>
+    <p>从上面的故事中，熊猫就面临了几种困境。食物单一，当竹子集体死亡时就会因为没有食物而饿死；繁殖能力低，因为每天把体能都耗费在吃竹子上导致性欲低下。</p>
   </li>
   <li>
-    <p>进程<code class="highlighter-rouge">process</code>：进程是具有一定独立功能的程序关于某个数据集合上的一次运行活动，进程是系统进行资源分配和调度的一个独立单位。</p>
+    <p>熊猫就是因为被它所拥有的资源绑架了，产生了一种「路径依赖」。当路径不见了或者发生了塌陷时，它们就陷入了危机之中，甚至可能毁灭。</p>
   </li>
-  <li>
-    <p>线程<code class="highlighter-rouge">thread</code>：线程是进程的一个实体，是CPU调度和分派的基本单位，它是比进程更小的能独立运行的基本单位。线程自己基本上不拥有系统资源，只拥有一点在运行中必不可少的资源(如程序计数器，一组寄存器和栈)，但是它可与同属一个进程的其他的线程共享进程所拥有的全部资源。一个线程可以创建和撤销另一个线程；同一个进程中的多个线程之间可以并发执行。</p>
-  </li>
-  <li>
-    <p>微线程：又叫协程。tasklet运行在伪并发中，使用channel机制进行同步数据交换。python中的greenlet提供了微线程的操作。不同于多线程，它给我们提供了一种更加轻量的异步编程模式。</p>
-  </li>
-  <li>
-    <p>协程<code class="highlighter-rouge">Coroutine</code>：提供了不同于线程的另一种方式，它首先是串行化的。其次，在串行化的过程中，协程允许用户显式释放控制权，将控制权转移另一个过程。释放控制权之后，原过程的状态得以保留，直到控制权恢复的时候，可以继续执行下去。所以协程的控制权转移也称为“挂起”和“唤醒”。</p>
-  </li>
-  <li>
-    <p>并发<code class="highlighter-rouge">concurrency</code>：并发是指二个和多个事件在同一时间间隔内发生。并发是在逻辑层面上的同时工作。</p>
-  </li>
-  <li>
-    <p>并行<code class="highlighter-rouge">parallelism</code>：并行是指二个或多个事件在同一时刻发生。并行是在物理层面上的同时工作。</p>
-  </li>
-  <li>
-    <p>同步<code class="highlighter-rouge">synchronous</code>:在发出一个功能调用时，在没有得到结果之前，该调用就不返回。</p>
-  </li>
-  <li>
-    <p>异步<code class="highlighter-rouge">asynchronous</code>：异步的概念和同步相对。当一个异步过程调用发出后，调用者不能立刻得到结果。实际处理这个调用的部件在完成后，通过状态、通知和回调来通知调用者。</p>
-  </li>
-  <li>
-    <p>阻塞：阻塞调用是指调用结果返回之前，当前线程会被挂起。函数只有在得到结果之后才会返回。</p>
-  </li>
-  <li>非阻塞：非阻塞和阻塞的概念相对应，指在不能立刻得到结果之前，该函数不会阻塞当前线程，而会立刻返回。</li>
 </ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>同步IO和异步IO的区别就在于：数据拷贝的时候进程是否阻塞。
-
-阻塞IO和非阻塞IO的区别就在于：应用程序的调用是否立即返回。
-</code></pre>
-</div>
+<blockquote>
+  <p>公司，人，都可能陷入「路径依赖」。一种资源看上去是福音，但是可能会暗中绑架你，最后让你陷入困境；这就需要我们时刻保持警觉性，不仅要去发现，更要有勇气去改变。</p>
+</blockquote>
 
 
 
@@ -280,15 +263,10 @@
        <ul class="pager">
         
         <li class="previous">
-            <a href="/2017/06/MySQL-my-cnf/" data-toggle="tooltip" data-placement="top" title="MySQL my.cnf配置">上一篇：  <span>MySQL my.cnf配置</span>
+            <a href="/2018/02/Think-Like-A-Computer/" data-toggle="tooltip" data-placement="top" title="像电脑一样思考">上一篇：  <span>像电脑一样思考</span>
             </a>
         </li>
         
-        
-        <li class="next">
-            <a href="/2017/07/Common-Software-Install/" data-toggle="tooltip" data-placement="top" title="常用软件安装（均在 Ubuntu 上安装)">下一篇：  <span>常用软件安装（均在 Ubuntu 上安装)</span>
-            </a>
-        </li>
         
     </ul>
 </section>
