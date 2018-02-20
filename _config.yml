@@ -14,11 +14,12 @@ url: "http://fuxuri.com"
     # uyan: 2143225  # 有言id,登录有言官网申请
 
 # Social
-#social:
-    #weibo: 5366874726 
-    #github: leopardpan
+social:
+    # weibo: 5366874726 
+    github: TechDreamer1125
+    facebook: xuri.fu.3
     # twitter: 
-    #mail: leopardpan@icloud.com
+    # mail: leopardpan@icloud.com
 
 # 百度统计 
 # 使用博客模板请去掉或者更换 id 
@@ -53,13 +54,13 @@ cover_color: clear
 
 # The blog button should not be removed.
 blog_button:
-    title: 博客主页
+    title: 主页
 
 # Navigation buttons in the front page.s
 nav:
-    - {title: 所有文章, description: archive, url: '/archive'}
+    - {title: 文章, description: archive, url: '/archive'}
     - {title: 标签, description: tags, url: '/tags'}
-    - {title: 关于我, description: about, url: '/about'}
+    - {title: 关于, description: about, url: '/about'}
     
 
 # Pagination
