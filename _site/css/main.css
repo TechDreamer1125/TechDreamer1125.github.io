@@ -85,14 +85,6 @@ p a {
   /* text-decoration: underline; */
 }
 
-/* p a:hover{
-  color: darken(#BF1827, 15%);
-  -o-transition: .5s;
-  -ms-transition: .5s;
-  -moz-transition: .5s;
-  -webkit-transition: .5s; 
-} */
-
 a:hover {
   color: #E25440;
   -o-transition: .5s;
