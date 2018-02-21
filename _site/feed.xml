@@ -5,14 +5,13 @@
     <description>O ever youthful, O ever weeping.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 20 Feb 2018 22:50:52 +0800</pubDate>
-    <lastBuildDate>Tue, 20 Feb 2018 22:50:52 +0800</lastBuildDate>
+    <pubDate>Wed, 21 Feb 2018 12:01:41 +0800</pubDate>
+    <lastBuildDate>Wed, 21 Feb 2018 12:01:41 +0800</lastBuildDate>
     <generator>Jekyll v3.5.2</generator>
     
       <item>
         <title>路径依赖</title>
-        <description>&lt;h4 id=&quot;路径依赖&quot;&gt;路径依赖&lt;/h4&gt;
-&lt;p&gt;上次全哥培训的时候提到了「路径依赖」一词，单从字面意思理解就是像惯性一样对某一条路产生了依赖，走不出去。&lt;/p&gt;
+        <description>&lt;p&gt;上次全哥培训的时候提到了「路径依赖」一词，单从字面意思理解就是像惯性一样对某一条路产生了依赖，走不出去。&lt;/p&gt;
 
 &lt;p&gt;最近看到一个关于熊猫的故事，让我对这个词有了更深刻的理解。&lt;/p&gt;
 &lt;blockquote&gt;
@@ -50,8 +49,7 @@
     
       <item>
         <title>像电脑一样思考</title>
-        <description>&lt;h3 id=&quot;像电脑一样思考&quot;&gt;像电脑一样思考&lt;/h3&gt;
-&lt;blockquote&gt;
+        <description>&lt;blockquote&gt;
   &lt;p&gt;如果每个人的「硬件配置」都差不多，那么「软件」和「操作方式」就是最大化电脑效率的方式。&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -83,8 +81,7 @@
     
       <item>
         <title>手段与目的</title>
-        <description>&lt;h4 id=&quot;手段与目的&quot;&gt;手段与目的&lt;/h4&gt;
-&lt;blockquote&gt;
+        <description>&lt;blockquote&gt;
   &lt;p&gt;什么是手段？什么是目的？如果本末倒置会怎样？&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -140,6 +137,33 @@
         <guid isPermaLink="true">http://localhost:4000/2017/11/R-S-Table/</guid>
         
         <category>MySQL</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>主动探索创新</title>
+        <description>&lt;p&gt;模仿—改进—创新，起初从不了解行业的模式，模仿竞争对手；到不断跟随客户使用情况改进现有的功能；接下来我们将要去主动面对创新，思考出客户没发现但是能让客户明显改善的功能，同时带来明显的差异化功能。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;最近经常遇到有些功能，需要上线给客户，等到客户反馈之后再做出相应的改进和调整。这说明我们还是有很多地方停留在改进的层次，也就是很大程度上我们还是只停留在了第二步。但是还是要提前的去思考、去准备迈入第三步。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;对于第三步的创新我有点自己的看法，在软件中去创新我认为有两个方向：
+    &lt;ol&gt;
+      &lt;li&gt;像 ipad 一样，设计出来之前从来没人觉得自己需要一个平板；设计出来之后人人都觉得应该有个平板。所以第一个方向就是去思考连客户自己也没有意识到需要的功能，这种东西设计出来的目的并不一定是为了客户的效率，是为了让客户用的舒服，用的习惯，用的离不开。&lt;/li&gt;
+      &lt;li&gt;第二个方向就是给予使用者正反馈。通过反馈让客户有学习的欲望，同时也让使用者感觉到他们在进步，尽管只是使用软件，也会让他们不那么枯燥。相对于死记硬背，反馈的形式也许正是客户想要的。&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;我们常说效率的提高是通过简化流程或者自动化的形式呈现，这也许是最吸引客户的买点，毕竟客户花大价钱买软件最重要的目的是为了省钱或赚钱。但是当客户已经使用我们软件了，我们应该让他们越用越舒服，这种舒服不仅仅是功能的全部实现，肯定还有另外一种形式的存在，是哪种形式存在就需要我们不断摸索了。&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Sat, 18 Nov 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/11/Active-Exploration-And-Innovation/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/11/Active-Exploration-And-Innovation/</guid>
+        
+        <category>成长</category>
         
         
       </item>
@@ -247,6 +271,253 @@ source ~/.bashrc
         <pubDate>Sat, 11 Nov 2017 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/2017/11/MySQL5.7-install/</link>
         <guid isPermaLink="true">http://localhost:4000/2017/11/MySQL5.7-install/</guid>
+        
+        <category>MySQL</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>双十一优化总结（2017）</title>
+        <description>&lt;h4 id=&quot;操作频繁小表宁愿绕点弯路也尽量避免被锁住&quot;&gt;操作频繁小表宁愿绕点弯路也尽量避免被锁住&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;对于频繁操作的小表，就算锁住的是其中一行记录，也有可能造成难以预期的锁等待。&lt;/li&gt;
+  &lt;li&gt;对于这样的表可以先将值读到变量里，再对变量进行操作&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;延迟关联&quot;&gt;延迟关联&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;这种操作经常会在大的搜索中出现，先通过索引 &lt;code class=&quot;highlighter-rouge&quot;&gt;SELECT&lt;/code&gt; 出想要的数据中主表的主键值，然后将这个结果集与主表关联读出想要的数据，这样做延缓了回表时间。因为大的搜索都涉及到分页，如果翻页的时候就回表查会大大降低效率，而通过仅读出主键（不回表）先确定要读出来的值，最后将确定要读的数据的主键跟主表关联得出真正想要的数据。在搜索卡顿的时候把这种方式作为优化方式之一。&lt;/li&gt;
+  &lt;li&gt;导出的时候（因为导出是导出所有数据，而不是像搜索一样只需要某一页的数据，但是又不能一次性将数据读出来否则开销太大）也可以将所有的想要的数据的主表主键存到一张临时表中，然后这张临时表自身的主键就是递增的，一页一页读出数据的时候直接可以通过主键来个范围查找。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;延迟关联一定要理解索引的二次查找&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;有时候为了避免锁住表可以将需要的数据放入临时表然后释放原有表剩下的操作交给临时表&quot;&gt;有时候为了避免锁住表，可以将需要的数据放入临时表，然后释放原有表，剩下的操作交给临时表。&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;如果一个事务比较大，锁住表的数据比较多，建议将需要的数据存到临时表中，之后通过临时表做操作。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;检查索引失效的地方&quot;&gt;检查索引失效的地方&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;注意 &lt;code class=&quot;highlighter-rouge&quot;&gt;WHERE&lt;/code&gt; 条件里索引字段的隐式转换导致索引失效，比如 &lt;code class=&quot;highlighter-rouge&quot;&gt;VARCHAR&lt;/code&gt;类型跟 &lt;code class=&quot;highlighter-rouge&quot;&gt;INT&lt;/code&gt; 类型比较，导致索引失效&lt;/li&gt;
+  &lt;li&gt;在 &lt;code class=&quot;highlighter-rouge&quot;&gt;WHERE&lt;/code&gt; 条件里出现函数时导致索引失效，这也算一种特殊的隐式转换导致索引失效。（有的 &lt;code class=&quot;highlighter-rouge&quot;&gt;WHERE&lt;/code&gt; 条件里出现函数并没有导致索引失效那是因为 &lt;code class=&quot;highlighter-rouge&quot;&gt;SELECT&lt;/code&gt; 的字段都是索引字段，这样直接走了索引）。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;存储过程&quot;&gt;存储过程&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;对于存储过程（不涉及逻辑），主要需要注意的是当出现事务时，事务要尽可能小（锁粒度）；避免出现事务嵌套；不符合条件是要回滚；以及要加上异常处理的捕捉（SQLEXCEPTION）。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;数据库监控mysql56&quot;&gt;数据库监控（MySQL5.6）&lt;/h4&gt;
+&lt;p&gt;暂时我们对于数据库的监控主要集中在慢查询和死锁的监控，而这两者的寸文件都比较大（都只存放在单一文件中），所以同时要配合上相应的工具进行分析。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;首先我们先开启 MySQL 的慢查询日志和打印死锁日志的配置&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;### 慢查询
+slow_query_log = ON
+slow_query_log_file = 「路径」（可自己配置，也可以用默认配置）
+
+### 死锁
+innodb_print_all_deadlocks = ON
+死锁日志记录在@@log_error的路径里，SELECT @@log_error 即可得到路径
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;接下来是有关慢查询日志的分析，首先可以使用 MySQL 自带的工具 &lt;code class=&quot;highlighter-rouge&quot;&gt;mysqldumpslow&lt;/code&gt;，使用&lt;code class=&quot;highlighter-rouge&quot;&gt;mysqldumpslow 日志路径&lt;/code&gt; 就可以分析出相应数据（需要将 /usr/local/mysql/bin 配置在环境变量中才可以直接使用该命令）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;部分截图：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[root@jstumv2ppgydxc ~]# mysqldumpslow /data/mysql/slow.log 
+
+Reading mysql slow query log from /data/mysql/slow.log
+Count: 174  Time=122.97s (21397s)  Lock=0.00s (0s)  Rows=0.0 (0), root[root]@[10.24.232.120]
+  CALL SP_SALES_DELIVER_ALL(N)
+
+Count: 2  Time=51.98s (103s)  Lock=0.00s (0s)  Rows=0.0 (0), u_wms_yace_wms[u_wms_yace_wms]@[10.24.232.120]
+  CALL SP_STOCKOUT_ORDER_NEW_PRINT_BATCH(N,N,N,'S','S',N)
+
+Count: 16  Time=43.49s (695s)  Lock=0.00s (0s)  Rows=0.0 (0), root[root]@[10.24.232.120]
+  CALL SP_STOCKOUT_SALES_EXAMINE_YACE()
+
+Count: 3  Time=42.91s (128s)  Lock=0.00s (0s)  Rows=0.0 (0), u_wms_yace_wms[u_wms_yace_wms]@[10.24.232.120]
+  CALL SP_STOCKOUT_ORDER_CLEAR_POSITION('S')
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;同样可以使用 percona 发布的 percona toolkit 工具集中的 pt-query-digest，通过 &lt;code class=&quot;highlighter-rouge&quot;&gt;pt-query-digest 日志路径&lt;/code&gt;也可以直接分析出&lt;/p&gt;
+
+&lt;p&gt;部分截图：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Current date: Sat Oct 21 22:20:30 2017
+# Hostname: jstumv2ppgydxc
+# Files: /data/mysql/slow.log
+# Overall: 3.17k total, 24 unique, 0.02 QPS, 0.27x concurrency ___________
+# Time range: 2017-10-18 18:05:49 to 2017-10-20 18:14:29
+# Attribute          total     min     max     avg     95%  stddev  median
+# ============     ======= ======= ======= ======= ======= ======= =======
+# Exec time         47165s    40us  15395s     15s     32s    263s      6s
+# Lock time           19ms       0   663us     5us    47us    21us       0
+# Rows sent         26.47k       0   2.93k    8.54       0  137.13       0
+# Rows examine     127.95M       0   8.61M  41.29k   7.31k 323.35k       0
+# Query size         6.48M      20   3.78k   2.09k   3.69k   1.55k  874.75
+
+# Profile
+# Rank Query ID           Response time    Calls R/Call   V/M   Item
+# ==== ================== ================ ===== ======== ===== ==========
+#    1 0x9E8F5EE69306720A 21397.2866 45.4%   174 122.9729 10... CALL SP_SALES_DELIVER_ALL
+#    2 0x17294978B68E5993 10369.9098 22.0%  1462   7.0930  0.66 CREATE TABLE tmp_sales_trade
+#    3 0x6185E750B8987C9F  8895.4684 18.9%  1253   7.0993  0.69 CREATE TABLE tmp_sales_order
+#    4 0xD8639FBEF5336A31  1869.5757  4.0%    78  23.9689  6.47 CALL SP_SALES_TRADE_CHECK
+#    5 0x8221D835D186C3C0  1459.2881  3.1%    39  37.4176 17.71 CALL SP_STOCKOUT_ORDER_ALLOCATE_POSITION
+#    6 0x1DFDB7C755EF165F   742.0276  1.6%    49  15.1434 24.68 CALL SP_STOCKOUT_SALES_CONSIGN_YACE
+#    7 0x15466970CA5A18BE   695.8046  1.5%    16  43.4878  3.13 CALL SP_STOCKOUT_SALES_EXAMINE_YACE
+#    8 0x3BB79BA58D9F55C8   421.7239  0.9%    16  26.3577  3.05 CALL SP_STOCK_SALES_BATCH_WEIGHT_YACE
+#    9 0x616597AC774D30AC   411.8184  0.9%    15  27.4546 13.40 CALL SP_STOCKOUT_ORDER_WORKER_REGISTER_YACE
+#   10 0x3603F7E663B62543   326.7144  0.7%    13  25.1319  1.62 CALL SP_SALES_TRADE_CHECK_YACE
+#   11 0xC52C19BBB184BA0B   150.0959  0.3%    19   7.8998  2.15 CALL SP_STOCKOUT_ORDER_SALES_PRINT_QUERY
+# MISC 0xMISC               425.5899  0.9%    39  10.9126   0.0 &amp;lt;13 ITEMS&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;对于死锁信息 MySQL 只能直接存储过相应文件中，并没有合适的工具分析，而且开启后性能也有一定的影响，所以一般使用 pt-deadlock-logger 来分析，在监控的时候打开，将错误信息打印在屏幕上，并且可以在选择打印的同时将信息保存到指定的表里一份，不监控的时候关闭即可，比较方便。
+命令 &lt;code class=&quot;highlighter-rouge&quot;&gt;pt-deadlock-logger  --create-dest-table --dest D=test,t=deadlocks u=pt,p=pt,P=3306,h=114.55.33.223&lt;/code&gt;，这时候如果出现死锁情况会直接打印在界面上并记录到 deadlocks 表中一份，下面是 test 库下，deadlocks 的表内容：&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[pt@localhost][test]&amp;gt; select *from deadlocks limit 1\G
+*************************** 1. row ***************************
+   server: 114.55.33.223
+       ts: 2017-10-20 10:48:49
+   thread: 931047
+   txn_id: 0
+ txn_time: 0
+     user: root
+ hostname: 
+       ip: 10.24.232.120
+       db: d_wms_yace_wms
+      tbl: stock_spec
+      idx: PRIMARY
+lock_type: RECORD
+lock_mode: X
+wait_hold: w
+   victim: 0
+    query: UPDATE stockout_order_detail sod ,stock_spec ss SET ss.allocating_num=ss.allocating_num-sod.num WHERE sod.stockout_id=P_StockoutId AND sod.spec_id=ss.spec_id AND ss.warehouse_id=P_WarehouseId AND owner_id=V_OwnerId
+1 row in set (0.00 sec)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;对于监控一定要在性能允许的基础上展开，如果性能消耗大则在测试环境开启就好。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;这里稍微提及下 MySQL DML 使用方式上的注意点，以及导致发生锁的几种方式，不会详细的介绍各种锁类型的锁方式。&lt;/p&gt;
+
+&lt;p&gt;首先说一个需要非常注意的操作：&lt;/p&gt;
+
+&lt;h4 id=&quot;insert-into-select&quot;&gt;INSERT INTO SELECT&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;对于 INSERT INTO SELECT 这个操作要尤其注意，因为它不仅仅锁 INTO 的表，还会锁 SELECT FROM 后的表（两个表产生的锁是记录锁还是表锁视情况而定）。&lt;/li&gt;
+  &lt;li&gt;条件允许的情况下，尽量通过 INSERT VALUES 来进行替代&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;你所忽视的互相锁住的注意点&quot;&gt;你所忽视的互相锁住的注意点&lt;/h4&gt;
+&lt;p&gt;都知道死锁的真正原因是事务互相持有的锁导致都无法释放，所以产生死锁需要释放一个重启一个事务来让另一个事务先执行完。最常遇到的死锁情况无疑是「当两个事务同时操作几条记录时，因为顺序的不一致产生的互相持有的锁（A-B-C，C-B-A）」。但有时候你却意识不到你导致了互相持有操作。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;「AB-BA 的锁」
+对于操作同一个表，一个事务用了 GROUP BY，另一个什么都没用，当同时触发的时候就可能导致死锁，因为 GROUP BY操作会默认 ORDER BY 一下。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;「主键和二级索引引发的锁」
+对于通过索引来锁住记录的情况，当一个事务 T1 用唯一索引锁住了 A 表中的记录 B，另一个事务 T2 通过主键同样锁住了A表中的记录B；这时如果 T2 又想通过唯一索引持有 A 表中 B 记录，T1 想通过主键持有 A 表中的 B 记录时就会产生死锁，所以对索引的使用也需要进行分析。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;「两个S-lock互相锁住」&lt;/p&gt;
+
+    &lt;p&gt;x 表中字段 a 是唯一索引&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;事务一 (T1)&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;事务二 (T2)&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;事务三 (T3)&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;begin;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;begin;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;begin;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;DELETE FROM x WHERE a = 1;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;INSERT INTO x (a) VALUES (1); – 等待锁&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;INSERT INTO x (a) VALUES (1); – 等待锁&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;commit;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;T1 commit时，T2, T3 的 INSERT 操作都获得 S-lock，然后都想对 a = 1 的记录加上 x-lock，却被互相的 x-lock 锁住&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;「S锁到X锁不能直接继承过去」&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;事务一 (T1)&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;事务二 (T2)&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;begin;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;begin;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;SELECT * FROM x WHERE a = 1 LOCK IN SHARE MODE; – 持有了s锁&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;DELETE FROM x WHERE a = 1; – 欲获得x锁，暂时等待&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;DELETE FROM x WHERE a = 1; – 也要请求x锁，但是不能从s锁直接继承过来，所以也等待，需要排在 T2 后面&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;commit;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;这时候就形成了T2 -&amp;gt; T1, T1 -&amp;gt; T2 的情况，造成死锁。&lt;/p&gt;
+
+</description>
+        <pubDate>Sat, 11 Nov 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/11/Double-Eleven-Optimization-2017/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/11/Double-Eleven-Optimization-2017/</guid>
         
         <category>MySQL</category>
         
@@ -464,6 +735,258 @@ data:    [0] gBb2 /usr/bin/nodejs index.js 21343   21373    /root/.forever/gBb2.
       </item>
     
       <item>
+        <title>Linux 命令</title>
+        <description>&lt;p&gt;展示命令&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#ls&quot;&gt;ls&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#ps&quot;&gt;ps&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#awk&quot;&gt;awk&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#find&quot;&gt;find&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#grep&quot;&gt;grep&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;操作命令&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#copy&quot;&gt;cp&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#mv&quot;&gt;mv&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#rm&quot;&gt;rm&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#tar&quot;&gt;tar&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#zip,unzip&quot;&gt;zip,unzip&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#cat&quot;&gt;cat&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#kill&quot;&gt;kill&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;其他命令&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#crontab&quot;&gt;crontab&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#内链接，外链接&quot;&gt;内链接，外链接&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;ls&quot;&gt;ls&lt;/h3&gt;
+&lt;p&gt;&lt;a id=&quot;ls&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ls -lS                 按大小降序排列
+ls -lr                 按文件名降序
+ls -lrt                按时间降序
+ls -lnt                按时间升序
+ls -l | sort -k9       按文件名升序（ls的默认输出方式）
+ls -l | sort -n -k5    按大小升序
+ls -l | sort -rk9      按文件名降序
+ls -l -d */            只显示目录
+ls -l |grep -v &quot;^d&quot;    只显示文件
+-l ：列出长数据串，包含文件的属性与权限数据等  
+-a ：列出全部的文件，连同隐藏文件（开头为.的文件）一起列出来（常用）  
+-d ：仅列出目录本身，而不是列出目录的文件数据  
+-h ：将文件容量以较易读的方式（GB，kB等）列出来  
+-R ：连同子目录的内容一起列出（递归列出），等于该目录下的所有文件都会显示出来 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;ps&quot;&gt;ps&lt;/h3&gt;
+&lt;p&gt;&lt;a id=&quot;ps&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;ps 命令最常用的还是用于监控后台进程的工作情况，因为后台进程是不和屏幕键盘这些标准输入/输出设备进行通信的，所以如果需要检测其情况，便可以使用 ps 命令了。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;直接使用 ps，会展示出 PID（进程ID）、TTY（终端名称）、TIME（进程执行时间）、CMD（该进程的命令行输入）四列数据。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-e 显示所有进程。
+-f 全格式。
+-h 不显示标题。
+-l 长格式。
+-w 宽输出。
+a  显示终端上的所有进程，包括其他用户的进程。
+r  只显示正在运行的进程。
+x  显示没有控制终端的进程。
+u  user用户名
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;比较常使用的是ps aux『查看系统所有的进程数据』 和 ps -ef&lt;/p&gt;
+
+&lt;h3 id=&quot;awk&quot;&gt;awk&lt;/h3&gt;
+&lt;p&gt;&lt;a id=&quot;awk&quot;&gt;&lt;/a&gt;
+awk是一个文本分析工具&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h3 id=&quot;find&quot;&gt;find&lt;/h3&gt;
+&lt;p&gt;&lt;a id=&quot;find&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-mtime  n : n为数字，意思为在n天之前的“一天内”被更改过的文件  
+-mtime +n : 列出在n天之前（不含n天本身）被更改过的文件名
+-mtime -n : 列出在n天之内（含n天本身）被更改过的文件名
+-newer file : 列出比file还要新的文件名
+「例如」  
+find /root -mtime 0 # 在当前目录下查找今天之内有改动的文件
+    
+-user name : 列出文件所有者为name的文件  
+-group name : 列出文件所属用户组为name的文件  
+-uid n : 列出文件所有者为用户ID为n的文件  
+-gid n : 列出文件所属用户组为用户组ID为n的文件  
+「例如」  
+find /home/test -user test# 在目录/home/test中找出所有者为test的文件  
+   
+-name filename ：找出文件名为filename的文件  
+-size [+-]SIZE ：找出比SIZE还要大（+）或小（-）的文件  
+-type TYPE ：查找文件的类型为TYPE的文件，TYPE的值主要有：一般文件（f)、设备文件（b、c）、
+目录（d）、连接文件（l）、socket（s）、FIFO管道文件（p）
+-perm  mode ：查找文件权限刚好等于mode的文件，mode用数字表示，如0755
+-perm -mode ：查找文件权限必须要全部包括mode权限的文件，mode用数字表示  
+-perm +mode ：查找文件权限包含任一mode的权限的文件，mode用数字表示  
+「例如」
+find / -name passwd `查找文件名为passwd的文件`  
+find . -perm 0755 `查找当前目录中文件权限的0755的文件`  
+find . -size +12k `查找当前目录中大于12KB的文件，注意c表示byte`
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;grep&quot;&gt;grep&lt;/h3&gt;
+&lt;p&gt;&lt;a id=&quot;grep&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;一种强大的文本搜索工具，可使用正则表达式搜索文本&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;todo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;crontab&quot;&gt;crontab&lt;/h3&gt;
+&lt;p&gt;&lt;a id=&quot;crontab&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;定时运行任务的工具&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;todo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;cp&quot;&gt;cp&lt;/h3&gt;
+&lt;p&gt;&lt;a id=&quot;copy&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;复制文件&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-a ：将文件的特性一起复制
+-p ：连同文件的属性一起复制，而非使用默认方式，与-a相似，常用于备份
+-i ：若目标文件已经存在时，在覆盖时会先询问操作的进行
+-r ：递归持续复制，用于目录的复制行为
+-u ：目标文件与源文件有差异时才会复制
+「例如」
+cp -a file1 file2 `连同文件的所有特性把文件file1复制成文件file2`  
+cp file1 file2 file3 dir `把文件file1、file2、file3复制到目录dir中` 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;mv&quot;&gt;mv&lt;/h3&gt;
+&lt;p&gt;&lt;a id=&quot;mv&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;移动文件、文件夹或更改名字&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-f ：force强制的意思，如果目标文件已经存在，不会询问而直接覆盖
+-i ：若目标文件已经存在，就会询问是否覆盖
+-u ：若目标文件已经存在，且比目标文件新，才会更新
+mv file1 file2 file3 dir `把文件file1、file2、file3移动到目录dir中`
+mv file1 file2 `把文件file1重命名为file2`  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;该命令可以把一个文件或多个文件一次移动一个文件夹中，但是最后一个目标文件一定要是&lt;code class=&quot;highlighter-rouge&quot;&gt;目录&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;rm&quot;&gt;rm&lt;/h3&gt;
+&lt;p&gt;&lt;a id=&quot;rm&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;删除文件或文件夹&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-f ：就是force的意思，忽略不存在的文件，不会出现警告消息  
+-i ：互动模式，在删除前会询问用户是否操作  
+-r ：递归删除，最常用于目录删除，它是一个非常危险的参数
+rm -i file `删除文件file，在删除之前会询问是否进行该操作`
+rm -fr dir `强制删除目录dir中的所有文件`
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;tar&quot;&gt;tar&lt;/h3&gt;
+&lt;p&gt;&lt;a id=&quot;tar&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;该命令用于对文件进行打包，默认情况并不会压缩，如果指定了相应的参数，它还会调用相应的压缩程序（如gzip和bzip等）进行压缩和解压。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-c ：新建打包文件  
+-t ：查看打包文件的内容含有哪些文件名  
+-x ：解打包或解压缩的功能，可以搭配-C（大写）指定解压的目录，注意-c,-t,-x不能同时出现在同一条命令中  
+-j ：通过bzip2的支持进行压缩/解压缩  
+-z ：通过gzip的支持进行压缩/解压缩  
+-v ：在压缩/解压缩过程中，将正在处理的文件名显示出来  
+-f filename ：filename为要处理的文件  
+-C dir ：指定压缩/解压缩的目录dir
+『例子』
+压缩：tar -jcv -f filename.tar.bz2 压缩的目录  
+查询：tar -jtv -f filename.tar.bz2  
+解压：tar -jxv -f filename.tar.bz2 -C 解压到的目录  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;zip-unzip&quot;&gt;zip, unzip&lt;/h3&gt;
+&lt;p&gt;&lt;a id=&quot;zip,unzip&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;todo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;cat&quot;&gt;cat&lt;/h3&gt;
+&lt;p&gt;&lt;a id=&quot;cat&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cat text | less 查看text文件中的内容  
+注：这条命令也可以使用less text来代替 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;kill&quot;&gt;kill&lt;/h3&gt;
+&lt;p&gt;&lt;a id=&quot;kill&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;kill命令用来终止程序，一般通过kill进程号的形式终止。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kill -signal PID 「常用方法」
+「signal的常用参数」
+1：SIGHUP，启动被终止的进程  
+2：SIGINT，相当于输入ctrl+c，中断一个程序的进行  
+9：SIGKILL，强制中断一个进程的进行  
+15：SIGTERM，以正常的结束进程方式来终止进程  
+17：SIGSTOP，相当于输入ctrl+z，暂停一个进程的进行
+
+「例子」
+`以正常的结束进程方式来终止第一个后台工作，可用jobs命令查看后台中的第一个工作进程`
+kill -SIGTERM %1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;参考&quot;&gt;参考&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/ljianhui/article/details/11100625&quot;&gt;初窥Linux 之 我最常用的20条命令&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Fri, 20 Oct 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2017/10/Linux-Command/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/10/Linux-Command/</guid>
+        
+        <category>Linux</category>
+        
+        
+      </item>
+    
+      <item>
         <title>在ubuntu上安装配置 shadowsocks</title>
         <description>&lt;h3 id=&quot;在ubuntu上安装配置-shadowsocks&quot;&gt;在ubuntu上安装配置 shadowsocks&lt;/h3&gt;
 
@@ -520,194 +1043,6 @@ sudo ssserver -c /etc/shadowsocks.json -d stop
         <guid isPermaLink="true">http://localhost:4000/2017/10/Install-Shadowsocks-On-Ubuntu/</guid>
         
         <category>安装教程</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>拥有两种相反的意见，却不紊乱自己的行为能力</title>
-        <description>&lt;h4 id=&quot;拥有两种相反的意见却不紊乱自己的行为能力&quot;&gt;拥有两种相反的意见，却不紊乱自己的行为能力&lt;/h4&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;什么时候眼前苟且，什么时候诗和远方？&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;看书获取，聊天聆听，沟通交流；这些总是会出现观点交互的场景，经常会让我产生怀疑与思考。在不断的学习，进步，理解的过程中；在面对跟以前坚信的事情相悖的情况下；在遇到超出可接受范围的事物时；在这些所有可能质疑自己的场景中，该怎么保持同时接收不同观点的意见，并且保持不紊乱自己行为的能力？&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;在公司中：需求复杂与流程简易的矛盾；新的流程与兼容系统的矛盾；工作时长与工作效率的矛盾。每次的矛盾点都会让自己的内心进行一番斗争，因为可能没有对与错，有的只是在当时那个情况下的适合与否。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;在生活中：两种完全对立的物理理念都能蓬勃发展；两种对立的经济思维却都有自己的学术学派。而被量子力学折腾的玻尔说的“真理分大小两种，和小真理对立的必然是谬误，而和大真理对立的必然也是大真理。”，也许就是答案，谁知道呢。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;脑海中存放两种截然不的信息，想让两者相互依存，想让这两种信息不扰乱自己的思维，而不是偏要让两种思维挣个你死我活的话；我想胡适先生的&lt;code class=&quot;highlighter-rouge&quot;&gt;怕什么真理无穷，进一寸有一寸欢喜&lt;/code&gt;的后半句，让我感受到，只要享受在&lt;code class=&quot;highlighter-rouge&quot;&gt;接受&lt;/code&gt;，&lt;code class=&quot;highlighter-rouge&quot;&gt;思考&lt;/code&gt;，&lt;code class=&quot;highlighter-rouge&quot;&gt;判断&lt;/code&gt;知识过程中，获得过程中的欢喜，也许这样就够了，最起码我现在是这样认为的。&lt;/p&gt;
-
-</description>
-        <pubDate>Mon, 25 Sep 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/09/Two-Opposing-View/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/09/Two-Opposing-View/</guid>
-        
-        <category>成长</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>常用软件安装（均在 Ubuntu 上安装)</title>
-        <description>&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;#RzAndSz&quot;&gt;rz与sz&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#crontab&quot;&gt;crontab&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#awk&quot;&gt;awk&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;rz与sz&quot;&gt;rz与sz&lt;/h3&gt;
-&lt;p&gt;&lt;a id=&quot;RzAndSz&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;rz 和 sz 是将本地的文件上传到服务器或者从服务器上下载文件到本地的命令。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;ubuntu上命令安装&quot;&gt;Ubuntu上命令安装&lt;/h4&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;下载并安装&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd /tmp
-wget http://www.ohse.de/uwe/releases/lrzsz-0.12.20.tar.gz
-tar zxvf lrzsz-0.12.20.tar.gz &amp;amp;&amp;amp; cd lrzsz-0.12.20
-./configure &amp;amp;&amp;amp; make &amp;amp;&amp;amp; make install
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;软件默认安装到了 /usr/local/bin/ 路径，需要创建软连接&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd /usr/bin
-ln -s /usr/local/bin/lrz rz
-ln -s /usr/local/bin/lsz sz
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;crontab&quot;&gt;crontab&lt;/h3&gt;
-&lt;p&gt;&lt;a id=&quot;crontab&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;crontab 是一个作业自动化的工具&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;下载并启用&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt-get install cron
-service cron start  // 启动 crontab 服务
-service cron status // 查看 crontab 的状态
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;awk&quot;&gt;awk&lt;/h3&gt;
-&lt;p&gt;&lt;a id=&quot;awk&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;awk 是一个强大的文本分析工具，相对于 grep 的查找，sed 的编辑，awk 在其对数据分析并生成报告时，显得尤为强大。简单来说 awk 就是把文件逐行的读入，以空格为默认分隔符将每行切片，切开的部分再进行各种分析处理。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;普通安装&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install gawk
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;源码安装&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget http://ftp.gnu.org/gnu/gawk/gawk-4.1.1.tar.xz
-tar xvf gawk-4.1.1.tar.xz
-./configure
-make
-make check  -- 可选
-sudo make install
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;检查是否安装成功&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;which awk
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;如果安装成功，就会显示 awk 的安装目录&lt;/p&gt;
-
-</description>
-        <pubDate>Mon, 17 Jul 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/07/Common-Software-Install/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/07/Common-Software-Install/</guid>
-        
-        <category>安装教程</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>常用术语</title>
-        <description>&lt;ul&gt;
-  &lt;li&gt;PV = page view&lt;/li&gt;
-  &lt;li&gt;TPS = transactions per second&lt;/li&gt;
-  &lt;li&gt;QPS = queries per second&lt;/li&gt;
-  &lt;li&gt;RPS = requests per second&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;RDS 关系型数据库服务(Relational Database Service)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;进程&lt;code class=&quot;highlighter-rouge&quot;&gt;process&lt;/code&gt;：进程是具有一定独立功能的程序关于某个数据集合上的一次运行活动，进程是系统进行资源分配和调度的一个独立单位。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;线程&lt;code class=&quot;highlighter-rouge&quot;&gt;thread&lt;/code&gt;：线程是进程的一个实体，是CPU调度和分派的基本单位，它是比进程更小的能独立运行的基本单位。线程自己基本上不拥有系统资源，只拥有一点在运行中必不可少的资源(如程序计数器，一组寄存器和栈)，但是它可与同属一个进程的其他的线程共享进程所拥有的全部资源。一个线程可以创建和撤销另一个线程；同一个进程中的多个线程之间可以并发执行。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;微线程：又叫协程。tasklet运行在伪并发中，使用channel机制进行同步数据交换。python中的greenlet提供了微线程的操作。不同于多线程，它给我们提供了一种更加轻量的异步编程模式。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;协程&lt;code class=&quot;highlighter-rouge&quot;&gt;Coroutine&lt;/code&gt;：提供了不同于线程的另一种方式，它首先是串行化的。其次，在串行化的过程中，协程允许用户显式释放控制权，将控制权转移另一个过程。释放控制权之后，原过程的状态得以保留，直到控制权恢复的时候，可以继续执行下去。所以协程的控制权转移也称为“挂起”和“唤醒”。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;并发&lt;code class=&quot;highlighter-rouge&quot;&gt;concurrency&lt;/code&gt;：并发是指二个和多个事件在同一时间间隔内发生。并发是在逻辑层面上的同时工作。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;并行&lt;code class=&quot;highlighter-rouge&quot;&gt;parallelism&lt;/code&gt;：并行是指二个或多个事件在同一时刻发生。并行是在物理层面上的同时工作。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;同步&lt;code class=&quot;highlighter-rouge&quot;&gt;synchronous&lt;/code&gt;:在发出一个功能调用时，在没有得到结果之前，该调用就不返回。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;异步&lt;code class=&quot;highlighter-rouge&quot;&gt;asynchronous&lt;/code&gt;：异步的概念和同步相对。当一个异步过程调用发出后，调用者不能立刻得到结果。实际处理这个调用的部件在完成后，通过状态、通知和回调来通知调用者。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;阻塞：阻塞调用是指调用结果返回之前，当前线程会被挂起。函数只有在得到结果之后才会返回。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;非阻塞：非阻塞和阻塞的概念相对应，指在不能立刻得到结果之前，该函数不会阻塞当前线程，而会立刻返回。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;同步IO和异步IO的区别就在于：数据拷贝的时候进程是否阻塞。
-
-阻塞IO和非阻塞IO的区别就在于：应用程序的调用是否立即返回。
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-</description>
-        <pubDate>Sat, 15 Jul 2017 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2017/07/Common-Terms/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/07/Common-Terms/</guid>
-        
-        <category>基础</category>
         
         
       </item>

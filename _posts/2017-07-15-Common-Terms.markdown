@@ -6,9 +6,13 @@ tag: 基础
 ---
 
 - PV = page view
+
 - TPS = transactions per second
+
 - QPS = queries per second
+
 - RPS = requests per second 
+
 - RDS 关系型数据库服务(Relational Database Service)
 
 - 进程`process`：进程是具有一定独立功能的程序关于某个数据集合上的一次运行活动，进程是系统进行资源分配和调度的一个独立单位。
