@@ -20,7 +20,7 @@ tag: 生命不息，折腾不止
 ### 博朗9系
 <a id="Braun9"></a>
 上大学攒钱买过博朗的5系，非常喜欢（除了声音有点大）。现在用的是博朗9系9290cc，作为每天都要使用的东西，也只能割肉了。相比于5系，声音更小，更方便清洗，刮的感觉对皮肤的伤害也降低了，大爱的一款产品。
-<img src="/images/posts/life_goods/9290cc01.jpg" height="70%" width="70%">
+<img src="/images/posts/life_goods/9290cc01.JPG" height="70%" width="70%">
 <img src="/images/posts/life_goods/9290cc02.jpg" height="70%" width="70%">
 <img src="/images/posts/life_goods/9290cc03.jpg" height="70%" width="70%">
 
