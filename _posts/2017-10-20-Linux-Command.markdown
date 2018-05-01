@@ -9,6 +9,7 @@ tag: Linux
  * [ls](#ls)
  * [ps](#ps)
  * [awk](#awk)
+ * [ack](#ack)
  * [find](#find)
  * [grep](#grep)
 
@@ -69,36 +70,69 @@ u  user用户名
 awk是一个文本分析工具
 
 ```
+awk 基本语法是 awk [-F  field-separator]  'commands'  input-file(s)
+其中 command 是实际的命令，[-F 分隔符]是可选项，input-file(s) 是待处理文件。
+awk 分析文件的时候，文件的每一行被分隔符分开的每一项称为一个域，默认分隔符是空格。
 
+其中的$1..$n表示第几个行（域）。注：$0表示整个行（所有域）
+
+awk '{print $1, $4}' test.txt
+显示 test.txt 文件里第一列和第四列的所有数据
+
+awk '$1=="apple" && $2=="music"' name1.txt
+输出第一列是 apple，第二列是 music 的行（这种表现形式类似于 if 语句）
+
+awk '$1=="apple" {print $2}' name1.txt
+输出第一列是 apple 的第二列所有数据
 ```
+
+### ack
+<a id="ack"></a>
+
+ack 是一个搜索工具，于 grep 类似，作者的主要目的就是为了取代 grep
+```
+ubuntu 通过 `sudo apt-get install ack` 进行安装
+
+ack 默认搜索当前目录
+ack keyword
+ack -l keyword 只显示文件名
+ack -i keyword 忽略大小写
+ack -w keyword 强制要求 PATTERN 匹配整个单词
+
+ack -f filename 查找全匹配文件
+ack -g filename 查找正则匹配文件
+ack-grep --line=1 输出所有文件第二行
+ack-grep -l 'test' 包含的文件名
+ack-grep -L 'test' 非包含文件名
+```
+
 ### find
 <a id="find"></a>
 
 ```
--mtime  n : n为数字，意思为在n天之前的“一天内”被更改过的文件  
--mtime +n : 列出在n天之前（不含n天本身）被更改过的文件名
--mtime -n : 列出在n天之内（含n天本身）被更改过的文件名
--newer file : 列出比file还要新的文件名
-「例如」  
-find /root -mtime 0 # 在当前目录下查找今天之内有改动的文件
-    
--user name : 列出文件所有者为name的文件  
--group name : 列出文件所属用户组为name的文件  
--uid n : 列出文件所有者为用户ID为n的文件  
--gid n : 列出文件所属用户组为用户组ID为n的文件  
-「例如」  
-find /home/test -user test# 在目录/home/test中找出所有者为test的文件  
-   
--name filename ：找出文件名为filename的文件  
--size [+-]SIZE ：找出比SIZE还要大（+）或小（-）的文件  
--type TYPE ：查找文件的类型为TYPE的文件，TYPE的值主要有：一般文件（f)、设备文件（b、c）、
-目录（d）、连接文件（l）、socket（s）、FIFO管道文件（p）
--perm  mode ：查找文件权限刚好等于mode的文件，mode用数字表示，如0755
--perm -mode ：查找文件权限必须要全部包括mode权限的文件，mode用数字表示  
--perm +mode ：查找文件权限包含任一mode的权限的文件，mode用数字表示  
+-mtime n n为数字，意思为在n天之前的“一天内”被更改过的文件
+-mtime +n 列出在n天之前（不含n天本身）被更改过的文件名
+-mtime -n 列出在n天之内（含n天本身）被更改过的文件名
+-newer file 列出比file还要新的文件名
 「例如」
-find / -name passwd `查找文件名为passwd的文件`  
-find . -perm 0755 `查找当前目录中文件权限的0755的文件`  
+find /root -mtime 0 # 在当前目录下查找今天之内有改动的文件
+-user name 列出文件所有者为name的文件
+-group name 列出文件所属用户组为name的文件
+-uid n 列出文件所有者为用户ID为n的文件
+-gid n 列出文件所属用户组为用户组ID为n的文件
+
+「例如」
+find /home/test -user test# 在目录/home/test中找出所有者为test的文件 
+-name filename 找出文件名为filename的文件
+-size [+-]SIZE 找出比SIZE还要大（+）或小（-）的文件
+目录（d）、连接文件（l）、socket（s）、FIFO管道文件（p）
+-perm mode 查找文件权限刚好等于mode的文件，mode用数字表示，如0755
+-perm -mode 查找文件权限必须要全部包括mode权限的文件，mode用数字表示
+-perm +mode ：查找文件权限包含任一mode的权限的文件，mode用数字表示
+
+「例如」
+find / -name passwd `查找文件名为passwd的文件`
+find . -perm 0755 `查找当前目录中文件权限的0755的文件`
 find . -size +12k `查找当前目录中大于12KB的文件，注意c表示byte`
 ```
 
@@ -108,7 +142,16 @@ find . -size +12k `查找当前目录中大于12KB的文件，注意c表示byte`
 - 一种强大的文本搜索工具，可使用正则表达式搜索文本
 
 ```
-todo
+cat name.txt | grep -f name1.txt 从 name1.txt 读取内容，在 name.txt 中进行匹配
+cat name.txt | grep -nf name1.txt 从 name1.txt 读取内容，在 name.txt 中进行匹配，得出的结果中显示行号。
+ps -ef | grep mysql 查找指定的进程
+ps -ef | grep mysql -c 制定进程的个数
+grep 'apple' name.txt 在文件中搜索关键字
+grep 'apple' name1.txt name.txt 多个文件中搜索关键字
+cat name.txt | grep ^a 找出文件中 a 开头的行
+cat name.txt | grep ^[^a] 找出文件中不是 a 开头的行
+cat name.txt | grep app& 找出以 app 开头的行内容
+cat name.txt | grep -E ‘pl|pp’ 找出包含 pl 或 pp 的内容行
 ```
 
 ### crontab
@@ -117,7 +160,54 @@ todo
 - 定时运行任务的工具
 
 ```
-todo
+crontab [-u user] file
+crontab [ -u user ] [ -i ] { -e | -l | -r }
+
+• -u user：用于设定某个用户的crontab服务；
+• file: file为命令文件名，表示将file作为crontab的任务列表文件并载入crontab
+• -e：编辑某个用户的crontab文件内容，如不指定用户则表示当前用户
+• -l：显示某个用户的crontab文件内容，如不指定用户则表示当前用户
+• -r：从/var/spool/cron目录中删除某个用户的crontab文件
+• -i：在删除用户的crontab文件时给确认提示
+
+每一分钟执行一次command（因cron默认每1分钟扫描一次，因此全为*即可）
+*    *    *    *    *    command
+
+每小时的第3和第15分钟执行command
+3,15    *    *    *    *    command
+
+每天上午8-11点的第3和15分钟执行command
+3,15    8-11    *    *    *    command
+
+每隔2天的上午8-11点的第3和15分钟执行command
+3,15    8-11    */2    *     *    command
+
+每个星期一的上午8点到11点的第3和第15分钟执行command
+3,15    8-11    *    *    1 command
+
+每晚的21:30执行command
+30    21    *    *    *    command
+
+每月1、10、22日的4 : 45执行command
+45    4    1,10,22    *    *    command
+
+每周六、周日的1 : 10执行command
+10    1    *    *    6,0    command
+
+每天18 : 00至23 : 00之间每隔30分钟执行command
+0,30    18-23    *    *    *    command
+
+每一小时执行command
+*    */1    *    *    *    command
+
+晚上11点到早上7点之间，每隔一小时执行command
+*    23-7/1    *    *    *    command
+
+每月的4号与每周一到周三的11点执行command
+0    11    4    *    mon-wed    command
+
+每小时执行/etc/cron.hourly目录内的脚本
+0    1    *    *    *    root run-parts /etc/cron.hourly
 ```
 
 ### cp
@@ -126,11 +216,11 @@ todo
 - 复制文件
 
 ```
--a ：将文件的特性一起复制
--p ：连同文件的属性一起复制，而非使用默认方式，与-a相似，常用于备份
--i ：若目标文件已经存在时，在覆盖时会先询问操作的进行
--r ：递归持续复制，用于目录的复制行为
--u ：目标文件与源文件有差异时才会复制
+-a 将文件的特性一起复制
+-p 连同文件的属性一起复制，而非使用默认方式，与-a相似，常用于备份
+-i 若目标文件已经存在时，在覆盖时会先询问操作的进行
+-r 递归持续复制，用于目录的复制行为
+-u 目标文件与源文件有差异时才会复制
 「例如」
 cp -a file1 file2 `连同文件的所有特性把文件file1复制成文件file2`  
 cp file1 file2 file3 dir `把文件file1、file2、file3复制到目录dir中` 
@@ -142,9 +232,9 @@ cp file1 file2 file3 dir `把文件file1、file2、file3复制到目录dir中`
 - 移动文件、文件夹或更改名字
 
 ```
--f ：force强制的意思，如果目标文件已经存在，不会询问而直接覆盖
--i ：若目标文件已经存在，就会询问是否覆盖
--u ：若目标文件已经存在，且比目标文件新，才会更新
+-f force强制的意思，如果目标文件已经存在，不会询问而直接覆盖
+-i 若目标文件已经存在，就会询问是否覆盖
+-u 若目标文件已经存在，且比目标文件新，才会更新
 mv file1 file2 file3 dir `把文件file1、file2、file3移动到目录dir中`
 mv file1 file2 `把文件file1重命名为file2`  
 ```
@@ -156,9 +246,9 @@ mv file1 file2 `把文件file1重命名为file2`
 - 删除文件或文件夹
 
 ```
--f ：就是force的意思，忽略不存在的文件，不会出现警告消息  
--i ：互动模式，在删除前会询问用户是否操作  
--r ：递归删除，最常用于目录删除，它是一个非常危险的参数
+-f 就是force的意思，忽略不存在的文件，不会出现警告消息  
+-i 互动模式，在删除前会询问用户是否操作  
+-r 递归删除，最常用于目录删除，它是一个非常危险的参数
 rm -i file `删除文件file，在删除之前会询问是否进行该操作`
 rm -fr dir `强制删除目录dir中的所有文件`
 ```
@@ -169,25 +259,35 @@ rm -fr dir `强制删除目录dir中的所有文件`
 - 该命令用于对文件进行打包，默认情况并不会压缩，如果指定了相应的参数，它还会调用相应的压缩程序（如gzip和bzip等）进行压缩和解压。
 
 ```
--c ：新建打包文件  
--t ：查看打包文件的内容含有哪些文件名  
--x ：解打包或解压缩的功能，可以搭配-C（大写）指定解压的目录，注意-c,-t,-x不能同时出现在同一条命令中  
--j ：通过bzip2的支持进行压缩/解压缩  
--z ：通过gzip的支持进行压缩/解压缩  
--v ：在压缩/解压缩过程中，将正在处理的文件名显示出来  
--f filename ：filename为要处理的文件  
--C dir ：指定压缩/解压缩的目录dir
+-c 新建打包文件
+-t 查看打包文件的内容含有哪些文件名
+-x 解打包或解压缩的功能，可以搭配-C（大写）指定解压的目录，注意-c,-t,-x不能同时出现在同一条命令中
+-j 通过bzip2的支持进行压缩/解压缩
+-z 通过gzip的支持进行压缩/解压缩
+-v 在压缩/解压缩过程中，将正在处理的文件名显示出来
+-f filename filename为要处理的文件
+-C dir 指定压缩/解压缩的目录dir
 『例子』
-压缩：tar -jcv -f filename.tar.bz2 压缩的目录  
-查询：tar -jtv -f filename.tar.bz2  
-解压：tar -jxv -f filename.tar.bz2 -C 解压到的目录  
+压缩 tar -jcv -f filename.tar.bz2 压缩的目录
+查询 tar -jtv -f filename.tar.bz2
+解压 tar -jxv -f filename.tar.bz2 -C 解压到的目录
 ```
 
 ### zip, unzip
 <a id="zip,unzip"></a>
 
 ```
-todo
+zip new my1*.txt 将my1开头的文件名，txt格式的文件压缩成new.zip，压缩到当前目录下
+zip -d new.zip my18.txt 总 new.zip 中把 my18.txt 删除
+zip -g new.zip test.txt 将 test.txt 添加到 new.zip 中去。
+zip -u new.zip test*.txt 如果 test 开头的文件中又的文件被更改过，那么这个命令会自动将修改的文件重新打包进 new.zip 中
+zip -r yasuo.zip abc.html dir1 将 dir1 目录与abc.html 压缩到 yasuo.zip 中
+zip -qr test.zip /data/wms/wms_sync 该目录下的所有文件和文件夹打包成test.zip q为安静模式，不显示压缩过程
+unzip -d /data test.zip 将 test.zip 解压到 /data 的目录下
+unzip -n test.zip 解压出来的文件不覆盖已存在的文件
+unzip -l test.zip 查看 test.zip 里面包含的文件，并不进行解压。
+unzip -v test.zip 检查压缩文件是否损坏
+zip -o test.zip -d /data 将 test.zip 中解压到/data目录下
 ```
 
 ### cat
