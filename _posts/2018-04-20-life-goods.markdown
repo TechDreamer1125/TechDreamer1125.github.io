@@ -20,36 +20,36 @@ tag: 生命不息，折腾不止
 ### 博朗9系
 <a id="Braun9"></a>
 上大学攒钱买过博朗的5系，非常喜欢（除了声音有点大）。现在用的是博朗9系9290cc，作为每天都要使用的东西，也只能割肉了。相比于5系，声音更小，更方便清洗，刮的感觉对皮肤的伤害也降低了，大爱的一款产品。
-<img src="/images/posts/life_goods/9290cc01.JPG" height="70%" width="70%">
-<img src="/images/posts/life_goods/9290cc02.jpg" height="70%" width="70%">
-<img src="/images/posts/life_goods/9290cc03.jpg" height="70%" width="70%">
+<img src="/images/posts/life_goods/9290cc01.jpg" height="800px" width="800px">
+<img src="/images/posts/life_goods/9290cc02.jpg" height="800px" width="800px">
+<img src="/images/posts/life_goods/9290cc03.jpg" height="800px" width="800px">
 
 ### 博朗手表
 <a id="BraunWatch"></a>
 大学一直惦记的一款产品，工作后终于可以剁手。博朗一直是我比较喜欢的牌子，他的设计语言一直是我的菜。BN0032非常符合博朗简约设计的原则，钢制的表带也更显沉稳。只可惜日期的显示比较鸡肋。
-<img src="/images/posts/life_goods/babunwatch01.jpg" height="70%" width="70%">
+<img src="/images/posts/life_goods/babunwatch01.jpg" height="800px" width="800px">
 
 ### ZUMY 书挡
 <a id="zumy"></a>
 纯手工制作的书挡，相当厚实，无论是质感，重量还是设计都对得起它的价位。
-<img src="/images/posts/life_goods/zumy01.jpg" height="70%" width="70%">
-<img src="/images/posts/life_goods/zumy02.jpg" height="70%" width="70%">
-<img src="/images/posts/life_goods/zumy03.jpg" height="70%" width="70%">
+<img src="/images/posts/life_goods/zumy01.jpg" height="800px" width="800px">
+<img src="/images/posts/life_goods/zumy02.jpg" height="800px" width="800px">
+<img src="/images/posts/life_goods/zumy03.jpg" height="800px" width="800px">
 
 
 ### Herman Miller 第一代
 <a id="HermanMiller"></a>
 大学就开始关注的办公椅了，作为日常工作相处最久的用品之一，也是打算一次性选到位。当时无意中发现了 NBA 球员做的椅子一下子就种草了，最后没想到是个这么大的牌子。这次我买的是二手的Y背靠一代的产品，价位是我勉强能接受的地步。虽然是二手但是成色基本上95新，非常满意。以后有钱了换二代。
-<img src="/images/posts/life_goods/hermanmiller01.jpg" height="70%" width="70%">
-<img src="/images/posts/life_goods/hermanmiller02.jpg" height="70%" width="70%">
+<img src="/images/posts/life_goods/hermanmiller01.jpg" height="800px" width="800px">
+<img src="/images/posts/life_goods/hermanmiller02.jpg" height="800px" width="800px">
 
 ### Nintendo Switch
 <a id="NintendoSwitch"></a>
 作为任天堂的鼎力之作，掌机和家用主机的两种玩法在刚一上市就备受瞩目，我自然也是没忍住在18年入了坑。这款产品对我来说最大的吐槽点就是不是全贴合屏幕，虽然并不影响使用体验，但是拥有一点小洁癖的我还是很不爽（虽然买之前已经知道了，但是还是没忍住剁手）。游戏的体验上老任也从来没让人失望，马车8、塞尔达荒野之息、奥德赛都有很好的体验感觉。
-<img src="/images/posts/life_goods/switch01.jpg" height="70%" width="70%">
-<img src="/images/posts/life_goods/switch02.jpg" height="70%" width="70%">
-<img src="/images/posts/life_goods/switch03.jpg" height="70%" width="70%">
-<img src="/images/posts/life_goods/switch04.jpg" height="70%" width="70%">
+<img src="/images/posts/life_goods/switch01.jpg" height="800px" width="800px">
+<img src="/images/posts/life_goods/switch02.jpg" height="800px" width="800px">
+<img src="/images/posts/life_goods/switch03.jpg" height="800px" width="800px">
+<img src="/images/posts/life_goods/switch04.jpg" height="800px" width="800px">
 
 ### Switch Pro 手柄
 <a id="SwitchPro"></a>
