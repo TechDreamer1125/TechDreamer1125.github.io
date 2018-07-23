@@ -143,8 +143,9 @@ mysql> FLUSH PRIVILEGES;
 
 --- 
 
-「参考文档」 
-> [Creating SSL Certificates and Keys Using openssl](https://dev.mysql.com/doc/refman/5.6/en/creating-ssl-files-using-openssl.html#creating-ssl-files-using-openssl-unix-command-line)<br/>
-> [Configuring MySQL to Use Encrypted Connections](https://dev.mysql.com/doc/refman/5.6/en/using-secure-connections.html)
+「参考文档」
+
+[Creating SSL Certificates and Keys Using openssl](https://dev.mysql.com/doc/refman/5.6/en/creating-ssl-files-using-openssl.html#creating-ssl-files-using-openssl-unix-command-line)<br/>
+[Configuring MySQL to Use Encrypted Connections](https://dev.mysql.com/doc/refman/5.6/en/using-secure-connections.html)
 
 
