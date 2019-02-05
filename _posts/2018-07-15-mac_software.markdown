@@ -20,6 +20,8 @@ tag: 系统使用
 - [openEmu](https://openemu.org/) 游戏模拟器
 - [CyberDuck](https://cyberduck.io/) FTP 工具，支持 windows 平台
 - [BetterZip](https://macitbetter.com/) 解压工具
+- [Macs Fan Control](https://www.crystalidea.com/macs-fan-control) Mac 上的风扇控制工具
+- [MonitorControl](https://github.com/the0neyouseek/MonitorControl) Mac 上的屏幕亮度控制工具（可以控制多显示器）
 
 ### 效率篇
 - [Alfred](https://www.alfredapp.com/) 搜索工具，支持很多自定义操作，插件丰富

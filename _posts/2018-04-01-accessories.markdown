@@ -12,6 +12,7 @@ tag: 生命不息，折腾不止
  * [HHKB Type s](#hhkb)
  * [LG Ultrafine 21.5 4K](#lgultrafine21.5)
  * [Apple Pencil](#applepencil)
+ * [Apple Pencil 2](#applepencil2)
  * [Apple TrackPad](#TrackPad)
  * [Maigc Keyboard](#magickeyboard)
  * [Magic Mouse](#magicmouse)
@@ -67,6 +68,10 @@ tag: 生命不息，折腾不止
 <div style="float:left;border:solid 1px 000;margin:2px;"><img src="/images/posts/accessories/applepencil1.JPG" width="550px"></div>
 <div style="float:left;border:solid 1px 000;margin:2px;"><img src="/images/posts/accessories/applepencil2.JPG" width="550px"></div>
 <div style="clear:both;"></div>
+
+### Apple Pencil 2
+<a id="applepencil2"></a>
+跟2018的 ipad pro 11 一起买的，这次笔更改了充电与放置的方式，材质也有了改变，同时支持刻字。我对刻字还是无法抗拒呀。这次刻了「不以物喜，不以己悲」
 
 ### iPad Smart Keyboard
 <a id="smartkeyboard"></a>
