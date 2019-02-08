@@ -187,7 +187,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/posts/MySQL5.7-install/image01.png&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/MySQL5.7-install/image01.png&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -204,7 +204,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/posts/MySQL5.7-install/image02.png&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/MySQL5.7-install/image02.png&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;MySQL有对依赖libaio 库。如果此库未在本地安装Data目录的初始化和后续服务器启动的步骤将失败。
@@ -215,13 +215,13 @@ apt-get install libaio1&lt;/p&gt;
   &lt;li&gt;再次初始化&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/posts/MySQL5.7-install/image03.png&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/MySQL5.7-install/image03.png&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;bin/mysql_ssl_rsa_setup --datadir=/usr/local/mysql/data&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/posts/MySQL5.7-install/image04.png&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/MySQL5.7-install/image04.png&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;编辑配置文件 &lt;code class=&quot;highlighter-rouge&quot;&gt;vim /etc/my.cnf&lt;/code&gt;&lt;/li&gt;
@@ -241,7 +241,7 @@ log_timestamps=SYSTEM
   &lt;li&gt;启动 MySQL &lt;code class=&quot;highlighter-rouge&quot;&gt;bin/mysqld_safe –user=mysql &amp;amp;&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/posts/MySQL5.7-install/image05.png&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/MySQL5.7-install/image05.png&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;

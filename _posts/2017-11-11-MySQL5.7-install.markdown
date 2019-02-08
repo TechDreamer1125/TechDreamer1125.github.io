@@ -13,7 +13,7 @@ tag: MySQL
 
 - 解压文件并建立软连接 `sudo tar -zxvf mysql-5.7.20-linux-glibc2.12-x86_64.tar.gz` `sudo ln -s mysql-5.7.20 mysql` 
 
-<img src="/images/posts/MySQL5.7-install/image01.png" height="70%" width="70%"> 
+<img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/MySQL5.7-install/image01.png" height="70%" width="70%"> 
 
 - 建立用户组 `groupadd mysql`
 
@@ -23,18 +23,18 @@ tag: MySQL
 
 - 初始化 `bin/mysqld --initialize --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data`
 
-<img src="/images/posts/MySQL5.7-install/image02.png" height="70%" width="70%"> 
+<img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/MySQL5.7-install/image02.png" height="70%" width="70%"> 
 
 > MySQL有对依赖libaio 库。如果此库未在本地安装Data目录的初始化和后续服务器启动的步骤将失败。
 apt-get install libaio1
 
 - 再次初始化
 
-<img src="/images/posts/MySQL5.7-install/image03.png" height="70%" width="70%"> 
+<img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/MySQL5.7-install/image03.png" height="70%" width="70%"> 
 
 - `bin/mysql_ssl_rsa_setup --datadir=/usr/local/mysql/data`
 
-<img src="/images/posts/MySQL5.7-install/image04.png" height="70%" width="70%"> 
+<img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/MySQL5.7-install/image04.png" height="70%" width="70%"> 
 
 - 编辑配置文件 `vim /etc/my.cnf`
 
@@ -50,7 +50,7 @@ log_timestamps=SYSTEM
 
 - 启动 MySQL `bin/mysqld_safe –user=mysql &`
 
-<img src="/images/posts/MySQL5.7-install/image05.png" height="70%" width="70%">
+<img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/MySQL5.7-install/image05.png" height="70%" width="70%">
 
 - 要求修改密码 `set password=password('这里是你的密码');`
 
