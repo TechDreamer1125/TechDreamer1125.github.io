@@ -1,11 +1,9 @@
 ---
 layout: post
-title: 《五分钟商学院》
+title: 《五分钟商学院》 -- 刘润
 date: 2018-08-01
 tag: 读书心得
 ---
-
-### 五分钟商学院 -- 刘润
 
 * [商业篇](#business)
 * [管理篇](#manage)
