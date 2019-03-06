@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Linux 命令
+title: Linux 常用操作
 date: 2017-10-20
 tag: Linux
 ---
@@ -12,6 +12,7 @@ tag: Linux
  * [ack](#ack)
  * [find](#find)
  * [grep](#grep)
+ * [硬盘相关](#hardware)
 
 操作命令
  * [cp](#copy)
@@ -21,10 +22,13 @@ tag: Linux
  * [zip,unzip](#zip,unzip)
  * [cat](#cat)
  * [kill](#kill)
+ * [chmod](#chmod)
+ * [硬盘挂载](#mount)
 
-其他命令
+其他
  * [crontab](#crontab)
  * [内链接，外链接](#内链接，外链接)
+ * 
 
 ### ls
 <a id="ls"></a>
@@ -152,6 +156,51 @@ cat name.txt | grep ^a 找出文件中 a 开头的行
 cat name.txt | grep ^[^a] 找出文件中不是 a 开头的行
 cat name.txt | grep app& 找出以 app 开头的行内容
 cat name.txt | grep -E ‘pl|pp’ 找出包含 pl 或 pp 的内容行
+```
+
+### 硬盘相关
+<a id="hardware"></a>
+
+- df -h
+
+```
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/vda1        40G  8.0G   30G  22% /
+devtmpfs        3.9G     0  3.9G   0% /dev
+tmpfs           3.9G     0  3.9G   0% /dev/shm
+tmpfs           3.9G  409M  3.5G  11% /run
+tmpfs           3.9G     0  3.9G   0% /sys/fs/cgroup
+/dev/vdb        296G   47G  234G  17% /data
+tmpfs           783M     0  783M   0% /run/user/0
+tmpfs           783M     0  783M   0% /run/user/1003
+```
+
+- fdisk -l 获得机器中所有的硬盘的分区
+
+```
+Disk /dev/vda: 53.7 GB, 53687091200 bytes, 104857600 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk label type: dos
+Disk identifier: 0x000c5e30
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/vda1   *        2048   104857599    52427776   83  Linux
+
+Disk /dev/vdb: 536.9 GB, 536870912000 bytes, 1048576000 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+```
+
+- du -h –max-depth=1 查找占空间最大的文件与目录，深度为1
+
+```
+16K     ./lost+found
+108K    ./htdocs
+2.0G    ./bin
+2.0G    .
 ```
 
 ### crontab
@@ -316,6 +365,43 @@ kill -signal PID 「常用方法」
 `以正常的结束进程方式来终止第一个后台工作，可用jobs命令查看后台中的第一个工作进程`
 kill -SIGTERM %1
 ```
+
+### chmod
+<a id="chmod"></a>
+chmod 用来更改权限，涉及到所有者（user），组群（group），其他人（other），基础命令格式为 `chmod [who] [+ | - | =] [mode] 文件名`
+
+- who
+  - u 表示`用户（user）`
+  - g 表示`同组（group）用户`
+  - o 表示`其他（others）用户`
+  - a 表示`所有（all）用户`
+
+- [+ | - | =]
+  - `+` 添加某个权限。
+  - `-` 取消某个权限
+  - `=` 赋予给定权限并取消其他所有权限
+
+- mode
+  - r 可读，可用数字4代替
+  - w 可写，可用数字2代替
+  - x 可执行，可用数字1代替
+
+#### 示例：
+  
+`chmod u+r test.sh` 针对 test.sh 增加user的读权限
+
+`chmod ug=rwx,o=x test.sh` = `chmod 771 test.sh`
+
+`chmod a=rwx test.sh` = `chmod 777 test.sh`
+
+### 硬盘挂载
+<a id="mount"></a>
+
+- 格式化硬盘 `mkfs.ext4 /dev/vdb`，/dev/vdb 为硬盘路径
+- 挂在硬盘到 /data 路径下 `mount /dev/vdb /data`
+- 设置开机自动挂载 
+  - 编辑 `/etc/fstab` 文件
+  - 在文件最后一行添加 `/dev/vdb /data ext4 defaults,noatime 0 0`
 
 ### 参考
 [初窥Linux 之 我最常用的20条命令][1]
