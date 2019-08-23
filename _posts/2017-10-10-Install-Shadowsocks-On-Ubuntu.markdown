@@ -2,7 +2,7 @@
 layout: post
 title: 在ubuntu上安装配置 shadowsocks
 date: 2017-10-10
-tag: 安装教程
+tag: 教程
 ---
 
 ### 在ubuntu上安装配置 shadowsocks
@@ -18,7 +18,7 @@ pip install shadowsocks
 
 ```
 {
-    "server": "xxx", //服务器的ip地址
+    "server": "xxx", //服务器的ip地址 0.0.0.0 可以成为通用配置 ip，表示本机的所有 ip 均可连接
     "port_password": { //设置不同的端口和密码
         "520": "xxx",
         "9184": "xxx"
@@ -43,4 +43,8 @@ sudo ssserver -c /etc/shadowsocks.json -d stop
 
 - 保持后台运行 shaodowsocks 的命令失败，因为 shadowsocks 的版本小于2.6，2.6版本以后才有 -d 的命令
 - 如果运行 shadowsocks 后，访问外网还是访问不上，那么通过 `sudo ssserver -c /etc/shadowsocks.json start`（该不是后台运行，通过这种方式运行后服务器不能进行其它操作，但是可以收集到访问网站的信息），再访问外网，然后查看收集到的信息，通过错误信息再分析问题。
+
+
+### 中途可能遇到的问题
+
 

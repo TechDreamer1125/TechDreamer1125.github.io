@@ -2,7 +2,7 @@
 layout: post
 title: 常用软件安装（均在 Ubuntu 上安装)
 date: 2017-07-17
-tag: 安装教程
+tag: 教程
 ---
 * [rz与sz](#RzAndSz)
 * [crontab](#crontab)
@@ -13,7 +13,7 @@ tag: 安装教程
 
 - rz 和 sz 是将本地的文件上传到服务器或者从服务器上下载文件到本地的命令。
 
-#### Ubuntu上命令安装
+### Ubuntu上命令安装
 > 下载并安装
 
 ```

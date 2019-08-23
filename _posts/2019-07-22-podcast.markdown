@@ -1,0 +1,14 @@
+---
+layout: post
+title: 播客推荐
+date: 2019-07-22
+tag: 生命不息，折腾不止
+---
+
+- [内核恐慌](https://kernelpanic.fm/) 两个程序员聊聊科技与程序相关的知识
+- [疯投圈](https://crazy.capital/) 从商业角度带你看市场
+- [blow your mind](https://www.ximalaya.com/qinggan/6990384/) 心理咨询创业的夫妻俩的闲聊，方向比较广
+- [得意忘形](https://www.ximalaya.com/yule/6688726/) 张潇雨老师的播客，每一期都很硬核，都是对人生的思考
+- [一天世界](http://www.yitianshijie.net/) 不鸟万如一的播客
+- [津津乐道](https://jinjinledao.org)
+

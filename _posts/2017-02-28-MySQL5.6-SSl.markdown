@@ -1,18 +1,18 @@
 ---
 layout: post
-title: MySQL 5.6使用SSL连接
+title: MySQL 5.6使用 SSL 连接
 date: 2017-02-28
 tag: MySQL
 ---
 
 > 与5.7使用 `mysql_ssl_rsa_setup` 自动生成秘匙不同，5.6需要通过openssl命令来生成秘匙
 
-##  创建一个certs文件用于放秘匙
+##  创建一个 certs 文件用于放秘匙
 
 我放在了`datadir`目录下
 `mkdir certs && cd certs`
 
-##  首先生成所需key
+##  首先生成所需 key
 ### CA
 「主要命令」
 
@@ -100,7 +100,8 @@ total 16
 
 `server-cert.pem` 和 `client-cert.pem` 提示Ok
 ```
-#### 配置my.cnf文件
+
+「配置my.cnf文件」
 
 > xxx 请改成该文件的全路径
 

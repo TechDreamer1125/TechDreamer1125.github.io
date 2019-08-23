@@ -16,6 +16,7 @@ tag: 生命不息，折腾不止
  * [GOPRO GRIP](#goprogrip)
  * [Sony MDR1000x](#MDR1000x)
  * [艾利和 100II](#100ii)
+ * [FUNKO POP](#funkopop)
 
 ### 博朗9系
 <a id="Braun9"></a>
@@ -101,4 +102,11 @@ GoPro 专用的稳定器。我是个只要做事就尽量专业的人，结果�
 <div style="float:left;border:solid 1px 000;margin:2px;"><img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/life_goods/100ii02.JPG" height="400px"></div>
 <div style="clear:both;"></div>
 
-
+### FUNKO POP
+<a id="funkopop"></a>
+小丑，蝙蝠侠，詹姆斯，贝吉塔
+<div style="float:left;border:solid 1px 000;margin:2px;"><img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/life_goods/clown.JPG" height="500px"></div>
+<div style="float:left;border:solid 1px 000;margin:2px;"><img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/life_goods/batman.JPG" height="500px"></div>
+<div style="float:left;border:solid 1px 000;margin:2px;"><img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/life_goods/james.JPG" height="500px"></div>
+<div style="float:left;border:solid 1px 000;margin:2px;"><img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/life_goods/vegeta.JPG" height="500px"></div>
+<div style="clear:both;"></div>

@@ -1,0 +1,86 @@
+---
+layout: post
+title: Tmux
+date: 2019-04-23
+tag: Linux
+---
+
+tmux 是一款终端复用软件，因可以分屏工作；关闭终端后可以恢复关闭前的工作状态；会话网络共享等特点成为 Linux 从业者的神器。会话网络共享对我的作用不大，前两者是我最常用的功能。尤其是其保持会话的功能，能够在回家后迅速恢复到与公司电脑一致的终端状态，窗口异常关闭或会话连接超时自动断开后也能找回丢失的窗口。
+
+- 概念
+
+tmux采用 `C/S` 模型构建，输入 tmux 命令就相当于开启了一个服务器，默认将新建一个 session，session 中默认新建一个 window，window 中默认新建一个 pane。三者的关系如下：
+一个 tmux session 可以包含多个 window，一个 window 又可以包含多个 pane。window 与 pane 都处于同一界面下。
+
+todo 图片
+
+- 操作命令
+
+|  命令  |  功能  |
+| :---: | :---: |
+|  tmux  |  新建一个无名称的会话  |
+|  tmux new -s demo  |  新建一个名称为demo的会话  |
+|  tmux detach  |  断开当前会话，会话在后台运行  |
+|  tmux a  |  默认进入第一个会话  |
+|  tmux a -t demo  |  进入到名称为demo的会话  |
+|  tmux kill-session -t demo  |  关闭demo会话  |
+|  tmux kill-server  |  关闭服务器，所有的会话都将关闭  |
+|  tmux ls  |  查看所有会话  |
+
+tmux 默认指令前缀为 `ctrl+b`，进入 tmux 后，先输入前缀，再输入命令就能实现相应的功能。
+下面的命令非全部，仅列出部分：
+|  前缀  |  命令  |  功能  |
+| :---: | :---: | :---: |
+|  ctrl+b  |  ?  |  展示快捷键帮助文档  |
+|  ctrl+b  |  d  |  断开当前会话  |
+|  ctrl+b  |  D  |  选择要断开的会话  |
+|  ctrl+b  |  s  |  显示会话列表用于选择并切换  |
+|  ctrl+b  |  c  |  新建窗口  |
+|  ctrl+b  |  &  |  关闭当前窗口（关闭前需输入y or n确认）  |
+|  ctrl+b  |  0~9  |  切换到指定窗口  |
+|  ctrl+b  |  p  |  切换到上一窗口  |
+|  ctrl+b  |  n  |  切换到下一窗口  |
+|  ctrl+b  |  w  |  打开窗口列表，用于且切换窗口  |
+|  ctrl+b  |  ,  |  重命名当前窗口  |
+|  ctrl+b  |  f  |  快速定位到窗口（输入关键字匹配窗口名称）  |
+|  ctrl+b  |  "  |  当前面板上下一分为二，下侧新建面板  |
+|  ctrl+b  |  %  |  当前面板左右一分为二，右侧新建面板  |
+|  ctrl+b  |  x  |  关闭当前面板（关闭前需输入y or n确认）  |
+|  ctrl+b  |  q  |  显示面板编号，在编号消失前输入对应的数字可切换到相应的面板  |
+|  ctrl+b  |  空格键  |  在自带的面板布局中循环切换  |
+|  ctrl+b  |  Alt+方向键  |  以5个单元格为单位调整当前面板边缘  |
+|  ctrl+b  |  t  |  显示时钟  |
+|  ctrl+b  |  z  |  最大化当前面板，再重复一次按键后恢复正常  |
+
+- 配置相关
+
+tmux的用户级配置文件为 `~/.tmux.conf`（没有的话就创建一个），以更改指令前缀为例
+```
+set -g prefix C-a #
+unbind C-b # C-b即Ctrl+b键，unbind意味着解除绑定
+bind C-a send-prefix # 绑定Ctrl+a为新的指令前缀
+
+# 从tmux v1.6版起，支持设置第二个指令前缀
+set-option -g prefix2 ` # 设置一个不常用的`键作为指令前缀，按键更快些
+```
+修改`~/.tmux.conf` 后，用`restart tmux`命令生效
+
+> 建议配置文件内容：
+```
+set -g prefix C-a #
+unbind C-b # C-b即Ctrl+b键，unbind意味着解除绑定
+bind C-a send-prefix # 绑定Ctrl+a为新的指令前缀
+
+# 从tmux v1.6版起，支持设置第二个指令前缀
+set-option -g prefix2 ` # 设置一个不常用的`键作为指令前缀，按键更快些
+
+set-option -g mouse on
+
+# 绑定hjkl键为面板切换的上下左右键
+bind -r k select-pane -U # 绑定k为↑
+bind -r j select-pane -D # 绑定j为↓
+bind -r h select-pane -L # 绑定h为←
+bind -r l select-pane -R # 绑定l为→
+```
+
+> 引用自 http://louiszhai.github.io/2017/09/30/tmux/#%E5%AF%BC%E8%AF%BB

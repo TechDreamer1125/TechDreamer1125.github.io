@@ -9,7 +9,7 @@ tag: MySQL
 - 安装方式：二进制安装
 - 安装版本：5.7.20
 
-- 首先进入到相应目录 `cd /usr/local` 下载二进制文件 `wget https://cdn.mysql.com//Downloads/MySQL-5.7/mysql-5.7.20-linux-glibc2.12-x86_64.tar.gz`，
+- 首先进入到相应目录 `cd /usr/local` 下载二进制文件 `wget https://dev.mysql.com//Downloads/MySQL-5.7/mysql-5.7.20-linux-glibc2.12-x86_64.tar.gz`，
 
 - 解压文件并建立软连接 `sudo tar -zxvf mysql-5.7.20-linux-glibc2.12-x86_64.tar.gz` `sudo ln -s mysql-5.7.20 mysql` 
 
