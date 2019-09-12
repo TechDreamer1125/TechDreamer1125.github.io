@@ -37,7 +37,7 @@ tag: Linux
 ### ls
 <a id="ls"></a>
 
-### 语法与示例
+#### 语法与示例
 - `ls -lS` 按大小降序排列
 - `ls -lr` 按文件名降序
 - `ls -lrt` 按时间降序
@@ -53,13 +53,14 @@ tag: Linux
 - `-h` 将文件容量以较易读的方式（GB，kB等）列出来  
 - `-R` 连同子目录的内容一起列出（递归列出），等于该目录下的所有文件都会显示出来 
 
+------
+
 ### ps
 <a id="ps"></a>
 
 ps 命令最常用的还是用于监控后台进程的工作情况，因为后台进程是不和屏幕键盘这些标准输入/输出设备进行通信的，所以如果需要检测其情况，便可以使用 ps 命令了。
 
-### 语法格式
-
+#### 语法格式
 直接使用 ps，会展示出 PID（进程ID）、TTY（终端名称）、TIME（进程执行时间）、CMD（该进程的命令行输入）四列数据。
 
 - `-e` 显示所有进程。
@@ -74,31 +75,34 @@ ps 命令最常用的还是用于监控后台进程的工作情况，因为后�
 
 比较常使用的是ps aux『查看系统所有的进程数据』 和 ps -ef
 
+------
+
 ### awk
 <a id="awk"></a>
 
 awk 是一个文本分析工具
 
-### 语法格式
+#### 语法格式
 awk 基本语法是 `awk [-F  field-separator]  'commands'  input-file(s)`
 其中 command 是实际的命令，`[-F 分隔符]`是可选项，`input-file(s)` 是待处理文件。
 awk 分析文件的时候，文件的每一行被分隔符分开的每一项称为一个域，默认分隔符是空格。
 其中的`$1..$n`表示第几个行（域）。注`$0`表示整个行（所有域）
 
-### 示例
+##### 示例
 - `awk '{print $1, $4}' test.txt` 显示 test.txt 文件里第一列和第四列的所有数据
 
 - `awk '$1=="apple" && $2=="music"' name1.txt` 输出第一列是 apple，第二列是 music 的行（这种表现形式类似于 if 语句）
 
 - `awk '$1=="apple" {print $2}' name1.txt` 输出第一列是 apple 的第二列所有数据
 
+------
 
 ### ack
 <a id="ack"></a>
 
 ack 是一个搜索工具，于 grep 类似，作者的主要目的就是为了取代 grep
 
-### 安装与语法示例
+#### 安装与语法示例
 - ubuntu 通过 `sudo apt-get install ack` 进行安装
 
 ack 默认搜索当前目录
@@ -111,11 +115,12 @@ ack 默认搜索当前目录
 - `ack-grep -l 'test'` 包含的文件名
 - `ack-grep -L 'test'` 非包含文件名
 
+------
 
 ### find
 <a id="find"></a>
 
-### 示例
+#### 示例
 - `-mtime n` n 为数字，意思为在 n 天之前的“一天内”被更改过的文件
 - `-mtime +n` 列出在 n 天之前（不含n天本身）被更改过的文件名
 - `-mtime -n` 列出在 n 天之内（含n天本身）被更改过的文件名
@@ -137,6 +142,7 @@ ack 默认搜索当前目录
 - `find . -perm 0755` 查找当前目录中文件权限的0755的文件
 - `find . -size +12k` 查找当前目录中大于12KB的文件，注意 c 表示 byte
 
+------
 
 ### grep
 <a id="grep"></a>
@@ -153,6 +159,8 @@ ack 默认搜索当前目录
 - `cat name.txt | grep ^[^a]` 找出文件中不是 a 开头的行
 - `cat name.txt | grep app&` 找出以 app 开头的行内容
 - `cat name.txt | grep -E ‘pl|pp’` 找出包含 pl 或 pp 的内容行
+
+------
 
 ### 硬盘相关
 <a id="hardware"></a>
@@ -199,14 +207,15 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 2.0G    .
 ```
 
+------
+
 ### crontab
 <a id="crontab"></a>
 
 定时运行任务的工具
 
-### 语法格式
-`crontab [-u user] file`
-- crontab [ -u user ] [ -i ] { -e | -l | -r }
+#### 语法格式
+`crontab [ -u user ] [ -i ] { -e | -l | -r } file`
 
 - -u user用于设定某个用户的 crontab 服务
 - file: file 为命令文件名，表示将 file 作为 crontab 的任务列表文件并载入crontab
@@ -215,34 +224,23 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 - -r 从 /var/spool/cron 目录中删除某个用户的 crontab 文件
 - -i 若目标文件已经存在删除用户的 crontab 文件时给确认提示
 
-### 示例
+#### 示例
 
 - `* * * * * command`每一分钟执行一次 command（因 cron 默认每1分钟扫描一次，因此全为*即可）
-
 - `3,15 * * * * command`每小时的第3和第15分钟执行 command
-
 - `3,15 8-11 * * * command`每天上午8-11点的第3和15分钟执行 command
-
 - `3,15 8-11 */2 * * command`每隔2天的上午8-11点的第3和15分钟执行 command
-
 - `3,15 8-11 * * 1 command`每个星期一的上午8点到11点的第3和第15分钟执行command
-
 - `30 21 * * * command` 每晚的21:30执行 command
-
 - `45 4 1,10,22 * * command`每月1、10、22日的4 : 45执行 command
-
 - `10 1 * * 6,0 command`每周六、周日的1 : 10执行 command
-
 - `0,30 18-23 * * * command`每天18 : 00至23 : 00之间每隔30分钟执行 command
-
 - `* */1 * * * command`每一小时执行 command
-
 - `* 23-7/1 * * * command`晚上11点到早上7点之间，每隔一小时执行 command
-
 - `0 11 4 * mon-wed command`每月的4号与每周一到周三的11点执行 command
-
 - `0 1 * * * root run-parts /etc/cron.hourly`每小时执行 /etc/cron.hourly 目录内的脚本
 
+------
 
 ### 软链接，硬链接
 <a id="软链接，硬链接"></a>
@@ -251,9 +249,12 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 
 软链接：软链接文件有类似于 Windows 的快捷方式。它实际上是一个特殊的文件，在符号连接中，文件实际上是一个文本文件，其中包含的有另一文件的位置信息。
 
-### 示例
+#### 示例
+
 - `ln f1 f2` 创建 f1 的一个硬链接文件 f2
 - `ln -s f1 f3` 创建 f1 的一个软链接文件 f3
+
+------
 
 ### 环境变量
 <a id="环境变量"></a>
@@ -276,6 +277,8 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
   - `export PATH=/usr/local/mysql/bin`
   - `source /etc/profile`「使新增环境变量立刻生效」
 
+------
+
 ### cp
 <a id="copy"></a>
 
@@ -287,9 +290,11 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 - -r 递归持续复制，用于目录的复制行为
 - -u 目标文件与源文件有差异时才会复制
 
-### 示例
+#### 示例
 `cp -a file1 file2` 连同文件的所有特性把文件file1复制成文件file2
 `cp file1 file2 file3 dir` 把文件file1、file2、file3复制到目录dir中
+
+------
 
 ### mv
 <a id="mv"></a>
@@ -304,6 +309,8 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 
 该命令可以把一个文件或多个文件一次移动一个文件夹中，但是最后一个目标文件一定要是`目录`
 
+------
+
 ### rm
 <a id="rm"></a>
 
@@ -315,10 +322,12 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 - `rm -i file` 删除文件file，在删除之前会询问是否进行该操作
 - `rm -fr dir` 强制删除目录dir中的所有文件
 
+------
+
 ### tar
 <a id="tar"></a>
 
-- 该命令用于对文件进行打包，默认情况并不会压缩，如果指定了相应的参数，它还会调用相应的压缩程序（如 gzip 和 bzip 等）进行压缩和解压。
+该命令用于对文件进行打包，默认情况并不会压缩，如果指定了相应的参数，它还会调用相应的压缩程序（如 gzip 和 bzip 等）进行压缩和解压。
 
 - -c 新建打包文件
 - -t 查看打包文件的内容含有哪些文件名
@@ -329,11 +338,13 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 - -f filename filename为要处理的文件
 - -C dir 指定压缩/解压缩的目录dir
 
-### 示例
+#### 示例
+
 压缩 `tar -jcv -f filename.tar.bz2` 压缩的目录
 查询 `tar -jtv -f filename.tar.bz2`
 解压 `tar -jxv -f filename.tar.bz2 -C` 解压到的目录
 
+------
 
 ### zip, unzip
 <a id="zip,unzip"></a>
@@ -350,25 +361,28 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 - `unzip -v test.zip` 检查压缩文件是否损坏
 - `zip -o test.zip -d /data` 将 test.zip 中解压到/data目录下
 
+------
+
 ### cat
 <a id="cat"></a>
 
 `cat text | less` 查看text文件中的内容，这条命令也可以使用less text来代替
 
+------
+
 ### kill
 <a id="kill"></a>
 
-- kill命令用来终止程序，一般通过kill进程号的形式终止。
+kill命令用来终止程序，一般通过kill进程号的形式终止。
 
-### kill -signal PID 「常用方法」
-「signal的常用参数」
-
+`kill -signal PID` 「signal的常用参数」:
 - 1SIGHUP，启动被终止的进程  
 - 2SIGINT，相当于输入ctrl+c，中断一个程序的进行  
 - 9SIGKILL，强制中断一个进程的进行  
 - 15SIGTERM，以正常的结束进程方式来终止进程  
 - 17SIGSTOP，相当于输入ctrl+z，暂停一个进程的进行
 
+------
 
 ### chmod
 <a id="chmod"></a>
@@ -390,30 +404,33 @@ chmod 用来更改权限，涉及到所有者（user），组群（group），�
   - w 可写，可用数字2代替
   - x 可执行，可用数字1代替
 
-### 示例
+#### 示例
   
 `chmod u+r test.sh` 针对 test.sh 增加user的读权限
-
 `chmod ug=rwx,o=x test.sh` = `chmod 771 test.sh`
-
 `chmod a=rwx test.sh` = `chmod 777 test.sh`
+
+------
 
 ### chown
 <a id="chown"></a>
 
 更改文件的拥有者，语法为 `chown user filename`
 
-### 示例
+#### 示例
 
 - `chown root test.md`
+
+------
 
 ### chgrp
 <a id="chgrp"></a>
 
 更改文件的权限组
-### 示例
-
+#### 示例
 - `chgrp mysqlgroup test.md` mysqlgroup 代表权限组
+
+------
 
 ### tail
 <a id="tail"></a>
@@ -426,11 +443,12 @@ chmod 用来更改权限，涉及到所有者（user），组群（group），�
 - -c<数目> 显示的字节数
 - -n<行数> 显示行数
 
-### 示例
+#### 示例
 
 - `tail -n 5 2019-05-20.log` 显示文件末尾五行的内容，如果 5 变成 -5，就展示文件前五行的内容
 - `tail -n +5 2019-05-20.log` 从第五行开始展示文件内容
 
+------
 
 ### 硬盘挂载
 <a id="mount"></a>
@@ -444,6 +462,8 @@ chmod 用来更改权限，涉及到所有者（user），组群（group），�
 硬盘挂在后，以前此路径的文件会找不到，但是没有消失，这时候需要解挂硬盘后即可恢复之前状态。
 
 - `umount /dev/vdb /data`
+
+------
 
 ### 参考
 [初窥Linux 之 我最常用的20条命令][1]
