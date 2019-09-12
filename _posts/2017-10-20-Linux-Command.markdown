@@ -36,6 +36,8 @@ tag: Linux
 
 ### ls
 <a id="ls"></a>
+输出当面目录
+
 #### 语法与示例
 - `ls -lS` 按大小降序排列
 - `ls -lr` 按文件名降序
@@ -113,6 +115,8 @@ ack 默认搜索当前目录
 
 ### find
 <a id="find"></a>
+查询语句
+
 #### 示例
 - `-mtime n` n 为数字，意思为在 n 天之前的“一天内”被更改过的文件
 - `-mtime +n` 列出在 n 天之前（不含n天本身）被更改过的文件名
@@ -154,6 +158,8 @@ ack 默认搜索当前目录
 
 ### 硬盘相关
 <a id="hardware"></a>
+简述查看磁盘的几种方式
+
 - df -h
 
 ```
@@ -212,7 +218,6 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 - -i 若目标文件已经存在删除用户的 crontab 文件时给确认提示
 
 #### 示例
-
 - `* * * * * command`每一分钟执行一次 command（因 cron 默认每1分钟扫描一次，因此全为*即可）
 - `3,15 * * * * command`每小时的第3和第15分钟执行 command
 - `3,15 8-11 * * * command`每天上午8-11点的第3和15分钟执行 command
@@ -236,7 +241,6 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 软链接：软链接文件有类似于 Windows 的快捷方式。它实际上是一个特殊的文件，在符号连接中，文件实际上是一个文本文件，其中包含的有另一文件的位置信息。
 
 #### 示例
-
 - `ln f1 f2` 创建 f1 的一个硬链接文件 f2
 - `ln -s f1 f3` 创建 f1 的一个软链接文件 f3
 
@@ -244,6 +248,8 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 
 ### 环境变量
 <a id="环境变量"></a>
+在操作系统中用来指定操作系统运行环境的一些参数，当要求系统运行一个程序而没有告诉它程序所在的完整路径时，系统除了在当前目录下面寻找此程序外，还会到环境变量的指定的路径去找。用户通过设置环境变量，来更好的运行进程。
+
 - env：env 命令用于列出所有的环境变量
 - echo `$PATH`：echo `$PATH` 用于列出变量 PATH 的值，里面包含了已添加的目录
 
@@ -328,6 +334,7 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 
 ### zip, unzip
 <a id="zip,unzip"></a>
+解压与压缩命令
 
 - `zip new my1*.txt` 将my1开头的文件名，txt格式的文件压缩成new.zip，压缩到当前目录下
 - `zip -d new.zip my18.txt` 总 new.zip 中把 my18.txt 删除
@@ -351,7 +358,6 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 
 ### kill
 <a id="kill"></a>
-
 kill命令用来终止程序，一般通过kill进程号的形式终止。
 
 `kill -signal PID` 「signal的常用参数」:
@@ -392,7 +398,6 @@ chmod 用来更改权限，涉及到所有者（user），组群（group），�
 
 ### chown
 <a id="chown"></a>
-
 更改文件的拥有者，语法为 `chown user filename`
 
 #### 示例
