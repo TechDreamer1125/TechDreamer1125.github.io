@@ -36,7 +36,6 @@ tag: Linux
 
 ### ls
 <a id="ls"></a>
-
 #### 语法与示例
 - `ls -lS` 按大小降序排列
 - `ls -lr` 按文件名降序
@@ -57,7 +56,6 @@ tag: Linux
 
 ### ps
 <a id="ps"></a>
-
 ps 命令最常用的还是用于监控后台进程的工作情况，因为后台进程是不和屏幕键盘这些标准输入/输出设备进行通信的，所以如果需要检测其情况，便可以使用 ps 命令了。
 
 #### 语法格式
@@ -79,7 +77,6 @@ ps 命令最常用的还是用于监控后台进程的工作情况，因为后�
 
 ### awk
 <a id="awk"></a>
-
 awk 是一个文本分析工具
 
 #### 语法格式
@@ -88,18 +85,15 @@ awk 基本语法是 `awk [-F  field-separator]  'commands'  input-file(s)`
 awk 分析文件的时候，文件的每一行被分隔符分开的每一项称为一个域，默认分隔符是空格。
 其中的`$1..$n`表示第几个行（域）。注`$0`表示整个行（所有域）
 
-##### 示例
+#### 示例
 - `awk '{print $1, $4}' test.txt` 显示 test.txt 文件里第一列和第四列的所有数据
-
 - `awk '$1=="apple" && $2=="music"' name1.txt` 输出第一列是 apple，第二列是 music 的行（这种表现形式类似于 if 语句）
-
 - `awk '$1=="apple" {print $2}' name1.txt` 输出第一列是 apple 的第二列所有数据
 
 ------
 
 ### ack
 <a id="ack"></a>
-
 ack 是一个搜索工具，于 grep 类似，作者的主要目的就是为了取代 grep
 
 #### 安装与语法示例
@@ -119,7 +113,6 @@ ack 默认搜索当前目录
 
 ### find
 <a id="find"></a>
-
 #### 示例
 - `-mtime n` n 为数字，意思为在 n 天之前的“一天内”被更改过的文件
 - `-mtime +n` 列出在 n 天之前（不含n天本身）被更改过的文件名
@@ -133,11 +126,9 @@ ack 默认搜索当前目录
 - `find /home/test -user test` 在目录 /home/test 中找出所有者为 test 的文件 
 - `-name filename` 找出文件名为 filename 的文件
 - `-size [+-]SIZE` 找出比 SIZE 还要大（+）或小（-）的文件
-
 - `-perm mode` 查找文件权限刚好等于 mode 的文件，mode 用数字表示，如0755
 - `-perm -mode` 查找文件权限必须要全部包括 mode 权限的文件，mode 用数字表示
 - `-perm +mode` 查找文件权限包含任一 mode 的权限的文件，mode 用数字表示
-
 - `find / -name passwd` 查找文件名为 passwd 的文件
 - `find . -perm 0755` 查找当前目录中文件权限的0755的文件
 - `find . -size +12k` 查找当前目录中大于12KB的文件，注意 c 表示 byte
@@ -146,7 +137,6 @@ ack 默认搜索当前目录
 
 ### grep
 <a id="grep"></a>
-
 一种强大的文本搜索工具，可使用正则表达式搜索文本
 
 - `cat name.txt | grep -f name1.txt` 从 name1.txt 读取内容，在 name.txt 中进行匹配
@@ -164,7 +154,6 @@ ack 默认搜索当前目录
 
 ### 硬盘相关
 <a id="hardware"></a>
-
 - df -h
 
 ```
@@ -180,7 +169,6 @@ tmpfs           783M     0  783M   0% /run/user/1003
 ```
 
 - fdisk -l 获得机器中所有的硬盘的分区
-
 ```
 Disk /dev/vda: 53.7 GB, 53687091200 bytes, 104857600 sectors
 Units = sectors of 1 * 512 = 512 bytes
@@ -189,7 +177,7 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 Disk label type: dos
 Disk identifier: 0x000c5e30
 
-   Device Boot      Start         End      Blocks   Id  System
+Device Boot      Start         End      Blocks   Id  System
 /dev/vda1   *        2048   104857599    52427776   83  Linux
 
 Disk /dev/vdb: 536.9 GB, 536870912000 bytes, 1048576000 sectors
@@ -211,7 +199,6 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 
 ### crontab
 <a id="crontab"></a>
-
 定时运行任务的工具
 
 #### 语法格式
@@ -244,7 +231,6 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 
 ### 软链接，硬链接
 <a id="软链接，硬链接"></a>
-
 硬链接：作用是允许一个文件拥有多个有效路径名，这样用户就可以建立硬连接到重要文件，以防止「误删」，理解成 copy。
 
 软链接：软链接文件有类似于 Windows 的快捷方式。它实际上是一个特殊的文件，在符号连接中，文件实际上是一个文本文件，其中包含的有另一文件的位置信息。
@@ -258,7 +244,6 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 
 ### 环境变量
 <a id="环境变量"></a>
-
 - env：env 命令用于列出所有的环境变量
 - echo `$PATH`：echo `$PATH` 用于列出变量 PATH 的值，里面包含了已添加的目录
 
@@ -281,7 +266,6 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 
 ### cp
 <a id="copy"></a>
-
 复制文件
 
 - -a 将文件的特性一起复制
@@ -298,7 +282,6 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 
 ### mv
 <a id="mv"></a>
-
 移动文件、文件夹或更改名字
 
 - -f force强制的意思，如果目标文件已经存在，不会询问而直接覆盖
@@ -313,7 +296,6 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 
 ### rm
 <a id="rm"></a>
-
 删除文件或文件夹
 
 - -f 就是force的意思，忽略不存在的文件，不会出现警告消息
@@ -326,7 +308,6 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 
 ### tar
 <a id="tar"></a>
-
 该命令用于对文件进行打包，默认情况并不会压缩，如果指定了相应的参数，它还会调用相应的压缩程序（如 gzip 和 bzip 等）进行压缩和解压。
 
 - -c 新建打包文件
@@ -339,7 +320,6 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 - -C dir 指定压缩/解压缩的目录dir
 
 #### 示例
-
 压缩 `tar -jcv -f filename.tar.bz2` 压缩的目录
 查询 `tar -jtv -f filename.tar.bz2`
 解压 `tar -jxv -f filename.tar.bz2 -C` 解压到的目录
@@ -365,7 +345,6 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 
 ### cat
 <a id="cat"></a>
-
 `cat text | less` 查看text文件中的内容，这条命令也可以使用less text来代替
 
 ------
@@ -405,7 +384,6 @@ chmod 用来更改权限，涉及到所有者（user），组群（group），�
   - x 可执行，可用数字1代替
 
 #### 示例
-  
 `chmod u+r test.sh` 针对 test.sh 增加user的读权限
 `chmod ug=rwx,o=x test.sh` = `chmod 771 test.sh`
 `chmod a=rwx test.sh` = `chmod 777 test.sh`
@@ -418,15 +396,14 @@ chmod 用来更改权限，涉及到所有者（user），组群（group），�
 更改文件的拥有者，语法为 `chown user filename`
 
 #### 示例
-
 - `chown root test.md`
 
 ------
 
 ### chgrp
 <a id="chgrp"></a>
-
 更改文件的权限组
+
 #### 示例
 - `chgrp mysqlgroup test.md` mysqlgroup 代表权限组
 
@@ -434,7 +411,6 @@ chmod 用来更改权限，涉及到所有者（user），组群（group），�
 
 ### tail
 <a id="tail"></a>
-
 查看内容的命令，方便快速查询大文件的收尾内容，通常用于查看日志内容，语法为`tail[必要参数][选择参数][文件]`
 
 - -f 循环读取
@@ -444,7 +420,6 @@ chmod 用来更改权限，涉及到所有者（user），组群（group），�
 - -n<行数> 显示行数
 
 #### 示例
-
 - `tail -n 5 2019-05-20.log` 显示文件末尾五行的内容，如果 5 变成 -5，就展示文件前五行的内容
 - `tail -n +5 2019-05-20.log` 从第五行开始展示文件内容
 
@@ -452,7 +427,6 @@ chmod 用来更改权限，涉及到所有者（user），组群（group），�
 
 ### 硬盘挂载
 <a id="mount"></a>
-
 - 格式化硬盘 `mkfs.ext4 /dev/vdb`，/dev/vdb 为硬盘路径
 - 挂在硬盘到 /data 路径下 `mount /dev/vdb /data`
 - 设置开机自动挂载 
