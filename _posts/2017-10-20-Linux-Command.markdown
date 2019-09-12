@@ -31,6 +31,7 @@ tag: Linux
 其他
  * [crontab](#crontab)
  * [软链接，硬链接](#软链接，硬链接)
+ * [环境变量](#环境变量)
   
 
 ### ls
@@ -204,15 +205,15 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 定时运行任务的工具
 
 ### 语法格式
-`crontab [-u user] file
+`crontab [-u user] file`
 - crontab [ -u user ] [ -i ] { -e | -l | -r }
 
 - -u user用于设定某个用户的 crontab 服务
 - file: file 为命令文件名，表示将 file 作为 crontab 的任务列表文件并载入crontab
-- -e编辑某个用户的 crontab 文件内容，如不指定用户则表示当前用户
-- -l显示某个用户的 crontab 文件内容，如不指定用户则表示当前用户
-- -r从 /var/spool/cron 目录中删除某个用户的 crontab 文件
-- -i在删除用户的 crontab 文件时给确认提示
+- -e 编辑某个用户的 crontab 文件内容，如不指定用户则表示当前用户
+- -l 显示某个用户的 crontab 文件内容，如不指定用户则表示当前用户
+- -r 从 /var/spool/cron 目录中删除某个用户的 crontab 文件
+- -i 若目标文件已经存在删除用户的 crontab 文件时给确认提示
 
 ### 示例
 
@@ -246,13 +247,34 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 ### 软链接，硬链接
 <a id="软链接，硬链接"></a>
 
-硬链接：作用是允许一个文件拥有多个有效路径名，这样用户就可以建立硬连接到重要文件，以防止【误删】的功能，理解成 copy。
+硬链接：作用是允许一个文件拥有多个有效路径名，这样用户就可以建立硬连接到重要文件，以防止「误删」，理解成 copy。
 
-软连接：软链接文件有类似于 Windows 的快捷方式。它实际上是一个特殊的文件，在符号连接中，文件实际上是一个文本文件，其中包含的有另一文件的位置信息。
+软链接：软链接文件有类似于 Windows 的快捷方式。它实际上是一个特殊的文件，在符号连接中，文件实际上是一个文本文件，其中包含的有另一文件的位置信息。
 
 ### 示例
 - `ln f1 f2` 创建 f1 的一个硬链接文件 f2
 - `ln -s f1 f3` 创建 f1 的一个软链接文件 f3
+
+### 环境变量
+<a id="环境变量"></a>
+
+- env：env 命令用于列出所有的环境变量
+- echo `$PATH`：echo `$PATH` 用于列出变量 PATH 的值，里面包含了已添加的目录
+
+对于环境变量分为三种作用域
+
+- 当前终端「终端所添加的环境变量是临时的，只适用于当前终端，关闭当前终端或在另一个终端中，添加的环境变量无效」
+  - `export PATH=/usr/local/mysql/bin`
+
+- 当前用户
+  - `vim ~/.bashrc`
+  - `export PATH=/usr/local/mysql/bin`
+  - `source ~/.bashrc` 「使新增环境变量立刻生效」
+
+- 所有用户
+  - `sudo vim /etc/profile` 
+  - `export PATH=/usr/local/mysql/bin`
+  - `source /etc/profile`「使新增环境变量立刻生效」
 
 ### cp
 <a id="copy"></a>
@@ -296,21 +318,21 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 ### tar
 <a id="tar"></a>
 
-- 该命令用于对文件进行打包，默认情况并不会压缩，如果指定了相应的参数，它还会调用相应的压缩程序（如gzip和bzip等）进行压缩和解压。
+- 该命令用于对文件进行打包，默认情况并不会压缩，如果指定了相应的参数，它还会调用相应的压缩程序（如 gzip 和 bzip 等）进行压缩和解压。
 
 - -c 新建打包文件
 - -t 查看打包文件的内容含有哪些文件名
 - -x 解打包或解压缩的功能，可以搭配-C（大写）指定解压的目录，注意-c,-t,-x不能同时出现在同一条命令中
-- -j 通过bzip2的支持进行压缩/解压缩
-- -z 通过gzip的支持进行压缩/解压缩
+- -j 通过 bzip2 的支持进行压缩/解压缩
+- -z 通过 gzip 的支持进行压缩/解压缩
 - -v 在压缩/解压缩过程中，将正在处理的文件名显示出来
 - -f filename filename为要处理的文件
 - -C dir 指定压缩/解压缩的目录dir
 
 ### 示例
-压缩 tar -jcv -f filename.tar.bz2 压缩的目录
-查询 tar -jtv -f filename.tar.bz2
-解压 tar -jxv -f filename.tar.bz2 -C 解压到的目录
+压缩 `tar -jcv -f filename.tar.bz2` 压缩的目录
+查询 `tar -jtv -f filename.tar.bz2`
+解压 `tar -jxv -f filename.tar.bz2 -C` 解压到的目录
 
 
 ### zip, unzip
