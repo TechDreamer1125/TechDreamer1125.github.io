@@ -39,12 +39,8 @@ sudo ssserver -c /etc/shadowsocks.json -d start
 sudo ssserver -c /etc/shadowsocks.json -d stop
 ```
 
-> 中途可能遇到的问题
+### 中途可能遇到的问题
 
 - 保持后台运行 shaodowsocks 的命令失败，因为 shadowsocks 的版本小于2.6，2.6版本以后才有 -d 的命令
 - 如果运行 shadowsocks 后，访问外网还是访问不上，那么通过 `sudo ssserver -c /etc/shadowsocks.json start`（该不是后台运行，通过这种方式运行后服务器不能进行其它操作，但是可以收集到访问网站的信息），再访问外网，然后查看收集到的信息，通过错误信息再分析问题。
-
-
-### 中途可能遇到的问题
-
 

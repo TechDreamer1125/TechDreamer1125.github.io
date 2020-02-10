@@ -117,11 +117,13 @@ ack 默认搜索当前目录
 <a id="find"></a>
 查询语句
 
+#### 使用格式
+- find <指定目录> <指定条件> <指定动作>
+
 #### 示例
 - `-mtime n` n 为数字，意思为在 n 天之前的“一天内”被更改过的文件
 - `-mtime +n` 列出在 n 天之前（不含n天本身）被更改过的文件名
 - `-mtime -n` 列出在 n 天之内（含n天本身）被更改过的文件名
-- `-newer file` 列出比 file 还要新的文件名
 - `find /root -mtime 0` 在当前目录下查找今天之内有改动的文件
 - `-user name` 列出文件所有者为 name 的文件
 - `-group name` 列出文件所属用户组为 name 的文件
@@ -129,13 +131,13 @@ ack 默认搜索当前目录
 - `-gid n` 列出文件所属用户组为用户组ID 为 n 的文件
 - `find /home/test -user test` 在目录 /home/test 中找出所有者为 test 的文件 
 - `-name filename` 找出文件名为 filename 的文件
-- `-size [+-]SIZE` 找出比 SIZE 还要大（+）或小（-）的文件
 - `-perm mode` 查找文件权限刚好等于 mode 的文件，mode 用数字表示，如0755
 - `-perm -mode` 查找文件权限必须要全部包括 mode 权限的文件，mode 用数字表示
 - `-perm +mode` 查找文件权限包含任一 mode 的权限的文件，mode 用数字表示
+- `find . -name 'my*'` 搜索当前目录（含子目录）中，所有文件名以my开头的文件
 - `find / -name passwd` 查找文件名为 passwd 的文件
-- `find . -perm 0755` 查找当前目录中文件权限的0755的文件
-- `find . -size +12k` 查找当前目录中大于12KB的文件，注意 c 表示 byte
+- `find . -perm 0755` 查找当前目录（含子目录）中文件权限的0755的文件
+- `find . -size +12k` 查找当前目录（含子目录）中大于12KB的文件，注意 c 表示 byte
 
 ------
 
