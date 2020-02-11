@@ -395,7 +395,7 @@ chmod 用来更改权限，涉及到所有者（user），组群（group），�
 `chmod u+r test.sh` 针对 test.sh 增加user的读权限
 `chmod ug=rwx,o=x test.sh` = `chmod 771 test.sh`
 `chmod a=rwx test.sh` = `chmod 777 test.sh`
-
+`chmod -R 755 tools_command/` -R 表示递归操作
 ------
 
 ### chown
