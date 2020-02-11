@@ -7,12 +7,12 @@ tag: 教程
 
 Trojan 类似于 Shadowsocks，也是一种翻墙软件，它的工作原理使得更难被 GFW 识别，稳定性更佳。具体的工作原理可参考[trojan-tutor](https://trojan-tutor.github.io/2019/04/10/p41.html)
 
-#### 准备工作
+### 准备工作
 
 - 一台外国服务器(系统为 centos7 或以上版本)
 - 可使用的域名(Trojan 模拟 HTTPS 时会用到)，将域名(二级域名也可以)映射到对应服务器的 IP 上。
 
-#### 安装
+### 安装
 
 在脚本安裝時如果提示wget不存在，先安裝wget。`yum -y install wget`
 
@@ -32,11 +32,11 @@ Trojan 类似于 Shadowsocks，也是一种翻墙软件，它的工作原理使�
 
 输入数字 1 进行安装，安装过程中会让输入域名(准备工作中配置好的域名)，安装完成功后会生成一个 URL，URL 对应一个 zip 包，下载后里面包含的配置文件中有手机使用时需要的帐号、密码、端口等信息。
 
-#### 手机端使用
+### 手机端使用
 
 因 mac osx 暂无法使用 trojan，所以我部署 trojan 主要是用作手机的翻墙。
 
-- iphone 推荐使用小火箭 Shadowrocket
+iphone 推荐使用小火箭 Shadowrocket
 
 <div style="float:left;border:solid 1px 000;margin:2px;"><img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/shadowrocket1.png" height="800px"></div>
 <div style="float:left;border:solid 1px 000;margin:2px;"><img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/shadowrocket2.png" height="800px"></div>
@@ -44,7 +44,7 @@ Trojan 类似于 Shadowsocks，也是一种翻墙软件，它的工作原理使�
 <div style="float:left;border:solid 1px 000;margin:2px;"><img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/shadowrocket4.png" height="800px"></div>
 <div style="clear:both;"></div>
 
-- 安卓手机推荐使用 [Igniter](https://www.youtube.com/redirect?v=shF8bMUvvpw&redir_token=IHX1XA5iHwFVHbSP3HrwkxC_6ih8MTU4MTMwMzkzMUAxNTgxMjE3NTMx&event=video_description&q=https%3A%2F%2Fgithub.com%2Ftrojan-gfw%2Figniter%2Freleases%2Fdownload%2Fv0.1.0-pre-alpha10%2Fapp-release.apk)
+安卓手机推荐使用 [Igniter](https://www.youtube.com/redirect?v=shF8bMUvvpw&redir_token=IHX1XA5iHwFVHbSP3HrwkxC_6ih8MTU4MTMwMzkzMUAxNTgxMjE3NTMx&event=video_description&q=https%3A%2F%2Fgithub.com%2Ftrojan-gfw%2Figniter%2Freleases%2Fdownload%2Fv0.1.0-pre-alpha10%2Fapp-release.apk)
 
 <div style="float:left;border:solid 1px 000;margin:2px;"><img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/lghiter.png" height="800px"></div>
 <div style="clear:both;"></div>
