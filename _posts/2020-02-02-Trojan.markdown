@@ -20,17 +20,23 @@ Trojan 类似于 Shadowsocks，也是一种翻墙软件，它的工作原理使�
 
 安装 BBR Plus 加速脚本  `wget "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh" && chmod +x tcp.sh && ./tcp.sh`
 
-<img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/BBR.png">
+<img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/BBR.png" height="600px">
 
-首次输入命令后输入 2 进行 BBR 的安装，安装后会提示重启。重启后再次输入命令并输入4启动 BBR。完成上两步后，再次输入命令，显示如上图红框的内容，即安装并启动成功。
+首次输入命令后输入 2 进行 BBRplus 的安装，安装后会提示重启。重启后再次输入命令并输入 7 启动 BBRplus。完成上两步后，再次输入命令，显示如上图红框的内容，即安装并启动成功。
 
 - Trojan
 
 一键 Trojan 脚本 `curl -O https://raw.githubusercontent.com/atrandys/trojan/master/trojan_centos7.sh && chmod +x trojan_centos7.sh && ./trojan_centos7.sh`
 
-<img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/Trojan.png">
+<img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/Trojan.png" height="400px">
 
-输入数字 1 进行安装，安装过程中会让输入域名(准备工作中配置好的域名)，安装完成功后会生成一个 URL，URL 对应一个 zip 包，下载后里面包含的配置文件中有手机使用时需要的帐号、密码、端口等信息。
+输入数字 1 进行安装，安装过程中会让输入域名(准备工作中配置好的域名)。
+
+<div style="float:left;border:solid 1px 000;margin:2px;"><img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/Trojan1.png" width="1000px"></div>
+<div style="float:left;border:solid 1px 000;margin:2px;"><img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/Trojan2.png" width="1000px"></div>
+<div style="clear:both;"></div>
+
+安装完成功后会生成一个 URL，URL 对应一个 zip 包，下载后里面包含的 config.json 配置文件中有手机使用时需要的帐号、密码、端口等信息。
 
 ### 手机端使用
 
