@@ -177,6 +177,7 @@ tmpfs           783M     0  783M   0% /run/user/1003
 ```
 
 - fdisk -l 获得机器中所有的硬盘的分区
+
 ```
 Disk /dev/vda: 53.7 GB, 53687091200 bytes, 104857600 sectors
 Units = sectors of 1 * 512 = 512 bytes
