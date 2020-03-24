@@ -12,6 +12,8 @@ Trojan 类似于 Shadowsocks，也是一种翻墙软件，它的工作原理使�
 - 一台外国服务器(系统为 centos7 或以上版本)
 - 可使用的域名(Trojan 模拟 HTTPS 时会用到)，将域名(二级域名也可以)映射到对应服务器的 IP 上。
 
+------
+
 ### 安装
 
 在脚本安裝時如果提示wget不存在，先安裝wget。`yum -y install wget`
@@ -37,6 +39,8 @@ Trojan 类似于 Shadowsocks，也是一种翻墙软件，它的工作原理使�
 <div style="clear:both;"></div>
 
 安装完成功后会生成一个 URL，URL 对应一个 zip 包，下载后里面包含的 config.json 配置文件中有手机使用时需要的帐号、密码、端口等信息。
+
+------
 
 ### 手机端使用
 
