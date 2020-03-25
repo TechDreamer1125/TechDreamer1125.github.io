@@ -29,6 +29,7 @@ todo 图片
 
 tmux 默认指令前缀为 `ctrl+b`，进入 tmux 后，先输入前缀，再输入命令就能实现相应的功能。
 下面的命令非全部，仅列出部分：
+
 |  前缀  |  命令  |  功能  |
 | :---: | :---: | :---: |
 |  ctrl+b  |  ?  |  展示快捷键帮助文档  |
@@ -55,6 +56,7 @@ tmux 默认指令前缀为 `ctrl+b`，进入 tmux 后，先输入前缀，再输
 - 配置相关
 
 tmux的用户级配置文件为 `~/.tmux.conf`（没有的话就创建一个），以更改指令前缀为例
+
 ```
 set -g prefix C-a #
 unbind C-b # C-b即Ctrl+b键，unbind意味着解除绑定
@@ -63,9 +65,11 @@ bind C-a send-prefix # 绑定Ctrl+a为新的指令前缀
 # 从tmux v1.6版起，支持设置第二个指令前缀
 set-option -g prefix2 ` # 设置一个不常用的`键作为指令前缀，按键更快些
 ```
+
 修改`~/.tmux.conf` 后，用`restart tmux`命令生效
 
 > 建议配置文件内容：
+
 ```
 set -g prefix C-a #
 unbind C-b # C-b即Ctrl+b键，unbind意味着解除绑定
