@@ -180,7 +180,7 @@ ol {
 ul {
   list-style-type: disc; }
 
-code {
+/* code {
   color: #000000;
   padding: .1em .4em;
   background: #e8f2fb;
@@ -189,7 +189,18 @@ code {
   font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
   font-size: 1.0em;
   vertical-align: bottom;
-  word-wrap: break-word; }
+  word-wrap: break-word; } */
+
+  code {
+    padding: 1px 5px;
+    top: 13px !important;
+    font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier, monospace;
+    font-size: 0.91rem;
+    color: #e96900;
+    background-color: #f8f8f8;
+    border-radius: 2px;
+  }
+
 
 pre {
   margin-bottom: 1.3em;

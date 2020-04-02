@@ -9,10 +9,8 @@ tmux 是一款终端复用软件，因可以分屏工作；关闭终端后可以
 
 - 概念
 
-tmux采用 `C/S` 模型构建，输入 tmux 命令就相当于开启了一个服务器，默认将新建一个 session，session 中默认新建一个 window，window 中默认新建一个 pane。三者的关系如下：
-一个 tmux session 可以包含多个 window，一个 window 又可以包含多个 pane。window 与 pane 都处于同一界面下。
-
-todo 图片
+tmux 采用 `C/S` 模型构建，输入 tmux 命令就相当于开启了一个服务器，默认将新建一个 `session`，`session` 中默认新建一个 `window`，`window` 中默认新建一个 `pane`。三者的关系如下：
+一个 tmux `session` 可以包含多个 `window`，一个 `window` 又可以包含多个 `pane`。`window` 与 `pane` 都处于同一界面下。
 
 - 操作命令
 
