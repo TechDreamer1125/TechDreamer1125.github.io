@@ -10,6 +10,7 @@ tag: 生命不息，折腾不止
  * [博朗手表](#BraunWatch)
  * [ZUMY 书挡](#zumy)
  * [Herman Miller 第一代](#HermanMiller)
+ * [Herman Miller 第二代](#HermanMiller2)
  * [Nintendo Switch](#NintendoSwitch)
  * [Switch Pro 手柄](#SwitchPro)
  * [GOPRO 5](#gopro5)
@@ -48,6 +49,9 @@ tag: 生命不息，折腾不止
 <div style="float:left;border:solid 1px 000;margin:2px;"><img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/life_goods/hermanmiller01.JPG" height="500px"></div>
 <div style="float:left;border:solid 1px 000;margin:2px;"><img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/life_goods/hermanmiller02.JPG" height="500px"></div>
 <div style="clear:both;"></div>
+
+### Herman Miller 第二代
+<a id="HermanMiller2"></a>
 
 ### Nintendo Switch
 <a id="NintendoSwitch"></a>
@@ -110,3 +114,4 @@ GoPro 专用的稳定器。我是个只要做事就尽量专业的人，结果�
 <div style="float:left;border:solid 1px 000;margin:2px;"><img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/life_goods/james.JPG" height="500px"></div>
 <div style="float:left;border:solid 1px 000;margin:2px;"><img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/life_goods/vegeta.JPG" height="500px"></div>
 <div style="clear:both;"></div>
+

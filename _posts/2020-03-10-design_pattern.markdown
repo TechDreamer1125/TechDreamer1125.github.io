@@ -181,9 +181,9 @@ public class VideoReaderFactory {
 
 适配器模式：一个适配使得因接口不兼容而不能在一起工作的类能在一起工作，是两个不兼容接口的桥梁。就像现在的手机耳机转换头一样，通过耳机转换头让 type-c 接口适配 3.5mm 耳机接口。
 
-Target（目标抽象类）：目标抽象类定义所需要的功能，可以是一个抽象类、接口或具体类。
-Adapter（适配器类）：对 Adaptee 和 Target 进行适配，通过继承 Target 并关联一个 Adaptee 对象使二者产生联系。
-Adaptee（适配者类）：被适配的角色
+- Target（目标抽象类）：目标抽象类定义所需要的功能，可以是一个抽象类、接口或具体类。
+- Adapter（适配器类）：对 Adaptee 和 Target 进行适配，通过继承 Target 并关联一个 Adaptee 对象使二者产生联系。
+- Adaptee（适配者类）：被适配的角色
 
 适配器模式代码示例
 ```java
@@ -212,8 +212,8 @@ public class Adapter extends Adaptee implements Target{
 //     private Adaptee adaptee = new Adaptee();
 
 //     @Override
-//     public void request() {
-//         adaptee.adapteeRequest();
+//     public void Method() {
+//         adaptee.adapteeMethod();
 //     }
 // }
 

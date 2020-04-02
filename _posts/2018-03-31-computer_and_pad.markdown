@@ -11,6 +11,7 @@ tag: 生命不息，折腾不止
  * [Surface Pro4](#sp4)
  * [Alienware 15 R2](#Alienware15R2)
  * [MacBook Pro 13 2018](#mb132018)
+ * [Thinkpad X1 carbon 2018](#thinkpadx1carbon2018)
 
 平板
  * [iPad 1](#ipad1)
@@ -70,7 +71,7 @@ tag: 生命不息，折腾不止
 
 ### iPad Pro
 <a id="ipadpro"></a>
-刚工作的时候拿第一份工资给家里买的平板，ipad pro 9.7版本，赶上了开学季还送了个beats（一共就没用过几次）。配置与体验自然没话说，最后家里不用了我自己用的时候还给它配了个官方键盘，有时候想写点东西就用它。
+刚工作的时候拿第一份工资给家里买的平板，ipad pro 9.7版本，赶上了开学季还送了个 beats（一共就没用过几次）。配置与体验自然没话说，最后家里不用了我自己用的时候还给它配了个官方键盘，有时候想写点东西就用它。
 <div style="float:left;border:solid 1px 000;margin:2px;"><img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/computer_and_pad/ipadpro201601.JPG" height="500px"></div>
 <div style="float:left;border:solid 1px 000;margin:2px;"><img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/computer_and_pad/ipadpro201602.JPG" height="500px"></div>
 <div style="clear:both;"></div>
@@ -81,3 +82,7 @@ tag: 生命不息，折腾不止
 <div style="float:left;border:solid 1px 000;margin:2px;"><img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/computer_and_pad/ipadpro201801.JPG" height="500px"></div>
 <div style="float:left;border:solid 1px 000;margin:2px;"><img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/computer_and_pad/ipadpro201802.JPG" height="500px"></div>
 <div style="clear:both;"></div>
+
+### Thinkpad X1 carbon 2018
+<a id="thinkpadx1carbon2018"></a>
+

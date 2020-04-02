@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 共有知识与公共知识
-date: 2019-05-27
+date: 2019-06-20
 tag: 成长
 ---
 

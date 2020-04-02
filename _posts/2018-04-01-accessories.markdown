@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 配件
-date: 2018-03-31
+date: 2018-04-01
 tag: 生命不息，折腾不止
 ---
 
@@ -10,6 +10,11 @@ tag: 生命不息，折腾不止
  * [Lacie 6TB Thunderbolt3 Dock](#Lacie6tbdock)
  * [罗技 G900](#g900)
  * [HHKB Type s](#hhkb)
+ * [MONON + cherry 白轴 + GMK 键帽](#monon)
+ * [圣手双模奶白色](#filco)
+ * [Leopold 乳白色](#Leopold)
+ * [Cherry 键盘](#cherry)
+ * [Apple M0110](#M0110)
  * [LG Ultrafine 21.5 4K](#lgultrafine21.5)
  * [Apple Pencil](#applepencil)
  * [Apple Pencil 2](#applepencil2)
@@ -17,6 +22,11 @@ tag: 生命不息，折腾不止
  * [Maigc Keyboard](#magickeyboard)
  * [Magic Mouse](#magicmouse)
  * [AirPods](#AirPods)
+ * [AirPods Pro](#AirPodsPro)
+ * [BenQ P3220U](#P3220U)
+ * [Razer core x](#razercorex)
+ * [BlackMagic egpu](#blackmagicegpu)
+
 
 ### CalDight Thunderbolt3 Dock
 <a id="caldightDock"></a>
@@ -53,9 +63,24 @@ tag: 生命不息，折腾不止
 <div style="float:left;border:solid 1px 000;margin:2px;"><img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/accessories/hhkb3.JPG" width="350px"></div>
 <div style="clear:both;"></div>
 
+### MONON + cherry 白轴 + GMK 键帽
+<a id="monon"></a>
+
+### 圣手双模奶白色
+<a id="filco"></a>
+
+### Leopold 乳白色
+<a id="Leopold"></a>
+
+### Cherry 键盘
+<a id="cherry"></a>
+
+### Apple M0110
+<a id="M0110"></a>
+
 ### LG Ultrafine 21.5 4K
 <a id="lgultrafine21.5"></a>
-刚出来打7.5折的时候没买，最后恢复了原价，没办法最后收了个二手的，价钱跟当时7.5折的时候一样，还好成色很新，要不我得郁闷死。当时去苹果店体验后就种草了，应该是市面上唯一的21寸 4K显示器，为以后计划的双21寸 4k显示器做个铺垫（期待着苹果做个21寸 4K）。对比我在公司用的 DELL p2415q 24寸 4K显示器要清楚的多，不过有一大部分的原因是镜面和雾面屏的不同造成的体验上差异。
+刚出来打7.5折的时候没买，最后恢复了原价，没办法最后收了个二手的，价钱跟当时7.5折的时候一样，还好成色很新，要不我得郁闷死。当时去苹果店体验后就种草了，应该是市面上唯一的21寸4K显示器，为以后计划的双21寸4k显示器做个铺垫（期待着苹果做个21寸4K）。对比我在公司用的 DELL p2415q 24寸4K显示器要清楚的多，不过有一大部分的原因是镜面和雾面屏的不同造成的体验上差异。
 
 <div style="float:left;border:solid 1px 000;margin:2px;"><img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/accessories/lgultrafine1.JPG" width="550px"></div>
 <div style="float:left;border:solid 1px 000;margin:2px;"><img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/accessories/lgultrafine2.JPG" width="550px"></div>
@@ -116,3 +141,15 @@ tag: 生命不息，折腾不止
 <div style="float:left;border:solid 1px 000;margin:2px;"><img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/accessories/AirPods2.JPG" width="350px"></div>
 <div style="float:left;border:solid 1px 000;margin:2px;"><img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/accessories/AirPods3.JPG" width="350px"></div>
 <div style="clear:both;"></div>
+
+### AirPods Pro
+<a id="AirPodsPro"></a>
+
+### BenQ P3220U
+<a id="P3220U"></a>
+
+### Razer core x
+<a id="razercorex"></a>
+
+### BlackMagic egpu
+<a id="blackmagicegpu"></a>

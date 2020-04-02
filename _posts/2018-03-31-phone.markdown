@@ -11,6 +11,7 @@ tag: 生命不息，折腾不止
  * [iPhone 4S](#iphone4s)
  * [iPhone 6](#iphone6)
  * [iPhone 7](#iphone7)
+ * [iPhone XR](#iphoneXR)
  * [Samsung Note3](#samsungnote3)
  * [BlackBerry 9900](#BlackBerry9900)
  * [BlackBerry Q10](#BlackBerryQ10)
@@ -21,7 +22,7 @@ tag: 生命不息，折腾不止
  * [坚果 U1](#jianguoU1)
  * [坚果 Pro](#jianguoPro)
  * [坚果 R1](#jianguoR1)
-
+ * [坚果 Pro 3](#jianguoPro3)
 
 ### 诺基亚5320
 <a id="nokia5320"></a>
@@ -62,6 +63,9 @@ iPhone4s 被淘汰后换成了4s，同样用的别人淘汰下来的手机，白
 ### iPhone 7
 <a id="iphone7"></a>
 工作一年左右买的手机，不买plus是因为屏幕太大，以及我对拍照没啥需求。对比手上的 iphone6，从外观上来主要是亮黑色很好看，机子看上去纯黑一体，以及摄像头边缘更加圆润了，总体来说还算满意。最喜欢 iphone7 home键上的线性马达，使用起来非常爽。这也是我开始第一款开始带壳的手机，没办法，亮黑色太爱刮花了。从这一代开始以后 iphone 我也不打算越狱了，现在的原生体验已经非常好了，不用瞎折腾了。
+
+### iPhone XR
+<a id="iphoneXR"></a>
 
 <div style="float:left;border:solid 1px 000;margin:2px;"><img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/phone/iphone701.JPG" width="350px"></div>
 <div style="float:left;border:solid 1px 000;margin:2px;"><img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/phone/iphone702.JPG" width="350px"></div>
@@ -157,3 +161,7 @@ iPhone4s 被淘汰后换成了4s，同样用的别人淘汰下来的手机，白
 <div style="float:left;border:solid 1px 000;margin:2px;"><img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/phone/jiangguor102.JPG" width="350px"></div>
 <div style="float:left;border:solid 1px 000;margin:2px;"><img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/phone/jiangguor103.JPG" width="350px"></div>
 <div style="clear:both;"></div>
+
+
+### 坚果 Pro 3
+<a id="jianguoPro3"></a>
