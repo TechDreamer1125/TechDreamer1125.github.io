@@ -37,6 +37,9 @@ tag: 系统使用
 - [New FileMenu](https://langui.net/new-file-menu/) 方便 mac 上创建文件的工具（类似于 windows 的右键操作）
 - [Pocket](https://getpocket.com/) 信息收藏管理工具，支持 windows 平台
 - [BetterTouch Tool](https://folivora.ai/) mac 上的鼠标、触控板增强工具
+- [ishot](https://apps.apple.com/cn/app/ishot-%E6%88%AA%E5%9B%BE-%E9%95%BF%E6%88%AA%E5%9B%BE-%E6%A0%87%E6%B3%A8%E5%B7%A5%E5%85%B7/id1485844094?mt=12) 强大的截图、长截图、贴图、录屏工具
+- [iRightMouse](https://apps.apple.com/cn/app/irightmouse-%E8%B6%85%E7%BA%A7%E5%8F%B3%E9%94%AE/id1497428978?mt=12) 丰富鼠标的右键操作
+- [Better And Better](https://www.better365.cn/bab.html) 工具类软件，算是功能大汇总，可配置的地方也非常多，不过我自己用起来会让电脑有点卡。若不需要这么多功能可以不用安装
 
 ### 开发篇
 - [CodeRunner](https://coderunnerapp.com/) 支持语言巨多，以简单的写个小程序，为了测试运行结果这样的目的最适合使用这个软件

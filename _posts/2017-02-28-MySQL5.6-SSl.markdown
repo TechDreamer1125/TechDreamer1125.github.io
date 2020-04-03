@@ -140,7 +140,7 @@ mysql> FLUSH PRIVILEGES;
 +---------------+--------------------+
 ```
 
-> 中途因为 --ssl-ca后面的路径输入错误，导致 `SSL connection error: SSL_CTX_set_default_verify_paths failed` 的错误
+> *ps*：中途因为 --ssl-ca后面的路径输入错误，导致 `SSL connection error: SSL_CTX_set_default_verify_paths failed` 的错误
 
 --- 
 

@@ -58,7 +58,8 @@ tag: 系统使用
 - [VirtualBox](https://www.virtualbox.org/) oracle旗下的虚拟机软件。支持 mac 平台
 - [Termius](https://www.termius.com/) 终端工具。支持 mac 平台
 - [Xshell](https://www.netsarang.com/products/xsh_overview.html) 终端管理工具
-- [MobaXterm](https://mobaxterm.mobatek.net/) 终端管理工具，功能十分强大，页面也好看。
+- [MobaXterm](https://mobaxterm.mobatek.net/) 终端管理工具，功能十分强大，页面也好看
+- [Windows Terminal](https://github.com/microsoft/terminal) 微软开发的终端亲儿子
 - [Tusk](https://github.com/klauscfhq/tusk) election 制作的印象笔记
 - [VeraCrypt](https://archive.codeplex.com/?p=veracrypt) 加密工具
 - [Zeal](https://zealdocs.org/) 相当于 mac 平台的 dash， API 文档浏览器

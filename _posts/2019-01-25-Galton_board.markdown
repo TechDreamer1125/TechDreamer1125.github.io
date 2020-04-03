@@ -9,9 +9,12 @@ tag: 成长
 
 这个观点最开始是由高尔顿提出的，他用一项被后世称为「高尔顿板」的实验引发了对这个规律的思考。
 
-![高尔顿板](https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/%E9%AB%98%E5%B0%94%E9%A1%BF%E6%9D%BF1.png)
+----
 
-![高尔顿板增强](https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/%E9%AB%98%E5%B0%94%E9%A1%BF%E6%9D%BF2.png)
+<div style="float:left;border:solid 1px 000;margin:2px;"><img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/%E9%AB%98%E5%B0%94%E9%A1%BF%E6%9D%BF1.png" height="500px"></div>
+<div style="float:left;border:solid 1px 000;margin:2px;"><img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/%E9%AB%98%E5%B0%94%E9%A1%BF%E6%9D%BF2.png" height="500px"></div>
+
+---- 
 
 实验让一个小球从最上方掉下去，它会经过各个隔挡的阻碍，最终落到一个竖槽里。每个小球在进入竖槽之前的运动都是随机的，但是当你放了很多很多小球之后，它们就会在竖槽上呈现一个明显有规律的分布：正态分布曲线。
 这个实验的最终版是图2右边的图，竖槽A假设为第一代人身 高的正态分布，经过随机滚动到竖槽B，B代表第一代人遗传后的分布情况，那么竖槽B的分布情况会是怎样？按照我们合理的猜想应该是一个高度更高、标准差更大的正态分布图，也就是身高越来越高与身高越来越矮的变得更多。但最后的测试结果不是这样，最终竖槽 A 和竖槽 B 呈现的正态分布标准差是相似的。
