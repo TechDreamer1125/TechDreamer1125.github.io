@@ -5,7 +5,7 @@ date: 2020-02-02
 tag: 教程
 ---
 
-Trojan 类似于 Shadowsocks，也是一种翻墙软件，它的工作原理使得更难被 GFW 识别，稳定性更佳。具体的工作原理可参考[trojan-tutor](https://trojan-tutor.github.io/2019/04/10/p41.html)
+Trojan 类似于 Shadowsocks，也是一种翻墙软件，它的工作原理使得更难被 GFW 识别，稳定性更佳。具体的工作原理可参考 [trojan-tutor](https://trojan-tutor.github.io/2019/04/10/p41.html)
 
 ### 准备工作
 
@@ -16,7 +16,7 @@ Trojan 类似于 Shadowsocks，也是一种翻墙软件，它的工作原理使�
 
 ### 安装
 
-在脚本安裝時如果提示wget不存在，先安裝wget。`yum -y install wget`
+在脚本安裝時如果提示 wget 不存在，先安裝 wget。`yum -y install wget`
 
 - BBR
 

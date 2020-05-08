@@ -23,7 +23,7 @@ tag: 生命不息，折腾不止
  * [Magic Mouse](#magicmouse)
  * [AirPods](#AirPods)
  * [AirPods Pro](#AirPodsPro)
- * [BenQ P3220U](#P3220U)
+ * [BenQ PD3220U](#PD3220U)
  * [Razer core x](#razercorex)
  * [BlackMagic egpu](#blackmagicegpu)
 
@@ -145,8 +145,8 @@ tag: 生命不息，折腾不止
 ### AirPods Pro
 <a id="AirPodsPro"></a>
 
-### BenQ P3220U
-<a id="P3220U"></a>
+### BenQ PD3220U
+<a id="PD3220U"></a>
 
 ### Razer core x
 <a id="razercorex"></a>

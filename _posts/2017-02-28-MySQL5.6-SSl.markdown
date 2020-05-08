@@ -19,7 +19,7 @@ tag: MySQL
 - `openssl genrsa 2048 > ca-key.pem`
 - `openssl req -new -x509 -nodes -days 3600 -key ca-key.pem -out ca.pem`
 
-> 小提示：CA的Country Name要与server/client的Country Name不同，否则 Verify这步会出现错误，出现类似 `error 18 at 0 depth lookup:self signed certificate `的错误
+> 小提示：CA的 Country Name 要与 server/client 的 Country Name 不同，否则 Verify 这步会出现错误，出现类似 `error 18 at 0 depth lookup:self signed certificate` 的错误
 
 ```
 [root@121.199.38.85 certs]# openssl genrsa 2048 > ca-key.pem
