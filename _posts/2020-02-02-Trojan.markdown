@@ -54,7 +54,7 @@ iphone 推荐使用小火箭 Shadowrocket
 <div style="float:left;border:solid 1px 000;margin:2px;"><img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/shadowrocket4.png" height="800px"></div>
 <div style="clear:both;"></div>
 
-安卓手机推荐使用 [Igniter](https://www.youtube.com/redirect?v=shF8bMUvvpw&redir_token=IHX1XA5iHwFVHbSP3HrwkxC_6ih8MTU4MTMwMzkzMUAxNTgxMjE3NTMx&event=video_description&q=https%3A%2F%2Fgithub.com%2Ftrojan-gfw%2Figniter%2Freleases%2Fdownload%2Fv0.1.0-pre-alpha10%2Fapp-release.apk)
+安卓手机推荐使用 [Igniter](https://www.youtube.com/redirect?v=shF8bMUvvpw&redir_token=IHX1XA5iHwFVHbSP3HrwkxC_6ih8MTU4MTMwMzkzMUAxNTgxMjE3NTMx&event=video_description&q=https%3A%2F%2Fgithub.com%2Ftrojan-gfw%2Figniter%2Freleases%2Fdownload%2Fv0.1.0-pre-alpha10%2Fapp-release.apk)
 
 <div style="float:left;border:solid 1px 000;margin:2px;"><img src="https://blogimage-1258616042.cos.ap-beijing.myqcloud.com/lghiter.png" height="800px"></div>
 <div style="clear:both;"></div>
